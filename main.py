@@ -139,6 +139,42 @@ def book_post():
     return redirect(url_for('home'))
 
 
+
+@app.route('/admin')
+def admin():
+    sql1 = text('select * from course') 
+    sql2 = text('select * from book')
+    sql3 = text('select * from callback')
+    res1 = db.engine.execute(sql1)
+    res2 = db.engine.execute(sql2)
+    res3 = db.engine.execute(sql3)
+    res1 = list(res1)
+    res2 = list(res2)
+    res3 = list(res3)
+    res4 = '0'
+    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4)
+
+
+
+
+
+@app.route('/admin', methods=['POST'])
+def admin_post():
+    sql1 = text('select * from course') 
+    sql2 = text('select * from book')
+    sql3 = text('select * from callback')
+    sql4 = text('select * from book where book.courseName = :courseName')
+    res1 = db.engine.execute(sql1)
+    res2 = db.engine.execute(sql2)
+    res3 = db.engine.execute(sql3)
+    res4 = db.engine.execute(sql4, courseName = request.form.get('courseName'))
+    res1 = list(res1)
+    res2 = list(res2)
+    res3 = list(res3)
+    res4 = list(res4)
+    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
     
