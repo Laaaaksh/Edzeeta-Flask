@@ -1,0 +1,106 @@
+<html>
+<title>DB Tables</title>    
+<body>
+    <center>
+        <table style="width:60%">
+                     <tr>
+                       <th>Course Id</th>
+                       <th>Course Name</th>
+                     </tr>
+                     
+                     {% for row in res1 %}
+                     <tr>
+                       <td>{{row[0]}}</td>
+                       <td>{{row[1]}}</td>
+                     </tr>
+                     {% endfor %}
+        </table>
+    </center>	
+
+    <center>
+        <table style="width:60%">
+                     <tr>
+                       <th>Child Id</th>
+                       <th>Child Name</th>
+                       <th>Parent Name</th>
+                       <th>Phone No.</th>
+                       <th>Email Id</th>
+                       <th>Age</th>
+                       <th>Course Name</th>
+                       <th>Course Id</th>
+                     </tr>
+                     
+                     {% for row in res2 %}
+                     <tr>
+                       <td>{{row[0]}}</td>
+                       <td>{{row[1]}}</td>
+                       <td>{{row[2]}}</td>
+                       <td>{{row[3]}}</td>
+                       <td>{{row[4]}}</td>
+                       <td>{{row[5]}}</td>
+                       <td>{{row[6]}}</td>
+                       <td>{{row[7]}}</td>
+                     </tr>
+                     {% endfor %}
+        </table>
+    </center>	
+
+    <center>
+        <table style="width:60%">
+                     <tr>
+                       <th>Callback Id</th>
+                       <th>Name</th>
+                       <th>Phone No.</th>
+                       <th>Time</th>
+                     </tr>
+                     
+                     {% for row in res3 %}
+                     <tr>
+                       <td>{{row[0]}}</td>
+                       <td>{{row[1]}}</td>
+                       <td>{{row[2]}}</td>
+                       <td>{{row[3]}}</td>
+                    </tr>
+                     {% endfor %}
+        </table>
+    </center>	
+
+    {% if res4 == '0' %}
+    <form action="http://localhost:5000/admin",  method ="POST">
+        <label for="name">Course Name:</label><br>
+        <input type="text" id="name" name="courseName" value=""><br>
+        <input type="submit" value="Submit">
+       </form>
+    
+    {% elif res4 != '0' %}
+    <center>
+        <table style="width:60%">
+                     <tr>
+                       <th>Child Id</th>
+                       <th>Child Name</th>
+                       <th>Parent Name</th>
+                       <th>Phone No.</th>
+                       <th>Email Id</th>
+                       <th>Age</th>
+                       <th>Course Name</th>
+                       <th>Course Id</th>
+                     </tr>
+                     
+                     {% for row in res4 %}
+                     <tr>
+                       <td>{{row[0]}}</td>
+                       <td>{{row[1]}}</td>
+                       <td>{{row[2]}}</td>
+                       <td>{{row[3]}}</td>
+                       <td>{{row[4]}}</td>
+                       <td>{{row[5]}}</td>
+                       <td>{{row[6]}}</td>
+                       <td>{{row[7]}}</td>
+                     </tr>
+                     {% endfor %}
+        </table>
+    </center>	
+
+    {% endif %}
+</body>
+</html>
