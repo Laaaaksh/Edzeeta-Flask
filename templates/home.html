@@ -1,13 +1,616 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles/home.css" />
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap"
+      rel="stylesheet"
+      
+    />
+    <title>Document</title>
+  </head>
+  <body>
+  <!--Navbar-->
+<div class="nav">
+  <div class="two">
+    <img src="../static/images/edzetta original logo.png" alt="">
+</div>
 
-    <h1>This is Home!</h1>
-   <form action="#",  method ="POST">
-    <label for="name">First name:</label><br>
-    <input type="text" id="name" name="name" value="John"><br>
-    <label for="phoneNo">Last name:</label><br>
-    <input type="text" id="phoneNo" name="phoneNo" value="Doe"><br><br>
-    <label for="time">Last name:</label><br>
-    <input type="text" id="time" name="time" value="Doe"><br><br>
-    <input type="submit" value="Submit">
-   </form>
+  <div  id="overlay">
+    
+    <div class="navcard">
+      
+    </div>
+        
+</div>
+
+
+
+  
+  
+
+<div class="hb">
+  <a id="btnhb" href="#" class="hamburger hide-for-dekstop ">
+    <span></span>
+    <span></span>
+    <span></span> 
+  </a>
+</div>
+
+
+
+  <div class="one">
+    <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
+    <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
+    <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
+    <p>ABOUT</p>
+  </div>
+
+  <div class="three">
+    <img src="../static/images/PHONE 1.png" alt="">
+    <p>Request Callback</p>
+  </div>
+  
+
+</div>
+
+<div id="hm" class="header__menu hide-for-dekstop hide-for-mobile">
+  <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
+    <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
+    <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
+    <a href="./about.html" style="text-decoration: none;"> <p>ABOUT</p></a>
+    <a href="./about.html" style="text-decoration: none;"> <p>REQUEST A CALLBACK</p></a>
+    
+</div>
+
+<!--End of Navbar-->
+    <div class="grid-container">
+      <div class="grid-item grid-item-1">
+        <h1 class="header">Edzeeta Learning</h1>
+
+        <div class="header-text">
+          <p>
+            Edzeeta, The Learning Curve
+          </p>
+        </div>
+
+        <div class="course-button">
+          <a href="#hcourses"><button>COURSES</button></a>
+        </div>
+
+        <div class="header-img">
+          <img
+            style="width: 100%; height: 100%;"
+            src="../static/images/edzetta.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="grid-item grid-item-2">
+        <h1 class="header-two">Your Kids Will Learn</h1>
+
+        <div class="box-container">
+
+          <div class="box-placement slide1">
+            <div class="box">
+              <img class="iimg" src="../static/images/thinking.png" alt="" />
+              <div class="text-parent">
+                <h3 class="headingbox headingbox-one">
+                  Algorithmic Thinking
+                </h3>
+              </div>
+              <!-- <p class="desc">Lorem ipsum dolor adipisicing elit. Doloribus, nesciunt! Omnis, neque sequi ipsum hic eveniet quae necessi</p> -->
+            </div>
+          </div>
+          
+          <div class="box-placement slide2">
+            <div class="box">
+              <img class="iimg" src="../static/images/thinking.png" alt="" />
+              <div class="text-parent">
+                <h3 class="headingbox headingbox-one">Problem solving</h3>
+              </div>
+            </div>
+  
+          </div>
+       
+            <div class="box-placement slide3">
+              <div class="box">
+                <img class="iimg" src="../static/images/thinking.png" alt="" />
+                <div class="text-parent">
+                  <h3 class="headingbox headingbox-one">Creativity</h3>
+                </div>
+              </div>
+            </div>
+         
+            <div class="box-placement slide4">
+              <div class="box">
+                <img class="iimg" src="../static/images/thinking.png" alt="" />
+                <div class="text-parent">
+                  <h3 class="headingbox headingbox-one">Abstract thinking</h3>
+                </div>
+              </div>
+            </div>
+       
+            <div class="box-placement slide5">
+              <div class="box">
+                <img class="iimg" src="../static/images/thinking.png" alt="" />
+                <div class="text-parent">
+                  <h3 class="headingbox headingbox-one" style="width: 300px;">
+                    Collaboration
+                  </h3>
+                </div>
+              </div>
+            </div>
+       
+        </div>
+        <div class="box-container-two">
+          <!-- <div class="box-container-three"> -->
+          <!-- <div class="we">
+                        <p>Live Interaction With The Mentors</p>
+                        </div>
+
+                        <div class="we">
+                        <p>Teaching in preferred language</p>
+                        </div>
+
+                        <div class="we">
+                        <p style="margin-top: 24px;">Flexible time</p>
+                        </div>
+
+                        <div class="we">
+                        <p style="margin-top: 24px;">Low cost</p>
+                        </div> -->
+
+          <ul class="list-flexbox">
+            <li>
+              <div class="we">
+                <p>Live Interaction With The Mentors</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="we">
+                <p>Teaching in preferred language</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="we">
+                <p id="ft">Flexible time</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="we">
+                <p id="lc">Low cost</p>
+              </div>
+            </li>
+
+            <li>
+              <div id="wee" class="we" >
+                <p id="long">
+                  Customized Curriculum, Interactive Sessions, Doable and Fun
+                  Tasks and Assignments
+                </p>
+              </div>
+            </li>
+          </ul>
+
+         
+
+
+          <!-- </div> -->
+          <h1
+            style=" color: white;"
+            class="header-new"
+            style="top: 14%;"
+          >
+            Why Edzetta
+          </h1>
+        </div>
+      </div>
+      <div id="hcourses" class="grid-item grid-item-3">
+        <h1 class="header-three">Our Courses</h1>
+
+        <div class="header-text-two">
+          <p></p>
+        </div>
+
+        <div class="trialclass-button">
+          <a href="register"><button>Book Free Trial Class</button></a>
+        </div>
+
+        <div class="courses">
+
+
+          <div class="width">
+            <ul class="courses-ul">
+              <li class="courses-li">
+                <div class="cc">
+                  <div class="course-img">
+                      <img style="width: 144px;" src="../static/images/Scratch-Programming-Tools.png" alt="">
+                    </div>
+                 
+                  <div class="fname">
+                    <p>
+                      Scratch Programming
+                    </p>
+                  </div>
+                  <div class="des">
+                    <p>
+                      introduce your child to the creative world of stories and
+                      animations
+                    </p>
+                  </div>
+                  <div class="view-details">
+                    <a href="course1"> <button>View Details</button></a>
+                    
+                  </div>
+                </div>
+              </li>
+  
+              <li class="courses-li">
+                <div class="cc">
+                  <div class="course-img">
+                      <img src="../static/images/MIT_App_Inventor_logo.png" alt="">
+                    </div>
+                  <div class="fname">
+                    <p>
+                      App Inventor MIT
+                    </p>
+                  </div>
+                  <div class="des">
+                    <p>
+                      see your children develop block based mobile Apps with
+                      deployment on Google Play Store
+                    </p>
+                  </div>
+                  <div class="view-details">
+                    <a href="course2">     <button>View Details</button>    </a>
+                  
+                  </div>
+                </div>
+              </li>
+  
+              <li class="courses-li">
+                <div class="cc">
+                  <div class="course-img">
+                      <img style="width: 120px; height: 95px;" src="../static/images/web developnet.png" alt="">
+                    </div>
+                  <div class="fname">
+                    <p>
+                      Web Development
+                    </p>
+                  </div>
+                  <div class="des">
+                    <p>
+                      Your child will be able to build beautiful, interactive websites
+                      out of nothing.
+                    </p>
+                  </div>
+                  <div class="view-details">
+                    <a href="course3">       <button>View Details</button>        </a>
+                    
+                  </div>
+                </div>
+              </li>
+  
+              <li class="courses-li">
+                <div class="cc">
+                  <div class="course-img">
+                      <img src="../static/images/python programming.png" alt="">
+                    </div>
+                  <div class="fname">
+                    <p>
+                      Python Programming
+                    </p>
+                  </div>
+                  <div class="des">
+                    <p>
+                      Students build applications using Programming Concepts in one of
+                      the easiest and most powerful text based language
+                    </p>
+                  </div>
+                  <div class="view-details">
+                    <a href="course4">    <button>View Details</button>    </a>
+                   
+                  </div>
+                </div>
+              </li>
+  
+              
+            </ul>
+
+          </div>
+         
+        
+          
+          
+          
+        </div>
+        <img src="../static/images/scroll.png" alt="" class="scroll-img hide-for-dekstop">
+      </div>
+
+      
+      <div class="grid-item grid-item-4">
+
+        <div class="blue"></div>
+        <h1 class="header-test">Testimonials
+
+        </h1>
+
+        <div class="testimonials" id="slider">
+          <ul  style="list-style: none;" class="ulflex">
+            <!-- <li>
+                <div class="bbox">
+                  <div class="box-head">
+                    <div class="t-img">
+                      <img  class="tt-img"  src="../static/images/t-sample.png" alt="">
+                    </div>
+
+                    <div class="t-info">
+                      <ul style="list-style: none;" >
+                        <li class="name">
+                          Vedant Saxena
+                        </li>
+                        <li class="aftername">
+                          Student, Edzetta
+                        </li>
+                     
+                      </ul>
+
+                    </div>
+                  </div>
+
+                  <div class="t-content">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt, harum fugit iusto odio possimus corporis temporibus laudantium eum maxime iure quia qui ducimus culpa iste aliquid nisi quidem rerum dolorem.</p>
+                  </div>
+
+                </div>
+            </li> -->
+
+            <li class="li-animation">
+              <div class="slider-container">
+                <div class="bbox">
+                  <div class="box-head" style="box-shadow: none;">
+                    <div class="t-img">
+                      <img  class="tt-img"  src="../static/images/t-sample.png" alt="">
+                    </div>
+    
+                    <div class="t-info">
+                      <ul style="list-style: none;  margin-top: 16px;" >
+                        <li class="name">
+                          Shubhith D
+                        </li>
+                        <li class="aftername">
+                          Student, Edzetta
+                        </li>
+                     
+                      </ul>
+    
+                    </div>
+    
+                 
+                  </div>
+                  <div style=" width: 95%;
+                  height: 0px; border-top: 2px solid #000000;  margin: 0 auto; margin-top: 4px;" class="line">
+    
+                  </div>
+                  <div class="t-content">
+                    <p>
+                      I believe in today's generation, children hold the potential to transform the future if equipped with the right skills and technology.
+                      My 13-year-old kid has developed a keen interest in creating complex animations and apps upon completion of courses offered by EdZeeta Learning.
+                       <span>  "I wish every kid has exposure to these courses!" </span>
+  
+                    </p>
+                  </div>
+    
+                </div>
+              </div>
+              
+          </li>
+            <!-- <li>
+              <div class="bbox">
+                <div class="box-head" style="background-color: #195ED8;">
+                  <div class="t-img">
+                    <img  class="tt-img"  src="../static/images/t-sample.png" alt="">
+                  </div>
+
+                  <div class="t-info">
+                    <ul style="list-style: none;" >
+                      <li class="name" style="color: white;">
+                        Vedant Saxena
+                      </li>
+                      <li class="aftername" style="color: white;">
+                        Student, Edzetta
+                      </li>
+                   
+                    </ul>
+
+                  </div>
+                </div>
+
+                <div class="t-content">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt, harum fugit iusto odio possimus corporis temporibus laudantium eum maxime iure quia qui ducimus culpa iste aliquid nisi quidem rerum dolorem.</p>
+                </div>
+
+              </div>
+          </li> -->
+      
+          <li class="li-animation" style="margin-left: 12px;">
+            <div class="slider-container">
+              <div class="bbox">
+                <div class="box-head" style="box-shadow: none;">
+                  <div class="t-img">
+                    <img  class="tt-img"  src="../static/images/t-sample.png" alt="">
+                  </div>
+  
+                  <div class="t-info">
+                    <ul style="list-style: none;  margin-top: 16px;" >
+                      <li class="name">
+                        Tanay
+                      </li>
+                      <li class="aftername">
+                        Parent, Edzetta
+                      </li>
+                   
+                    </ul>
+  
+                  </div>
+  
+               
+                </div>
+                <div style=" width: 95%;
+                height: 0px; border-top: 2px solid #000000;  margin: 0 auto; margin-top: 4px;" class="line">
+  
+                </div>
+                <div class="t-content">
+                  <p>
+                    Edzeeta Learning is great for kids and connects well with them. My 10-year-old son Tanay is learning very quickly and looks forward to his classes. It is so convenient as the classes happen from the comfort of home. I am a very happy parent because my child is happy to learn. The teachers are very good and it is an affordable program. A very interesting course offered by them as the children can create their own games. The classes are structured well and are simplified to help kids learn quickly and in a fun way. I highly recommend Edzeeta learning! 
+                    Well done Team Edzeeta.
+  
+                  </p>
+                </div>
+  
+              </div>
+            </div>
+          
+        </li>
+
+          
+          </ul>
+        </div>
+
+      </div>
+      <div class="grid-item grid-item-5">
+        <h1 class="h1"> What Our Students Are Up To</h1>
+        <p class="p"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, eum. Repellendus eaque expedita sunt deleniti, nihil corrupti tempora ut dolore, perferendis architecto explicabo illo ipsam?</p>
+        <div class="scratch">
+        <ul class="scratch-ul">
+            <li class="scratch-li">
+                <div class="box">
+             <iframe src="https://scratch.mit.edu/projects/421116631/embed" allowtransparency="true" width="150" height="150" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                </div>
+            </li>
+            <li class="scratch-li">
+                <div class="box">
+                    <iframe src="https://scratch.mit.edu/projects/426157993/embed" allowtransparency="true" width="150" height="150" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                </div>
+            </li>
+            <li class="scratch-li">
+                <div class="box">
+                    <iframe src="https://scratch.mit.edu/projects/426161139/embed" allowtransparency="true" width="150" height="150" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                </div>
+            </li>
+            <li class="scratch-li">
+                <div class="box">
+             <iframe src="https://scratch.mit.edu/projects/426163673/embed" allowtransparency="true" width="150" height="150" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+      </div>
+
+      <div class="grid-item grid-item-6">
+        <div class="footer">
+          <a href="#">
+
+            <img src="../static/images/up-arrow.png" alt="" class="footer-img" > 
+          </a>
+          <!-- <footer style="color: white;"> <small>&copy; Copyright 2020, Edzeeta</small> </footer>  -->
+
+          <div class="footer-container">
+            <a href="https://www.facebook.com/edzeeta.learning.3" target="_blank">
+              <img src="../static/images/facebook_colored.png" alt="" class="footer-logo-img">
+            </a>
+            
+            <a href="https://instagram.com/edzeeta_learning?igshid=rrf35j2kfx0a" target="_blank">
+              <img src="../static/images/instagram_colored.png" alt="" class="footer-logo-img">
+            </a>
+            
+            <a href="https://twitter.com/edzeeta?s=08" target="_blank">
+              <img src="../static/images/twitter_colored.png" alt="" class="footer-logo-img">
+            </a>
+           
+          
+          </div>
+
+          <h5 class="footer-h">Follow Us Everywhere </h5>
+          <img src="../static/images/edzetta original logo.png" alt="" class="footer-imgg">
+          <div class="footer-links">
+            <a href="#" style="text-decoration: none;">  <p>Home</p>     </a>
+            <a href="#"style="text-decoration: none;">  <p>Courses</p>                </a>
+            <a href="#"style="text-decoration: none;">   <p>Blog</p>               </a>
+            <a href="#"style="text-decoration: none;">    <p>Terms and Conditions</p>              </a>
+            <a href="#"style="text-decoration: none;">     <p>Privacy Policy</p>             </a>
+
+            
+            
+            
+            
+          </div>
+
+          <h5 class="footer-hh">Contact Us </h5>
+
+          <div class="footer-contact">
+            <p>+91 7379278568</p>
+            <p>edzetta@gmail.com</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    
+    <!-- script for hamburger -->
+    <script>
+      const btnhb=document.querySelector('#btnhb');
+  const overlay=document.querySelector('#overlay');
+  const hm=document.querySelector('#hm');
+  btnhb.addEventListener('click' ,function(){
+  
+   
+      
+      if(btnhb.classList.contains('open'))
+      {
+          btnhb.classList.remove('open');
+      }
+      else
+      {
+          btnhb.classList.add('open');
+      }
+  
+  
+      
+      if(overlay.classList.contains('overlay'))
+      {
+          overlay.classList.remove('overlay');
+          overlay.classList.add('fade-out');
+      }
+      else
+      {
+          overlay.classList.add('overlay');
+      }
+  
+      if(hm.classList.contains('hide-for-mobile'))
+      {
+        hm.classList.remove('hide-for-mobile')
+      }
+  
+      else
+      {
+        hm.classList.add('hide-for-mobile')
+      }
+    }
+  );
+  
+  
+    </script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  </body>
 </html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles/register.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="two">
+        <img src="../static/images/edzetta original logo.png" alt="" />
+      </div>
+
+      <div id="overlay">
+        <div class="navcard"></div>
+      </div>
+
+      <div class="hb">
+        <a id="btnhb" href="#" class="hamburger hide-for-dekstop">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+
+      <div class="one">
+        <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
+        <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
+        <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
+        <p>ABOUT</p>
+      </div>
+
+      <div class="three">
+        <img src="../static/images/PHONE 1.png" alt="" />
+        <p
+          class="call"
+          data-toggle="modal"
+          data-target="#myModal1"
+          style="cursor: pointer"
+        >
+          Request Callback
+        </p>
+      </div>
+    </div>
+
+    <div id="hm" class="header__menu hide-for-dekstop hide-for-mobile">
+      <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
+        <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
+        <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
+        <a href="./about.html" style="text-decoration: none;"> <p>ABOUT</p></a>
+        <a href="./about.html" style="text-decoration: none;"> <p>REQUEST A CALLBACK</p></a>
+        
+    </div>
+
+  >
+
+    <div class="grid-container">
+      <div class="grid-item grid-item-1">
+        <img class="imgbx" src="../static/images/kid.png" alt="" />
+        <div>
+         
+          
+          {% for row in result %}
+    
+          
+          {{row[1]}}
+          {{row[0]}}
+  
+          {% endfor %}
+        </div>
+      </div>
+      <div class="grid-item grid-item-2">
+        <div class="card reg form">
+          <article class="card-body">
+            <h2 align="center">Get a Free Trial Now</h2>
+            <br />
+
+            <!-- form-group// parent name -->
+            <form action="#" method="POST">
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </div>
+                <input
+                  name="parentName"
+                  id="parentName"
+                  class="form-control"
+                  placeholder="Parent's name"
+                  type="text"
+                  pattern="[a-zA-Z\s]+"
+                  title="Eg:Ram Kumar"
+                  required
+                />
+              </div>
+
+              <!-- form-group// parent email -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                </div>
+                <input
+                  name="emailId"
+                  class="form-control"
+                  placeholder="Parent's email address"
+                  type="email"
+                  required
+                />
+              </div>
+
+              <!-- form-group// phone number -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-phone"></i>
+                  </span>
+                </div>
+                <input
+                  name="phoneNo"
+                  class="form-control"
+                  placeholder="Phone number"
+                  type="tel"
+                  pattern="[0-9]{10}"
+                  title="Enter 10 digit number"
+                  oninput="this.setCustomValidity('')"
+                  required
+                />
+              </div>
+
+              <!-- form-group// Kid name -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </div>
+                <input
+                  name="childName"
+                  class="form-control"
+                  placeholder="Kid's name"
+                  pattern="[a-zA-Z\s]+"
+                  title="Eg:Ram Kumar"
+                  type="text"
+                  required
+                />
+              </div>
+
+              <!-- form-group// Kids age -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-user"></i>
+                  </span>
+                </div>
+                <input
+                  name="age"
+                  class="form-control"
+                  placeholder="Kid's age"
+                  type="number"
+                  pattern="[0-9]{2}"
+                  title="Enter a number"
+                  required
+                />
+              </div>
+
+              <!-- form-group// choose course -->
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fa fa-book"></i>
+                  </span>
+                </div>
+                <select class="custom-select select" name="courseName" required>
+                  <option value="" disabled="disabled">
+                    <p>Select Course</p>
+                  </option>
+                  <option value="1">Scratch Programmming</option>
+                  <option value="2">App Inventor</option>
+                  <option value="3">Web Development</option>
+                  <option value="4">Python Programming</option>
+                </select>
+                <span class="course-link"
+                  ><a href="./parent_course.html" class="btn"
+                    >View All Courses</a
+                  ></span
+                >
+              </div>
+
+              <!-- form-group// Time Slot -->
+              <div class="form-group input-group">
+                <button
+                  type="button"
+                  class="btn"
+                  id="time"
+                  data-toggle="modal"
+                  data-target="#myModal"
+                >
+                  Time Slot
+                </button>
+                <span><p id="course_time_validate"></p></span>
+              </div>
+
+              <!-- form-group// Laptop/PC -->
+              <div class="form-group">
+                <input type="checkbox" value="1" name="laptop" />
+                <span class="text">Have a Laptop/Computer</span>
+              </div>
+
+              <!-- form-group// Register -->
+              <div class="form-group">
+                <input
+                  type="submit"
+                  class="btn btn-primary btn-block"
+                  value="Register"
+                  onclick="validate()"
+                />
+                <div class="disclaimer">
+                  <a href="./Termify _ Generate Terms & Conditions.html"
+                    >By registering, I agree to Edzeeta Terms & Conditions and
+                    Privacy Policy</a
+                  >
+                </div>
+              </div>
+
+              <!-- form-group// hidden date and time -->
+              <div class="form-group input-group">
+                <input
+                  type="text"
+                  name="slotDate"
+                  class="hide"
+                  id="date"
+                  required
+                />
+                <input
+                  type="text"
+                  name="slotTime"
+                  class="hide"
+                  id="slot"
+                  required
+                />
+              </div>
+              <!-- form-group// -->
+            </form>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!--------- Modal Box --------->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Time Slot</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              style="outline: 0px"
+            >
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="dates">
+              <!-- <ul>
+
+                <div class="d" id="Aug23" onclick="fetch_date(this.id)">
+                  <li>
+                    <div class="month">Aug</div>
+                    <div class="day">23</div>
+                  </li>
+                </div>
+                <div class="d" id="Aug24" onclick="fetch_date(this.id)">
+                  <li>
+                    <div class="month">Aug</div>
+                    <div class="day">24</div>
+                  </li>
+                </div>
+                <div class="d" id="Aug25" onclick="fetch_date(this.id)">
+                  <li>
+                    <div class="month">Aug</div>
+                    <div class="day">25</div>
+                  </li>
+                </div>
+                <div class="d" id="Aug26" onclick="fetch_date(this.id)">
+                  <li>
+                    <div class="month">Aug</div>
+                    <div class="day">26</div>
+                  </li>
+                </div>
+                <div class="d" id="Aug27" onclick="fetch_date(this.id)">
+                  <li>
+                    <div class="month">Aug</div>
+                    <div class="day">27</div>
+                  </li>
+                </div>
+              </ul> -->
+            
+              <ul>
+           
+
+                {% for row in result %}
+    
+                <div class="d" id={{row[1]}} onclick="fetch_date(this.id)">
+                  <li>
+                    <div class="month">{{row[1]}}</div>
+                    <!-- <div class="day">{{row[1]}}</div> -->
+                  </li>
+                </div>
+        
+                {% endfor %}
+          
+               </ul>
+            
+            </div>
+
+            <div class="time_slot">
+              <!-- <ul>
+                <div class="t" id="10am" onclick="fetch_time(this.id)">
+                  <li>10.00 am</li>
+                </div>
+                <div class="t" id="11am" onclick="fetch_time(this.id)">
+                  <li>11.00 am</li>
+                </div>
+                <div class="t" id="12pm" onclick="fetch_time(this.id)">
+                  <li>12.00 pm</li>
+                </div>
+                <div class="t" id="1pm" onclick="fetch_time(this.id)">
+                  <li>1.00 pm</li>
+                </div>
+                <div class="t" id="2am" onclick="fetch_time(this.id)">
+                  <li>2.00 pm</li>
+                </div>
+                <div class="t" id="3pm" onclick="fetch_time(this.id)">
+                  <li>3.00 pm</li>
+                </div>
+                <div class="t" id="4pm" onclick="fetch_time(this.id)">
+                  <li>4.00 pm</li>
+                </div>
+                <div class="t" id="5pm" onclick="fetch_time(this.id)">
+                  <li>5.00 pm</li>
+                </div>
+              </ul> -->
+            
+              <ul>
+
+
+
+                {% for row in result %}
+    
+               
+
+                 <div class="t" id={{row[0]}} onclick="fetch_time(this.id)">
+                  <li>{{row[0]}}</li>
+                </div>
+                <form action="" method="POST">
+                  <input type="text" name="finaldate" id="datee">
+                  <input type = "submit" value = "submit1" name="dat" id="dat"/>
+                </form>
+                
+             
+
+               
+                {% endfor %}
+
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <p id="date_time_validate">Please choose date and time</p>
+            <button type="button" class="btn" id="ok" onclick="fetch()">
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--------Modal for CallBack-------->
+    <div class="modal fade" id="myModal1" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <form action="/callback" method="post">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4>Request for a CallBack</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                style="outline: 0px"
+              >
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group input-group">
+                <label class="call_phone">Phone Number</label>
+                <input
+                  name="phoneNo"
+                  class="form-control call_request"
+                  type="tel"
+                  pattern="[0-9]{10}"
+                  title="Enter 10 digit number"
+                  oninput="this.setCustomValidity('')"
+                  required
+                />
+              </div>
+
+              <div class="form-group input-group">
+                <label class="call_date">Date</label>
+                <input
+                  name="date"
+                  class="form-control call_request"
+                  type="date"
+                  required
+                />
+              </div>
+
+              <div class="form-group input-group">
+                <label class="call_time">Time</label>
+                <input
+                  name="time"
+                  class="form-control call_request"
+                  type="time"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input
+                type="submit"
+                class="btn"
+                id="request"
+                value="Request"
+                name="r"
+                onclick="request_call()"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+
+  <!-------------Javascript------------>
+
+  <script>
+    var selected_date = null;
+    var selected_time = null;
+
+    /*---------- Selecting Date ---------*/
+    function fetch_date(selected_id) {
+      if (selected_date != null) {
+        document.getElementById(selected_date).style.border = "0px";
+      }
+      document.getElementById(selected_id).style.border = "3px solid black";
+      selected_date = selected_id;
+      
+      document.getElementById("datee").value = selected_id;
+      document.getElementById("dat").click();
+    }
+
+    /*---------- Selecting time ---------*/
+    function fetch_time(selected_id) {
+      if (selected_time != null) {
+        document.getElementById(selected_time).style.border = "0px";
+      }
+      document.getElementById(selected_id).style.border = "3px solid black";
+      selected_time = selected_id;
+    }
+
+    /*------------Initializing the Date and time ------------*/
+    function fetch() {
+      if (selected_date != null && selected_time != null) {
+        document.getElementById("date").value = selected_date;
+        document.getElementById("slot").value = selected_time;
+        $("#myModal").modal("hide");
+        document.getElementById("course_time_validate").innerHTML = "";
+      } else {
+        document.getElementById("date_time_validate").style.visibility =
+          "visible";
+      }
+    }
+
+    /*-----------Validation--------*/
+    function validate() {
+      var inp = document.getElementsByTagName("input");
+      if (
+        inp[0].value != "" &&
+        inp[1].value != "" &&
+        inp[2].value != "" &&
+        inp[3].value != "" &&
+        inp[4].value != ""
+      ) {
+        if (
+          document.getElementById("date").value == "" &&
+          document.getElementById("slot").value == ""
+        ) {
+          document.getElementById("course_time_validate").innerHTML =
+            "Please choose a time slot";
+          document.getElementById("course_time_validate").style.visibility =
+            "visible";
+          document.getElementById("time").focus();
+          e.preventDefault();
+          return false;
+        }
+      }
+    }
+  </script>
+
+  <!----------------- Request for CallBack Popup---------- -->
+  <script>
+    var date, time, phone;
+    function request_call() {
+      var inp = document.getElementsByClassName("call_request");
+      if (inp[0].value != "" && inp[1].value != "" && inp[2].value != "") {
+        phone = inp[0].value;
+        date = inp[1].value;
+        time = inp[2].value;
+        $("#myModal1").modal("hide");
+      }
+    }
+  </script>
+
+  <!-- script for hamburger -->
+  <script>
+    const btnhb = document.querySelector("#btnhb");
+    const overlay = document.querySelector("#overlay");
+    const hm = document.querySelector("#hm");
+    btnhb.addEventListener("click", function () {
+      if (btnhb.classList.contains("open")) {
+        btnhb.classList.remove("open");
+      } else {
+        btnhb.classList.add("open");
+      }
+
+      if (overlay.classList.contains("overlay")) {
+        overlay.classList.remove("overlay");
+        overlay.classList.add("fade-out");
+      } else {
+        overlay.classList.add("overlay");
+      }
+
+      if (hm.classList.contains("hide-for-mobile")) {
+        hm.classList.remove("hide-for-mobile");
+      } else {
+        hm.classList.add("hide-for-mobile");
+      }
+    });
+  </script>
+</html>

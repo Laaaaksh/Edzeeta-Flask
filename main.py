@@ -47,6 +47,16 @@ class Student_book(db.Model):
     	return "{},{},{},{},{},{},{},{}".format(self.childId, self.childName, self.parentName, self.phoneNo, self.emailId, self.age, self.courseName, self.courseId)
 
 
+#DB class for storing time slots
+class Time_slot(db.Model):
+    __tablename__ = 'time_slot'
+    slotId = db.Column(db.String(100), primary_key=True)
+    slotDate = db.Column(db.String(100))
+    slotTime = db.Column(db.String(100))
+    def __repr__(self):
+    	return "{},{},{}".format(self.slotId,self.slotDate, self.slotTime)
+
+
 
 
 #DB class for callback feature
@@ -81,25 +91,25 @@ class Course(db.Model):
 def home():
 	return render_template('home.html')
 
-
-@app.route('/',methods=['POST'])
+@app.route('/callback',methods=['POST'])
 def callback_post():
     callbackId = str(uuid.uuid1())
-    name = request.form.get('name')
+    #name = request.form.get('name') #Remove from db
     phoneNo = request.form.get('phoneNo')
+    date = request.form.get('date')
     time = request.form.get('time')
-    print(name, phoneNo, time)
-    callback_ = Callback(callbackId = callbackId, name = name, phoneNo = phoneNo, time = time)
-    db.session.add(callback_)
-    db.session.commit()
-    with app.app_context():
-        msg = Message(subject="Callback Confirmation",
-                        sender=app.config.get("MAIL_USERNAME"),
-                        recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
-                        body="Hey "+name+"!\n\nWe have noted your request, you will get a call from us at around "+ time+ ". Have a good day!\n\nRegards\nTeam Edzeeta")
-        mail.send(msg)
+    print(callbackId, phoneNo, date, time)
+    # callback_ = Callback(callbackId = callbackId, name = name, phoneNo = phoneNo, time = time)
+    # db.session.add(callback_)
+    # db.session.commit()
+    # with app.app_context():
+    #     msg = Message(subject="Callback Confirmation",
+    #                     sender=app.config.get("MAIL_USERNAME"),
+    #                     recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
+    #                     body="Hey "+name+"!\n\nWe have noted your request, you will get a call from us at around "+ time+ ". Have a good day!\n\nRegards\nTeam Edzeeta")
+    #     mail.send(msg)
 
-    return redirect(url_for('home'))
+    return redirect(url_for('register'))
 
 @app.route('/about')
 def about():
@@ -107,22 +117,30 @@ def about():
 
 @app.route('/courses')
 def courses():
-	return render_template('courses.html')
+	return render_template('parent_course.html')
 
-@app.route('/bookNow')
-def book():
-	return render_template('book.html')
+@app.route('/register' , methods=["GET"])
+def register():
+    sql_q=text('select slotTime,slotDate from Time_slot')
+    result = db.engine.execute(sql_q)
+    result = list(result)
+    return render_template('register.html', result = result)
 
-@app.route('/bookNow',methods=['POST'])
-def book_post():
+@app.route('/register',methods=['POST'])
+def register_post():
     childId = str(uuid.uuid1())
-    childName = request.form.get('childName')
     parentName = request.form.get('parentName')
-    phoneNo = request.form.get('phoneNo')
     emailId = request.form.get('emailId')
+    phoneNo = request.form.get('phoneNo')
+    childName = request.form.get('childName')
     age = request.form.get('age')
     courseName = request.form.get('courseName')
-    print(courseName)
+    slotDate = request.form.get('slotDate') #Add to db
+    slotTime = request.form.get('slotTime') #Add to db
+    laptop = request.form.get('laptop') #Add to db    
+    print(childId, parentName, emailId, phoneNo, childName, age, courseName, slotDate, slotTime, laptop)
+    
+    '''
     sql_q=text('select courseId from Course where Course.courseName = :courseName')
     result = db.engine.execute(sql_q, courseName = courseName)
     result = list(result)
@@ -136,8 +154,30 @@ def book_post():
                         recipients=["yashmverma7@gmail.com"], # replace with your email for testing
                         body="Hey "+ childName +"\n\nYour course "+courseName+" has been booked! Have a good day!\n\nRegards\nTeam Edzeeta")
         mail.send(msg)
+    '''
     return redirect(url_for('home'))
 
+
+@app.route('/blogs')
+def blogs():
+	return render_template('blog.html')
+
+@app.route('/blog1')
+def blog1():
+	return render_template('parent_blog.html')
+
+@app.route('/course1')
+def course1():
+    return render_template("courses.html")
+@app.route('/course2')
+def course2():
+    return render_template("courses.html")
+@app.route('/course3')
+def course3():
+    return render_template("courses.html")
+@app.route('/course4')
+def course4():
+    return render_template("courses.html")
 
 
 @app.route('/admin')
@@ -173,6 +213,9 @@ def admin_post():
     res3 = list(res3)
     res4 = list(res4)
     return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4)
+
+
+
 
 
 if __name__ == '__main__':

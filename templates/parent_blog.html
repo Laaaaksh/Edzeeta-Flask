@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles/parent_blog.css">
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+  />
+    <title>Document</title>
+</head>
+<body>
+    <!--Navbar-->
+    <div class="nav">
+      <div class="two">
+        <img src="../static/images/edzetta original logo.png" alt="">
+    </div>
+
+      <div  id="overlay">
+        
+        <div class="navcard">
+          
+        </div>
+            
+    </div>
+
+   
+
+      
+      
+
+    <div class="hb">
+      <a id="btnhb" href="#" class="hamburger hide-for-dekstop ">
+        <span></span>
+        <span></span>
+        <span></span> 
+      </a>
+    </div>
+ 
+
+
+    <div class="one">
+      <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
+      <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
+      <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
+      <p>ABOUT</p>
+    </div>
+
+      <div class="three">
+        <img src="../static/images/PHONE 1.png" alt="">
+        <p>Request Callback</p>
+      </div>
+      
+
+    </div>
+
+    <div id="hm" class="header__menu hide-for-dekstop hide-for-mobile">
+      <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
+        <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
+        <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
+        <a href="./about.html" style="text-decoration: none;"> <p>ABOUT</p></a>
+        <a href="./about.html" style="text-decoration: none;"> <p>REQUEST A CALLBACK</p></a>
+        
+    </div>
+
+    <!--End of Navbar-->
+    <!--Course icon-->
+    <div class="banner">
+           <div class="imgbx">
+               <img class="icon" src="../static/images/public_speaking.jpg" alt="">
+           </div>
+    </div>
+    <!--End Course icon-->
+
+    <!--Course deatils-->
+    <div class="details">
+      <h2>Sample Blog Name</h2>
+
+      <p8>Students build applications using Programming Concepts
+        in one of the easiest and most powerful text based
+        language.
+       </p8>
+
+      <h3><b>Sub Heading 1</b></h3>
+
+      <p1>Students build applications using Programming Concepts
+        in one of the easiest and most powerful text based
+        language.
+      </p1>
+     <h3><c>Sub Heading 2</c></h3>
+
+       <p2>Students build applications using Programming Concepts
+          in one of the easiest and most powerful text based
+          language.
+       </p2>
+      
+    </div>
+
+    
+  <script>
+    /*--------------------fetching id of each blog--------------------*/
+    var selected_blog;
+    function select_blog(blog) {
+      selected_blog = blog;
+      console.log(selected_blog);
+    }
+  </script>
+
+  <!-- script for hamburger -->
+  <script>
+    const btnhb=document.querySelector('#btnhb');
+const overlay=document.querySelector('#overlay');
+const hm=document.querySelector('#hm');
+btnhb.addEventListener('click' ,function(){
+
+ 
+    
+    if(btnhb.classList.contains('open'))
+    {
+        btnhb.classList.remove('open');
+    }
+    else
+    {
+        btnhb.classList.add('open');
+    }
+
+
+    
+    if(overlay.classList.contains('overlay'))
+    {
+        overlay.classList.remove('overlay');
+        overlay.classList.add('fade-out');
+    }
+    else
+    {
+        overlay.classList.add('overlay');
+    }
+
+    if(hm.classList.contains('hide-for-mobile'))
+    {
+      hm.classList.remove('hide-for-mobile')
+    }
+
+    else
+    {
+      hm.classList.add('hide-for-mobile')
+    }
+  }
+);
+
+
+  </script>
+</body>
+</html>
