@@ -71,14 +71,7 @@
         <img class="imgbx" src="../static/images/kid.png" alt="" />
         <div>
          
-          
-          {% for row in result %}
-    
-          
-          {{row[1]}}
-          {{row[0]}}
-  
-          {% endfor %}
+      
         </div>
       </div>
       <div class="grid-item grid-item-2">
@@ -189,10 +182,10 @@
                   <option value="" disabled="disabled">
                     <p>Select Course</p>
                   </option>
-                  <option value="1">Scratch Programmming</option>
-                  <option value="2">App Inventor</option>
-                  <option value="3">Web Development</option>
-                  <option value="4">Python Programming</option>
+                  <option value="Scratch Programmming">Scratch Programmming</option>
+                  <option value="App Inventor">App Inventor</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Python Programming">Python Programming</option>
                 </select>
                 <span class="course-link"
                   ><a href="./parent_course.html" class="btn"
@@ -317,12 +310,12 @@
               <ul>
            
 
-                {% for row in result %}
+                {% for d in date %}
     
-                <div class="d" id={{row[1]}} onclick="fetch_date(this.id)">
+                <div class="d" id={{d}} onclick="fetch_date(this.id, '{{d}}' )">
                   <li>
-                    <div class="month">{{row[1]}}</div>
-                    <!-- <div class="day">{{row[1]}}</div> -->
+                    <div class="month">{{d}}</div>
+                   
                   </li>
                 </div>
         
@@ -333,7 +326,7 @@
             </div>
 
             <div class="time_slot">
-              <!-- <ul>
+               <ul>
                 <div class="t" id="10am" onclick="fetch_time(this.id)">
                   <li>10.00 am</li>
                 </div>
@@ -358,28 +351,13 @@
                 <div class="t" id="5pm" onclick="fetch_time(this.id)">
                   <li>5.00 pm</li>
                 </div>
-              </ul> -->
+              </ul> 
             
               <ul>
 
 
 
-                {% for row in result %}
-    
-               
-
-                 <div class="t" id={{row[0]}} onclick="fetch_time(this.id)">
-                  <li>{{row[0]}}</li>
-                </div>
-                <form action="" method="POST">
-                  <input type="text" name="finaldate" id="datee">
-                  <input type = "submit" value = "submit1" name="dat" id="dat"/>
-                </form>
-                
-             
-
-               
-                {% endfor %}
+              
 
               </ul>
             </div>
@@ -468,7 +446,7 @@
     var selected_time = null;
 
     /*---------- Selecting Date ---------*/
-    function fetch_date(selected_id) {
+    function fetch_date(selected_id, d) {
       if (selected_date != null) {
         document.getElementById(selected_date).style.border = "0px";
       }
@@ -477,6 +455,16 @@
       
       document.getElementById("datee").value = selected_id;
       document.getElementById("dat").click();
+      var someJavaScriptVar = '1';
+      //  someJavaScriptVar = '{{ date[0] }}';
+      console.log(someJavaScriptVar)
+      // var user = {{date}}
+      // console.log(user)
+      // console.log( {{date}} )
+      console.log(d)
+
+      
+
     }
 
     /*---------- Selecting time ---------*/

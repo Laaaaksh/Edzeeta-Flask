@@ -43,8 +43,11 @@ class Student_book(db.Model):
     age = db.Column(db.String(2), nullable = False)	
     courseName = db.Column(db.String(50), nullable = False)
     courseId = db.Column(db.String(10), db.ForeignKey('course.courseId'))
+    slotDate = db.Column(db.String(10), nullable = False)
+    slotTime = db.Column(db.String(10), nullable = False)
+    laptop = db.Column(db.String(1), nullable = False)
     def __repr__(self):
-    	return "{},{},{},{},{},{},{},{}".format(self.childId, self.childName, self.parentName, self.phoneNo, self.emailId, self.age, self.courseName, self.courseId)
+    	return "{},{},{},{},{},{},{},{},{},{},{}".format(self.childId, self.childName, self.parentName, self.phoneNo, self.emailId, self.age, self.courseName, self.courseId, self.slotDate, self.slotTime, self.laptop)
 
 
 #DB class for storing time slots
@@ -63,11 +66,11 @@ class Time_slot(db.Model):
 class Callback(db.Model):
     __tablename__ = 'callback'
     callbackId = db.Column(db.String(100), primary_key=True)
-    name = db.Column(db.String(50), nullable = False)
+    date = db.Column(db.String(20), nullable = False)
     phoneNo = db.Column(db.String(10), nullable = False)
     time = db.Column(db.String(20), nullable = False)
     def __repr__(self):
-    	return "{},{},{},{}".format(self.callbackId, self.name, self.phoneNo, self.time)
+    	return "{},{},{},{}".format(self.callbackId, self.phoneNo, self.date, self.time)
 
 
 
@@ -79,7 +82,6 @@ class Course(db.Model):
     courseEnrolled = db.relationship('Student_book', backref = 'constituency', lazy = True)
     def __repr__(self):
     	return "{},{}".format(self.courseId, self.courseName)
-
 
 
 
@@ -99,16 +101,17 @@ def callback_post():
     date = request.form.get('date')
     time = request.form.get('time')
     print(callbackId, phoneNo, date, time)
-    # callback_ = Callback(callbackId = callbackId, name = name, phoneNo = phoneNo, time = time)
-    # db.session.add(callback_)
-    # db.session.commit()
-    # with app.app_context():
-    #     msg = Message(subject="Callback Confirmation",
-    #                     sender=app.config.get("MAIL_USERNAME"),
-    #                     recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
-    #                     body="Hey "+name+"!\n\nWe have noted your request, you will get a call from us at around "+ time+ ". Have a good day!\n\nRegards\nTeam Edzeeta")
-    #     mail.send(msg)
-
+    callback_ = Callback(callbackId = callbackId,phoneNo = phoneNo, time = time, date = date)
+    db.session.add(callback_)
+    db.session.commit()
+    '''
+    with app.app_context():
+        msg = Message(subject="Callback Confirmation",
+                        sender=app.config.get("MAIL_USERNAME"),
+                        recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
+                        body="Hey !\n\nWe have noted your request, you will get a call from us at around "+ time+ ". Have a good day!\n\nRegards\nTeam Edzeeta")
+        mail.send(msg)
+    '''
     return redirect(url_for('register'))
 
 @app.route('/about')
@@ -124,7 +127,14 @@ def register():
     sql_q=text('select slotTime,slotDate from Time_slot')
     result = db.engine.execute(sql_q)
     result = list(result)
-    return render_template('register.html', result = result)
+    date = []
+    time = []
+    for row in result:
+        date.append(row[1])
+        time.append(row[0])
+    date = set(date)
+    date = list(date)
+    return render_template('register.html', result = result, date = date, time = time)
 
 @app.route('/register',methods=['POST'])
 def register_post():
@@ -139,15 +149,14 @@ def register_post():
     slotTime = request.form.get('slotTime') #Add to db
     laptop = request.form.get('laptop') #Add to db    
     print(childId, parentName, emailId, phoneNo, childName, age, courseName, slotDate, slotTime, laptop)
-    
-    '''
     sql_q=text('select courseId from Course where Course.courseName = :courseName')
     result = db.engine.execute(sql_q, courseName = courseName)
     result = list(result)
     courseId = result[0][0]
-    student_book_ = Student_book(childId = childId, childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId)
+    student_book_ = Student_book(childId = childId, childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
     db.session.add(student_book_)
     db.session.commit()
+    '''
     with app.app_context():
         msg = Message(subject="Booking confirmation",
                         sender=app.config.get("MAIL_USERNAME"),
@@ -155,7 +164,7 @@ def register_post():
                         body="Hey "+ childName +"\n\nYour course "+courseName+" has been booked! Have a good day!\n\nRegards\nTeam Edzeeta")
         mail.send(msg)
     '''
-    return redirect(url_for('home'))
+    return redirect(url_for('register'))
 
 
 @app.route('/blogs')
@@ -185,14 +194,17 @@ def admin():
     sql1 = text('select * from course') 
     sql2 = text('select * from book')
     sql3 = text('select * from callback')
+    sql5 = text('select * from time_slot')
     res1 = db.engine.execute(sql1)
     res2 = db.engine.execute(sql2)
     res3 = db.engine.execute(sql3)
+    res5 = db.engine.execute(sql5)
     res1 = list(res1)
     res2 = list(res2)
     res3 = list(res3)
     res4 = '0'
-    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4)
+    res5 = list(res5)
+    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4, res5 = res5)
 
 
 
@@ -203,16 +215,19 @@ def admin_post():
     sql1 = text('select * from course') 
     sql2 = text('select * from book')
     sql3 = text('select * from callback')
+    sql5 = text('select * from time_slot')
     sql4 = text('select * from book where book.courseName = :courseName')
     res1 = db.engine.execute(sql1)
     res2 = db.engine.execute(sql2)
     res3 = db.engine.execute(sql3)
+    res5 = db.engine.execute(sql5)
     res4 = db.engine.execute(sql4, courseName = request.form.get('courseName'))
     res1 = list(res1)
     res2 = list(res2)
     res3 = list(res3)
     res4 = list(res4)
-    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4)
+    res5 = list(res5)
+    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4, res5 = res5)
 
 
 

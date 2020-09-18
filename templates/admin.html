@@ -1,8 +1,24 @@
-<html>
-<title>DB Tables</title>    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+  
+
 <body>
     <center>
-        <table style="width:60%">
+      <h1>Course Table</h1>
+        <table  table class="table table-striped" style="width:60%">
                      <tr>
                        <th>Course Id</th>
                        <th>Course Name</th>
@@ -18,7 +34,27 @@
     </center>	
 
     <center>
-        <table style="width:60%">
+      <h1>Time Slot Table</h1>
+      <table  table class="table table-striped" style="width:60%">
+                   <tr>
+                     <th>Slot Id</th>
+                     <th>Slot Date</th>
+                     <th>Slot Time</th>
+                   </tr>
+                   
+                   {% for row in res5 %}
+                   <tr>
+                     <td>{{row[0]}}</td>
+                     <td>{{row[1]}}</td>
+                     <td>{{row[2]}}</td>
+                   </tr>
+                   {% endfor %}
+      </table>
+  </center>	
+
+    <center>
+      <h1>Registration Table</h1>
+        <table  table class="table table-striped" style="width:60%">
                      <tr>
                        <th>Child Id</th>
                        <th>Child Name</th>
@@ -28,8 +64,23 @@
                        <th>Age</th>
                        <th>Course Name</th>
                        <th>Course Id</th>
+                       <th>Date</th>
+                       <th>Time</th>
+                       <th>Laptop</th>
                      </tr>
                      
+<!--childId = str(uuid.uuid1())
+    parentName = request.form.get('parentName')
+    emailId = request.form.get('emailId')
+    phoneNo = request.form.get('phoneNo')
+    childName = request.form.get('childName')
+    age = request.form.get('age')
+    courseName = request.form.get('courseName')
+    slotDate = request.form.get('slotDate') #Add to db
+    slotTime = request.form.get('slotTime') #Add to db
+    laptop = request.form.get('laptop') #Add to db   -->
+
+
                      {% for row in res2 %}
                      <tr>
                        <td>{{row[0]}}</td>
@@ -40,13 +91,17 @@
                        <td>{{row[5]}}</td>
                        <td>{{row[6]}}</td>
                        <td>{{row[7]}}</td>
+                       <td>{{row[8]}}</td>
+                       <td>{{row[9]}}</td>
+                       <td>{{row[10]}}</td>
                      </tr>
                      {% endfor %}
         </table>
     </center>	
 
     <center>
-        <table style="width:60%">
+      <h1>Callback Table</h1>
+        <table table class="table table-striped" style="width:60%">
                      <tr>
                        <th>Callback Id</th>
                        <th>Name</th>
@@ -65,16 +120,24 @@
         </table>
     </center>	
 
-    {% if res4 == '0' %}
-    <form action="http://localhost:5000/admin",  method ="POST">
+    
+    <center>
+      {% if res4 == '0' %}
+      <h1>Get Course Wise Students</h1>
+      <form action="http://localhost:5000/admin",  method ="POST">
         <label for="name">Course Name:</label><br>
         <input type="text" id="name" name="courseName" value="" required><br>
         <input type="submit" value="Submit">
        </form>
     
-    {% elif res4 != '0' %}
+
+      {% elif res4 != '0' %}
+    </center>
+  
+    
     <center>
-        <table style="width:60%">
+      <h1>Course Wise Students</h1>
+        <table table class="table table-striped" style="width:60%">
                      <tr>
                        <th>Child Id</th>
                        <th>Child Name</th>
@@ -84,6 +147,9 @@
                        <th>Age</th>
                        <th>Course Name</th>
                        <th>Course Id</th>
+                       <th>Date</th>
+                       <th>Time</th>
+                       <th>Laptop</th>
                      </tr>
                      
                      {% for row in res4 %}
@@ -96,6 +162,9 @@
                        <td>{{row[5]}}</td>
                        <td>{{row[6]}}</td>
                        <td>{{row[7]}}</td>
+                       <td>{{row[8]}}</td>
+                       <td>{{row[9]}}</td>
+                       <td>{{row[10]}}</td>
                      </tr>
                      {% endfor %}
         </table>
