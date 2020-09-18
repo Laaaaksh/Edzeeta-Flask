@@ -609,6 +609,31 @@ top: 398px;
 }
 
 
+/*------------------- Modal for CallBack ---------------------*/
+#request {
+  background-color: #195ed8;
+  font-size: 17px;
+  font-family: Overpass;
+  width: 100px;
+  color: white; /* margin: auto; */
+}
+.call_phone {
+  margin: 5px;
+  font-size: 20px;
+  font-family: Overpass;
+}
+.call_time {
+  margin-left: 85px;
+  margin-right: 5px;
+  font-size: 20px;
+  font-family: Overpass;
+}
+.call_date {
+  margin-left: 85px;
+  margin-right: 8px;
+  font-size: 20px;
+  font-family: Overpass;
+}
 
 
 

@@ -84,7 +84,7 @@ body {
 }
 .nav {
   width: 99.9%;
-  height: 40px;
+  height: 44px;
   // border: solid red;
   background-color: white;
   position: fixed;
@@ -492,12 +492,13 @@ body {
   color: #46494f;
 }
 
+
 .iimg {
-  width: 78px;
+  width: 92px;
   height: 96px;
   position: absolute;
   top: 24px;
-  left: 23%;
+  left: 19%;
 }
 
 .headingbox {
@@ -572,7 +573,7 @@ body {
 
 .three {
   width: 170px;
-  height: 29px;
+  height: 34px;
   border: solid #195ed8;
   border-radius: 40px;
   margin-top: 3px;
@@ -847,7 +848,7 @@ border-radius: 7px;
 position: absolute;
 left: 50%;
 transform: translateX(-50%); 
-top: 25%;
+top: 19%;
 display: flex;
 justify-content: space-around;
 }
@@ -867,7 +868,7 @@ justify-content: space-around;
   position: absolute;
   left: 50%;
 transform: translateX(-50%); 
-top: 35%;
+top: 38%;
   
 }
 .footer-hh{
@@ -878,7 +879,7 @@ top: 35%;
   position: absolute;
   left: 50%;
 transform: translateX(-50%); 
-top: 67%;
+top:74%;
   
 }
 
@@ -899,7 +900,7 @@ top: 67%;
  left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 60%;
+    top: 63%;
   display: flex;
   justify-content: space-between;
   width: 25%;
@@ -917,10 +918,10 @@ line-height: 18px;
 
 .footer-contact{
   position: absolute;
-  left: 50%;
+  left: 50.5%;
      -webkit-transform: translateX(-50%);
      transform: translateX(-50%);
-     top: 80%;
+     top: 86%;
    display: flex;
    justify-content: space-between;
    width: 18%;
@@ -944,7 +945,7 @@ line-height: 18px;
    // border: dotted red;
     display: grid;
      grid-template-columns: 99.9%;
-    grid-template-rows: 812px 812px 710px 710px 1000px 310px;
+    grid-template-rows: 812px 812px 710px 710px 1080px 310px;
     // // grid-gap: 20px;
     //  justify-items: stretch;
     //  align-items: stretch;
@@ -1541,29 +1542,30 @@ animation:fade5 14s infinite;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 60%;
+  top: 63%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  width: 94%;
+  width: 87%;
+  top:65%;
 }
 
 .footer-contact {
   position: absolute;
-  left: 50%;
+  left: 51%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 80%;
+  top: 88%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  width: 79%;
+  width: 70%;
 }
 
 .footer-container {
@@ -1577,7 +1579,7 @@ animation:fade5 14s infinite;
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 20%;
+  top: 18%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1719,4 +1721,32 @@ animation:fade5 14s infinite;
  .hide-for-mobile {
    display: none;
  }
+}
+
+
+
+/*------------------- Modal for CallBack ---------------------*/
+#request {
+  background-color: #195ed8;
+  font-size: 17px;
+  font-family: Overpass;
+  width: 100px;
+  color: white; /* margin: auto; */
+}
+.call_phone {
+  margin: 5px;
+  font-size: 20px;
+  font-family: Overpass;
+}
+.call_time {
+  margin-left: 85px;
+  margin-right: 5px;
+  font-size: 20px;
+  font-family: Overpass;
+}
+.call_date {
+  margin-left: 85px;
+  margin-right: 8px;
+  font-size: 20px;
+  font-family: Overpass;
 }

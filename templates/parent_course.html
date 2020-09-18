@@ -1,95 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/styles/parent_course.css">
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/styles/parent_course.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>Document</title>
-</head>
-<body>
-<!--Navbar-->
-<div class="nav">
-  <div class="two">
-    <img src="./static/images/edzetta original logo.png" alt="">
-</div>
+  </head>
+  <body>
+    <!--Navbar-->
+    <div class="nav">
+      <div class="two">
+        <img src="./static/images/edzetta original logo.png" alt="" />
+      </div>
 
-  <div  id="overlay">
-    
-    <div class="navcard">
-      
+      <div id="overlay">
+        <div class="navcard"></div>
+      </div>
+
+      <div class="hb">
+        <a id="btnhb" href="#" class="hamburger hide-for-dekstop">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+
+      <div class="one">
+        <a href="/" style="text-decoration: none"> <p>HOME</p></a>
+        <a href="courses" style="text-decoration: none"> <p>COURSES</p></a>
+        <a href="blogs" style="text-decoration: none"> <p>BLOG</p></a>
+        <p>ABOUT</p>
+      </div>
+
+      <div class="three">
+        <img src="../static/images/PHONE 1.png" alt="" />
+        <p
+          class="call"
+          data-toggle="modal"
+          data-target="#myModal1"
+          style="cursor: pointer"
+        >
+          Request Callback
+        </p>
+      </div>
     </div>
-        
-</div>
 
-
-
-  
-  
-
-<div class="hb">
-  <a id="btnhb" href="#" class="hamburger hide-for-dekstop ">
-    <span></span>
-    <span></span>
-    <span></span> 
-  </a>
-</div>
-
-
-
-<div class="one">
-  <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
-  <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
-  <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
-  <p>ABOUT</p>
-</div>
-
-  <div class="three">
-    <img src="../static/images/PHONE 1.png" alt="">
-    <p>Request Callback</p>
-  </div>
-  
-
-</div>
-
-<div id="hm" class="header__menu hide-for-dekstop hide-for-mobile">
-  <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
-    <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
-    <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
-    <a href="./about.html" style="text-decoration: none;"> <p>ABOUT</p></a>
-    <a href="./about.html" style="text-decoration: none;"> <p>REQUEST A CALLBACK</p></a>
-    
-</div>
-<!--End of Navbar-->
+    <div id="hm" class="header__menu hide-for-dekstop hide-for-mobile">
+      <a href="/" style="text-decoration: none"> <p>HOME</p></a>
+      <a href="courses" style="text-decoration: none"> <p>COURSES</p></a>
+      <a href="blogs" style="text-decoration: none"> <p>BLOG</p></a>
+      <a href="./about.html" style="text-decoration: none"> <p>ABOUT</p></a>
+      <a href="./about.html" style="text-decoration: none">
+        <p
+          class="call"
+          data-toggle="modal"
+          data-target="#myModal1"
+          style="cursor: pointer"
+        >
+          REQUEST A CALLBACK
+        </p></a
+      >
+    </div>
+    <!--End of Navbar-->
     <div class="grid-container">
-    <div id="hcourses"  class="grid-item grid-item-3">
+      <div id="hcourses" class="grid-item grid-item-3">
         <h1 class="header-three">All Courses</h1>
 
         <div class="header-text-two">
-            <p >
-                
-            </p>
+          <p></p>
         </div>
 
         <div class="trialclass-button">
-            <a href="register"><button>Book Free Trial Class</button></a>
-            
+          <a href="register"><button>Book Free Trial Class</button></a>
         </div>
 
         <div class="courses">
-
           <div class="ul">
             <ul>
               <li>
                 <div class="cc">
                   <div class="course-img">
-                      <img style="width: 144px;" src="../static/images/Scratch-Programming-Tools.png" alt="">
-                    </div>
-                 
+                    <img
+                      style="width: 144px"
+                      src="../static/images/Scratch-Programming-Tools.png"
+                      alt=""
+                    />
+                  </div>
+
                   <div class="fname">
-                    <p>
-                      Scratch Programming
-                    </p>
+                    <p>Scratch Programming</p>
                   </div>
                   <div class="des">
                     <p>
@@ -103,42 +113,44 @@
                 </div>
               </li>
               <li>
-                 
-            <div class="cc">
-              <div class="course-img">
-                  <img src="../static/images/MIT_App_Inventor_logo.png" alt="">
+                <div class="cc">
+                  <div class="course-img">
+                    <img
+                      src="../static/images/MIT_App_Inventor_logo.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="fname">
+                    <p>App Inventor MIT</p>
+                  </div>
+                  <div class="des">
+                    <p>
+                      see your children develop block based mobile Apps with
+                      deployment on Google Play Store
+                    </p>
+                  </div>
+                  <div class="view-details">
+                    <a href="course2"> <button>View Details</button></a>
+                  </div>
                 </div>
-              <div class="fname">
-                <p>
-                  App Inventor MIT
-                </p>
-              </div>
-              <div class="des">
-                <p>
-                  see your children develop block based mobile Apps with
-                  deployment on Google Play Store
-                </p>
-              </div>
-              <div class="view-details">
-                <a href="course2"> <button>View Details</button></a>
-              </div>
-            </div>
               </li>
 
               <li>
                 <div class="cc">
                   <div class="course-img">
-                      <img style="width: 120px; height: 95px;" src="../static/images/web developnet.png" alt="">
-                    </div>
+                    <img
+                      style="width: 120px; height: 95px"
+                      src="../static/images/web developnet.png"
+                      alt=""
+                    />
+                  </div>
                   <div class="fname">
-                    <p>
-                      Web Development
-                    </p>
+                    <p>Web Development</p>
                   </div>
                   <div class="des">
                     <p>
-                      Your child will be able to build beautiful, interactive websites
-                      out of nothing.
+                      Your child will be able to build beautiful, interactive
+                      websites out of nothing.
                     </p>
                   </div>
                   <div class="view-details">
@@ -150,80 +162,133 @@
               <li>
                 <div class="cc">
                   <div class="course-img">
-                      <img src="../static/images/python programming.png" alt="">
-                    </div>
+                    <img src="../static/images/python programming.png" alt="" />
+                  </div>
                   <div class="fname">
-                    <p>
-                      Python Programming
-                    </p>
+                    <p>Python Programming</p>
                   </div>
                   <div class="des">
                     <p>
-                      Students build applications using Programming Concepts in one of
-                      the easiest and most powerful text based language
+                      Students build applications using Programming Concepts in
+                      one of the easiest and most powerful text based language
                     </p>
                   </div>
                   <div class="view-details">
                     <a href="course4"> <button>View Details</button></a>
                   </div>
                 </div>
-    
               </li>
             </ul>
           </div>
-          
-          
-            
-            
+        </div>
+      </div>
+    </div>
+
+    <!--------Modal for CallBack-------->
+    <div class="modal fade" id="myModal1" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <form action="/callback" method="post">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4>Request for a CallBack</h4>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                style="outline: 0px"
+              >
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group input-group">
+                <label class="call_phone">Phone Number</label>
+                <input
+                  name="phoneNo"
+                  class="form-control call_request"
+                  type="tel"
+                  pattern="[0-9]{10}"
+                  title="Enter 10 digit number"
+                  oninput="this.setCustomValidity('')"
+                  required
+                />
+              </div>
+
+              <div class="form-group input-group">
+                <label class="call_date">Date</label>
+                <input
+                  name="date"
+                  class="form-control call_request"
+                  type="date"
+                  required
+                />
+              </div>
+
+              <div class="form-group input-group">
+                <label class="call_time">Time</label>
+                <input
+                  name="time"
+                  class="form-control call_request"
+                  type="time"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input
+                type="submit"
+                class="btn"
+                id="request"
+                value="Request"
+                name="r"
+                onclick="request_call()"
+              />
+            </div>
           </div>
-      
-       
+        </form>
+      </div>
     </div>
-    </div>
 
-      <!-- script for hamburger -->
-  <script>
-    const btnhb=document.querySelector('#btnhb');
-const overlay=document.querySelector('#overlay');
-const hm=document.querySelector('#hm');
-btnhb.addEventListener('click' ,function(){
+    <!----------------- Request for CallBack Popup---------- -->
+    <script>
+      var date, time, phone;
+      function request_call() {
+        var inp = document.getElementsByClassName("call_request");
+        if (inp[0].value != "" && inp[1].value != "" && inp[2].value != "") {
+          phone = inp[0].value;
+          date = inp[1].value;
+          time = inp[2].value;
+          $("#myModal1").modal("hide");
+        }
+      }
+    </script>
 
- 
-    
-    if(btnhb.classList.contains('open'))
-    {
-        btnhb.classList.remove('open');
-    }
-    else
-    {
-        btnhb.classList.add('open');
-    }
+    <!-- script for hamburger -->
+    <script>
+      const btnhb = document.querySelector("#btnhb");
+      const overlay = document.querySelector("#overlay");
+      const hm = document.querySelector("#hm");
+      btnhb.addEventListener("click", function () {
+        if (btnhb.classList.contains("open")) {
+          btnhb.classList.remove("open");
+        } else {
+          btnhb.classList.add("open");
+        }
 
+        if (overlay.classList.contains("overlay")) {
+          overlay.classList.remove("overlay");
+          overlay.classList.add("fade-out");
+        } else {
+          overlay.classList.add("overlay");
+        }
 
-    
-    if(overlay.classList.contains('overlay'))
-    {
-        overlay.classList.remove('overlay');
-        overlay.classList.add('fade-out');
-    }
-    else
-    {
-        overlay.classList.add('overlay');
-    }
-
-    if(hm.classList.contains('hide-for-mobile'))
-    {
-      hm.classList.remove('hide-for-mobile')
-    }
-
-    else
-    {
-      hm.classList.add('hide-for-mobile')
-    }
-  }
-);
-
-
-  </script>
-</body>
+        if (hm.classList.contains("hide-for-mobile")) {
+          hm.classList.remove("hide-for-mobile");
+        } else {
+          hm.classList.add("hide-for-mobile");
+        }
+      });
+    </script>
+  </body>
 </html>

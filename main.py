@@ -168,16 +168,16 @@ def blog1():
 
 @app.route('/course1')
 def course1():
-    return render_template("courses.html")
+    return render_template("course1.html")
 @app.route('/course2')
 def course2():
-    return render_template("courses.html")
+    return render_template("course2.html")
 @app.route('/course3')
 def course3():
     return render_template("courses.html")
 @app.route('/course4')
 def course4():
-    return render_template("courses.html")
+    return render_template("course4.html")
 
 
 @app.route('/admin')

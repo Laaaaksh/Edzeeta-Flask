@@ -85,7 +85,7 @@ body ::-webkit-scrollbar-thumb:hover {
 
 .nav {
   width: 99.9%;
-  height: 40px;
+  height: 44px;
   background-color: white;
   position: fixed;
   z-index: 1;
@@ -469,11 +469,11 @@ body ::-webkit-scrollbar-thumb:hover {
 }
 
 .iimg {
-  width: 78px;
+  width: 92px;
   height: 96px;
   position: absolute;
   top: 24px;
-  left: 23%;
+  left: 19%;
 }
 
 .headingbox {
@@ -544,7 +544,7 @@ body ::-webkit-scrollbar-thumb:hover {
 
 .three {
   width: 170px;
-  height: 29px;
+  height: 34px;
   border: solid #195ed8;
   border-radius: 40px;
   margin-top: 3px;
@@ -793,7 +793,7 @@ body ::-webkit-scrollbar-thumb:hover {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  top: 25%;
+  top: 19%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -817,7 +817,7 @@ body ::-webkit-scrollbar-thumb:hover {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  top: 35%;
+  top: 38%;
 }
 
 .footer-hh {
@@ -828,7 +828,7 @@ body ::-webkit-scrollbar-thumb:hover {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  top: 67%;
+  top: 74%;
 }
 
 .footer-imgg {
@@ -846,7 +846,7 @@ body ::-webkit-scrollbar-thumb:hover {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 60%;
+  top: 63%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -867,10 +867,10 @@ body ::-webkit-scrollbar-thumb:hover {
 
 .footer-contact {
   position: absolute;
-  left: 50%;
+  left: 50.5%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 80%;
+  top: 86%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -896,8 +896,8 @@ body ::-webkit-scrollbar-thumb:hover {
     display: grid;
     -ms-grid-columns: 99.9%;
         grid-template-columns: 99.9%;
-    -ms-grid-rows: 812px 812px 710px 710px 1000px 310px;
-        grid-template-rows: 812px 812px 710px 710px 1000px 310px;
+    -ms-grid-rows: 812px 812px 710px 710px 1080px 310px;
+        grid-template-rows: 812px 812px 710px 710px 1080px 310px;
   }
   .grid-item-1 {
     position: relative;
@@ -1508,28 +1508,29 @@ body ::-webkit-scrollbar-thumb:hover {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 60%;
+    top: 63%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    width: 94%;
+    width: 87%;
+    top: 65%;
   }
   .footer-contact {
     position: absolute;
-    left: 50%;
+    left: 51%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 80%;
+    top: 88%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    width: 79%;
+    width: 70%;
   }
   .footer-container {
     width: 320px;
@@ -1542,7 +1543,7 @@ body ::-webkit-scrollbar-thumb:hover {
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 20%;
+    top: 18%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1650,5 +1651,35 @@ body ::-webkit-scrollbar-thumb:hover {
   .hide-for-mobile {
     display: none;
   }
+}
+
+/*------------------- Modal for CallBack ---------------------*/
+#request {
+  background-color: #195ed8;
+  font-size: 17px;
+  font-family: Overpass;
+  width: 100px;
+  color: white;
+  /* margin: auto; */
+}
+
+.call_phone {
+  margin: 5px;
+  font-size: 20px;
+  font-family: Overpass;
+}
+
+.call_time {
+  margin-left: 85px;
+  margin-right: 5px;
+  font-size: 20px;
+  font-family: Overpass;
+}
+
+.call_date {
+  margin-left: 85px;
+  margin-right: 8px;
+  font-size: 20px;
+  font-family: Overpass;
 }
 /*# sourceMappingURL=home.css.map */
