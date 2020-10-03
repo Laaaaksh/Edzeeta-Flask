@@ -342,7 +342,7 @@ li {
 @media only screen and (max-width: 700px) {
   .nav {
     width: 99.9%;
-    height: 40px;
+    height: 44px;
     background-color: white;
     position: fixed;
     z-index: 1;
