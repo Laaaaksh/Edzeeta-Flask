@@ -37,7 +37,7 @@ body ::-webkit-scrollbar-thumb:hover {
   height: auto;
   width: 80%;
   position: absolute;
-  left: 50%;
+  left: 15%;
     transform: translate(-50%, 0);
 }
 ul {

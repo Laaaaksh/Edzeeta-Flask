@@ -772,13 +772,13 @@ ul li{
   font-weight: 700;
   text-align: center;
   position: absolute;
-  top: 30%;
+  top: 20%;
 }
 
 .scratch{
  // border: solid green;
   position: absolute;
-  top: 55%;
+  top: 38%;
   left: 2.5%;
   
 }
@@ -1516,6 +1516,10 @@ animation:fade5 14s infinite;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.newtop{
+  top:72.7%;
 }
 
 .scratch-ul {
