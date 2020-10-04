@@ -28,6 +28,7 @@
                      <tr>
                        <td>{{row[0]}}</td>
                        <td>{{row[1]}}</td>
+                       <a href="/delete_course/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
                      </tr>
                      {% endfor %}
         </table>
@@ -47,10 +48,97 @@
                      <td>{{row[0]}}</td>
                      <td>{{row[1]}}</td>
                      <td>{{row[2]}}</td>
+
+                     <td>
+                      <a href="/update_slot/{{row[0]}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row[0]}}">Edit</a>
+                      <a href="/delete_slot/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
+                  </td>
                    </tr>
+                  
+                                     <!-- Modal Edit Slot-->
+<div id="modaledit{{row[0]}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h4 class="modal-title">Update Information</h4>
+        </div>
+
+        <div class="modal-body">
+           <form action="{{url_for('update_slot')}}" method="POST">
+              
+            <div class="form-group">
+                 <label>Slot Date:</label>
+                  <input type="hidden"  name="slotId" value="{{row[0]}}">
+                 <input type="text" class="form-control" name="slotDate" value="{{row[1]}}">
+              </div>
+
+              <div class="form-group">
+                 <label>Slot Time:</label>
+                 <input type="text" class="form-control" name="slotTime" value="{{row[2]}}">
+              </div>
+
+              <div class="form-group">
+                 <button class="btn btn-primary" type="submit">Update</button>
+              </div>
+
+            </form>
+
+        </div>
+
+        <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+     
+        </div>
+  </div>
+</div>
                    {% endfor %}
       </table>
-  </center>	
+      <h2>Manage Time Slots<button type="button"  class="btn btn-success float-right"
+        data-toggle="modal" data-target="#mymodal">Add New Slot</button> </h2>
+            
+        <!-- Modal Add Time Slot-->
+
+             <div id="mymodal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                    <div class="modal-header">
+            
+                       <h4 class="modal-title">Add Time Slot</h4>
+                    </div>
+                    <div class="modal-body">
+        
+                       <form action="{{url_for('insert_slot')}}" method="POST">
+                
+                          <div class="form-group">
+                             <label>Slot Date:</label>
+                             <input type="text" class="form-control" name="slotDate" required="1">
+                          </div>
+            
+            
+                           <div class="form-group">
+                             <label>Slot Time:</label>
+                             <input type="text" class="form-control" name="slotTime" required="1">           
+                          </div>
+  
+                          <div class="form-group">
+                             <button class="btn btn-primary" type="submit">Add Time Slot</button>
+                          </div>
+            
+                       </form>
+                    </div>
+           
+                    <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>         
+     
+                  </div>
+              </div>
+           </div>  
+
+    </center>	
+
+
 
     <center>
       <h1>Registration Table</h1>
@@ -94,6 +182,7 @@
                        <td>{{row[8]}}</td>
                        <td>{{row[9]}}</td>
                        <td>{{row[10]}}</td>
+                       <a href="/delete_student/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
                      </tr>
                      {% endfor %}
         </table>
@@ -115,6 +204,7 @@
                        <td>{{row[1]}}</td>
                        <td>{{row[2]}}</td>
                        <td>{{row[3]}}</td>
+                       <a href="/delete_callback/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
                     </tr>
                      {% endfor %}
         </table>

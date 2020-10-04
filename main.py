@@ -35,7 +35,7 @@ mail = Mail(app)
 #DB class for booking a class
 class Student_book(db.Model):
     __tablename__ = 'book'
-    childId = db.Column(db.String(100), primary_key=True)
+    childId = db.Column(db.Integer, primary_key=True)
     childName = db.Column(db.String(50), nullable = False)
     parentName = db.Column(db.String(50), nullable = True)
     phoneNo = db.Column(db.String(10), nullable = False)
@@ -53,11 +53,14 @@ class Student_book(db.Model):
 #DB class for storing time slots
 class Time_slot(db.Model):
     __tablename__ = 'time_slot'
-    slotId = db.Column(db.String(100), primary_key=True)
+    slotId = db.Column(db.Integer, primary_key=True)
     slotDate = db.Column(db.String(100))
     slotTime = db.Column(db.String(100))
     def __repr__(self):
     	return "{},{},{}".format(self.slotId,self.slotDate, self.slotTime)
+    def __init__(self, slotDate, slotTime):
+        self.slotDate = slotDate
+        self.slotTime = slotTime
 
 
 
@@ -65,7 +68,7 @@ class Time_slot(db.Model):
 #DB class for callback feature
 class Callback(db.Model):
     __tablename__ = 'callback'
-    callbackId = db.Column(db.String(100), primary_key=True)
+    callbackId = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.String(20), nullable = False)
     phoneNo = db.Column(db.String(10), nullable = False)
     time = db.Column(db.String(20), nullable = False)
@@ -77,7 +80,7 @@ class Callback(db.Model):
 #DB for all courses
 class Course(db.Model):
     __tablename__ = 'course'
-    courseId = db.Column(db.String(10), primary_key=True)
+    courseId = db.Column(db.Integer, primary_key=True)
     courseName = db.Column(db.String(50), nullable = False)
     courseEnrolled = db.relationship('Student_book', backref = 'constituency', lazy = True)
     def __repr__(self):
@@ -95,13 +98,12 @@ def home():
 
 @app.route('/callback',methods=['POST'])
 def callback_post():
-    callbackId = str(uuid.uuid1())
     #name = request.form.get('name') #Remove from db
     phoneNo = request.form.get('phoneNo')
     date = request.form.get('date')
     time = request.form.get('time')
-    print(callbackId, phoneNo, date, time)
-    callback_ = Callback(callbackId = callbackId,phoneNo = phoneNo, time = time, date = date)
+    print(phoneNo, date, time)
+    callback_ = Callback(phoneNo = phoneNo, time = time, date = date)
     db.session.add(callback_)
     db.session.commit()
     '''
@@ -138,22 +140,21 @@ def register():
 
 @app.route('/register',methods=['POST'])
 def register_post():
-    childId = str(uuid.uuid1())
     parentName = request.form.get('parentName')
     emailId = request.form.get('emailId')
     phoneNo = request.form.get('phoneNo')
     childName = request.form.get('childName')
     age = request.form.get('age')
     courseName = request.form.get('courseName')
-    slotDate = request.form.get('slotDate') #Add to db
-    slotTime = request.form.get('slotTime') #Add to db
-    laptop = request.form.get('laptop') #Add to db    
-    print(childId, parentName, emailId, phoneNo, childName, age, courseName, slotDate, slotTime, laptop)
+    slotDate = request.form.get('slotDate') 
+    slotTime = request.form.get('slotTime') 
+    laptop = request.form.get('laptop')     
+    print(parentName, emailId, phoneNo, childName, age, courseName, slotDate, slotTime, laptop)
     sql_q=text('select courseId from Course where Course.courseName = :courseName')
     result = db.engine.execute(sql_q, courseName = courseName)
     result = list(result)
     courseId = result[0][0]
-    student_book_ = Student_book(childId = childId, childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
+    student_book_ = Student_book(childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
     db.session.add(student_book_)
     db.session.commit()
     '''
@@ -230,7 +231,80 @@ def admin_post():
     return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4, res5 = res5)
 
 
+@app.route('/insert_slot', methods = ['POST'])
+def insert_slot():
+ 
+    if request.method == 'POST':
+ 
+        slotDate = request.form['slotDate']
+        slotTime = request.form['slotTime']
+         
+        my_data = Time_slot(slotDate, slotTime)
+        db.session.add(my_data)
+        db.session.commit()
+ 
+        flash("Time slot inserted Successfully")
+ 
+        return redirect(url_for('admin'))
 
+
+
+
+@app.route('/update_slot', methods = ['GET', 'POST'])
+def update_slot():
+    
+    if request.method == 'POST':
+        my_data = Time_slot.query.get(request.form.get('slotId'))
+ 
+        my_data.slotDate = request.form['slotDate']
+        my_data.slotTime = request.form['slotTime']
+ 
+        db.session.commit()
+        flash("Time slot Updated Successfully")
+ 
+        return redirect(url_for('admin'))
+
+
+
+@app.route('/delete_slot/<slotId>/', methods = ['GET', 'POST'])
+def delete_slot(slotId):
+    my_data = Time_slot.query.get(slotId)
+    db.session.delete(my_data)
+    db.session.commit()
+    flash("Time Slot Deleted Successfully")
+ 
+    return redirect(url_for('admin'))
+ 
+ 
+ 
+@app.route('/delete_course/<courseId>/', methods = ['GET', 'POST'])
+def delete_course(courseId):
+    my_data = Course.query.get(courseId)
+    db.session.delete(my_data)
+    db.session.commit()
+    flash("Course Deleted Successfully")
+ 
+    return redirect(url_for('admin'))
+ 
+ 
+@app.route('/delete_student/<childId>/', methods = ['GET', 'POST'])
+def delete_student(childId):
+    my_data = Student_book.query.get(childId)
+    db.session.delete(my_data)
+    db.session.commit()
+    flash("Student Deleted Successfully")
+ 
+    return redirect(url_for('admin'))
+ 
+@app.route('/delete_callback/<callbackId>/', methods = ['GET', 'POST'])
+def delete_callback(callbackId):
+    my_data = Callback.query.get(callbackId)
+    db.session.delete(my_data)
+    db.session.commit()
+    flash("Callback Request Deleted Successfully")
+ 
+    return redirect(url_for('admin'))
+ 
 
 
 if __name__ == '__main__':
