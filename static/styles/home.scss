@@ -936,8 +936,14 @@ line-height: 18px;
  
    }
  }
-@media only screen and (max-width: 700px) {
 
+#top{
+  top: 72.7%;
+}
+@media only screen and (max-width: 700px) {
+  #top{
+    top: 89%;
+  }
  
 
   .grid-container {
@@ -1491,7 +1497,7 @@ animation:fade5 14s infinite;
   font-size: 40px;
   font-weight: 800;
   position: absolute;
-  top: 5%;
+  top: 2%;
   font-size: 32px;
 }
 
@@ -1504,14 +1510,14 @@ animation:fade5 14s infinite;
   font-weight: 700;
   text-align: center;
   position: absolute;
-  top: 21%;
+  top: 15%;
   margin: 0 auto;
   /* padding: 2px; */
 }
 
 .scratch {
   position: absolute;
-  top: 66%;
+  top: 58%;
   
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
