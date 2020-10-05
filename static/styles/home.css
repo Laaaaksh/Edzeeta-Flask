@@ -893,43 +893,6 @@ body ::-webkit-scrollbar-thumb:hover {
   top: 72.7%;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 320px) {
-  .trialclass-button {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    top: 43%;
-    left: 0;
-    left: 45%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-  }
-}
-
-@media only screen and (min-width: 375px) and (max-width: 375px) {
-  .trialclass-button {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    top: 43%;
-    left: 0;
-    left: 48%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-  }
-  .box-container-two {
-    width: 99.9%;
-    height: 460px;
-    position: absolute;
-    top: 43%;
-    background-color: green;
-  }
-}
-
 @media only screen and (max-width: 700px) {
   #top {
     top: 89%;
@@ -1327,6 +1290,17 @@ body ::-webkit-scrollbar-thumb:hover {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+  }
+  .trialclass-button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 212px;
+    top: 16%;
+    left: 50%;
+    margin-left: -106px;
   }
   .trialclass-button button {
     background: none;
