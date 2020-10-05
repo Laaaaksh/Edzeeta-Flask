@@ -8,7 +8,7 @@ html,body{
 }
 .nav {
     width: 99.9%;
-    height: 40px;
+    height: 44px;
     background-color: white;
     position: fixed;
     z-index: 1;
@@ -40,6 +40,34 @@ html,body{
       font-size: 24px;
       margin-top: 6px;
   }
+  
+  #request {
+    background-color: #195ed8;
+    font-size: 17px;
+    font-family: Overpass;
+    width: 100px;
+    color: white; /* margin: auto; */
+  }
+  .call_phone {
+    margin: 5px;
+    font-size: 20px;
+    font-family: Overpass;
+  }
+  .call_time {
+    margin-left: 85px;
+    margin-right: 5px;
+    font-size: 20px;
+    font-family: Overpass;
+  }
+  .call_date {
+    margin-left: 85px;
+    margin-right: 8px;
+    font-size: 20px;
+    font-family: Overpass;
+  }
+  
+  
+  
   
   
   
@@ -254,7 +282,7 @@ color: #09090A;
 
 .nav {
   width: 99.9%;
-  height: 40px;
+  height: 44px;
   background-color: white;
   position: fixed;
   z-index: 1;
@@ -273,7 +301,7 @@ color: #09090A;
 
   .nav {
    width: 99.9%;
-   height: 40px;
+   height: 44px;
    background-color: white;
    position: fixed;
    z-index: 1;
@@ -305,6 +333,11 @@ color: #09090A;
   top: 85px;
   background: #E7E7E7;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+  
+
+
+  
   }
 
   .icon{
@@ -512,4 +545,33 @@ color: #000000;
    display: none;
  }
 }
-/*# sourceMappingURL=home.css.map */
+
+
+#request {
+  background-color: #195ed8;
+  font-size: 17px;
+  font-family: Overpass;
+  width: 100px;
+  color: white; /* margin: auto; */
+}
+.call_phone {
+  margin: 5px;
+  font-size: 20px;
+  font-family: Overpass;
+}
+.call_time {
+  margin-left: 85px;
+  margin-right: 5px;
+  font-size: 20px;
+  font-family: Overpass;
+}
+.call_date {
+  margin-left: 85px;
+  margin-right: 8px;
+  font-size: 20px;
+  font-family: Overpass;
+}
+
+
+
+

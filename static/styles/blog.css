@@ -310,6 +310,15 @@ ul{
   text-align: center;
   font-family: 'Overpass', sans-serif;
 }
+
+.ul {
+  /* border: solid brown; */
+  height: auto;
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
 }
 
 /*------------------- Modal for CallBack ---------------------*/

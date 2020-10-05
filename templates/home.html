@@ -70,11 +70,13 @@
           class="call"
           data-toggle="modal"
           data-target="#myModal1"
-          style="cursor: pointer"
+          style="cursor: pointer;     color: #195ED8;
+          text-align: center;
+          font-family: 'Overpass', sans-serif;"
         >
           REQUEST A CALLBACK
-        </p></a
-      >
+        </p>
+      
     </div>
 
     <!--End of Navbar-->
@@ -225,10 +227,43 @@
           <a href="register"><button>Book Free Trial Class</button></a>
         </div>
 
+
+        <script>
+          function fun(){
+            var element = document.getElementById("Aone");
+            element.classList.add("stop-animation", "notransition");
+
+            var element1 = document.getElementById("Aa");
+            element1.classList.add("stop-animation", "notransition");
+
+            var element2 = document.getElementById("Ab");
+            element2.classList.add("stop-animation", "notransition");
+
+            var element3 = document.getElementById("Ac");
+            element3.classList.add("stop-animation", "notransition");
+
+            var element4 = document.getElementById("Ad");
+            element4.classList.add("stop-animation", "notransition");
+
+            
+            var element5 = document.getElementById("B2a");
+            element5.classList.add("stop-animation", "notransition");
+
+
+
+            var element6 = document.getElementById("B2b");
+            element6.classList.add("stop-animation", "notransition");
+
+
+            var x =document.getElementsByClassName("li-animation");
+           x.classList.add("stop-animation");
+            
+          }
+        </script>
         <div class="courses">
           <div class="width">
-            <ul class="courses-ul">
-              <li class="courses-li">
+            <ul onclick="fun()" class="courses-ul" id="Aone"> 
+              <li class="courses-li" id="Aa">
                 <div class="cc">
                   <div class="course-img">
                     <img
@@ -253,7 +288,7 @@
                 </div>
               </li>
 
-              <li class="courses-li">
+              <li class="courses-li" id="Ab">
                 <div class="cc">
                   <div class="course-img">
                     <img
@@ -276,7 +311,7 @@
                 </div>
               </li>
 
-              <li class="courses-li">
+              <li class="courses-li" id="Ac">
                 <div class="cc">
                   <div class="course-img">
                     <img
@@ -300,7 +335,7 @@
                 </div>
               </li>
 
-              <li class="courses-li">
+              <li class="courses-li" id="Ad">
                 <div class="cc">
                   <div class="course-img">
                     <img src="../static/images/python programming.png" alt="" />
@@ -363,7 +398,7 @@
                 </div>
             </li> -->
 
-            <li class="li-animation">
+            <li class="li-animation" id="B2a">
               <div class="slider-container">
                 <div class="bbox">
                   <div class="box-head" style="box-shadow: none">
@@ -436,7 +471,7 @@
               </div>
           </li> -->
 
-            <li class="li-animation" style="margin-left: 12px">
+            <li class="li-animation" style="margin-left: 12px" id="B2b">
               <div class="slider-container">
                 <div class="bbox">
                   <div class="box-head" style="box-shadow: none">

@@ -8,6 +8,15 @@
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
   />
+
+    
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+/>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -59,7 +68,16 @@
       <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
       <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
       <a href="./about.html" style="text-decoration: none;"> <p>ABOUT</p></a>
-      <a href="./about.html" style="text-decoration: none;"> <p>REQUEST A CALLBACK</p></a>
+      <p
+      class="call"
+      data-toggle="modal"
+      data-target="#myModal1"
+      style="cursor: pointer;     color: #195ED8;
+      text-align: center;
+      font-family: 'Overpass', sans-serif;"
+    >
+      REQUEST A CALLBACK
+    </p>
       
   </div>
   
@@ -288,5 +306,85 @@
     
     
       </script>
+
+       <!--------Modal for CallBack-------->
+       <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <form action="/callback" method="post">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4>Request for a CallBack</h4>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  style="outline: 0px"
+                >
+                  &times;
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group input-group">
+                  <label class="call_phone">Phone Number</label>
+                  <input
+                    name="phoneNo"
+                    class="form-control call_request"
+                    type="tel"
+                    pattern="[0-9]{10}"
+                    title="Enter 10 digit number"
+                    oninput="this.setCustomValidity('')"
+                    required
+                  />
+                </div>
+  
+                <div class="form-group input-group">
+                  <label class="call_date">Date</label>
+                  <input
+                    name="date"
+                    class="form-control call_request"
+                    type="date"
+                    required
+                  />
+                </div>
+  
+                <div class="form-group input-group">
+                  <label class="call_time">Time</label>
+                  <input
+                    name="time"
+                    class="form-control call_request"
+                    type="time"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <input
+                  type="submit"
+                  class="btn"
+                  id="request"
+                  value="Request"
+                  name="r"
+                  onclick="request_call()"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    <!----------------- Request for CallBack Popup---------- -->
+    <script>
+      var date, time, phone;
+      function request_call() {
+        var inp = document.getElementsByClassName("call_request");
+        if (inp[0].value != "" && inp[1].value != "" && inp[2].value != "") {
+          phone = inp[0].value;
+          date = inp[1].value;
+          time = inp[2].value;
+          $("#myModal1").modal("hide");
+        }
+      }
+    </script>
 </body>
 </html>
