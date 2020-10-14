@@ -191,7 +191,7 @@ color: #000000;
 position: absolute;
 left: 41.93%;
 right: 16.23%;
-top: 45%;
+top: 50%;
 bottom: 44.71%;
 font-family: Overpass;
 font-style: normal;
@@ -299,11 +299,17 @@ top: 398px;
         }
 
     .list-container{
-        position: absolute;
-        left: 0%;
-        right: 0%;
-        place-items: center;
-    top: 110%;
+      width: fit-content;
+      position: absolute;
+      left: 50%;
+      right: 0%;
+      place-items: center;
+      top: 110%;
+      transform: translate(-50%, 0);
+    }
+
+    .list-container ul{
+      padding: 0;
     }
 
     .details h2{
@@ -311,7 +317,7 @@ top: 398px;
         left: -0.08%;
         right: 0%;
         text-align: center;
-        top: 60%;
+        top: 65%;
         width: 100%;
         font-size: 30px;
         color: #09090A;
@@ -323,7 +329,7 @@ top: 398px;
         left: 0%;
         right: 0%;
         text-align: center; 
-        top: 70%;
+        top: 73%;
         font-family: Overpass;
         font-style: normal;
         font-weight: normal;
@@ -377,7 +383,7 @@ top: 398px;
             width: 100%;
             left: 0%;
             right: 0%;
-            top: 25%;
+            top: 50%;
             font-family: Overpass;
             font-style: normal;
             font-weight: normal;

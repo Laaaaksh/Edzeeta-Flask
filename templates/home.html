@@ -230,35 +230,57 @@
 
         <script>
           function fun(){
+            
             var element = document.getElementById("Aone");
-            element.classList.add("stop-animation", "notransition");
+            // element.classList.add("stop-animation", "notransition");
+            element.style.animationPlayState = "paused";
 
             var element1 = document.getElementById("Aa");
-            element1.classList.add("stop-animation", "notransition");
+            // element1.classList.add("stop-animation", "notransition");
+            element1.style.animationPlayState = "paused";
 
             var element2 = document.getElementById("Ab");
-            element2.classList.add("stop-animation", "notransition");
+            // element2.classList.add("stop-animation", "notransition");
+            element2.style.animationPlayState = "paused";
 
             var element3 = document.getElementById("Ac");
-            element3.classList.add("stop-animation", "notransition");
+            // element3.classList.add("stop-animation", "notransition");
+            element3.style.animationPlayState = "paused";
 
             var element4 = document.getElementById("Ad");
-            element4.classList.add("stop-animation", "notransition");
-
+            // element4.classList.add("stop-animation", "notransition");
+            element4.style.animationPlayState = "paused";
             
+            
+
+
+            // var x =document.getElementsByClassName("li-animation");
+            // x.classList.add("stop-animation");
+            
+          }
+
+
+          function fun2()
+          {
+
             var element5 = document.getElementById("B2a");
             element5.classList.add("stop-animation", "notransition");
-
+            element5.style.animationPlayState = "paused";
+           
+            
 
 
             var element6 = document.getElementById("B2b");
             element6.classList.add("stop-animation", "notransition");
-
-
-            var x =document.getElementsByClassName("li-animation");
-           x.classList.add("stop-animation");
-            
+            element5.style.animationDelay = "150s";
+            element6.style.animationPlayState = "paused";
           }
+
+
+
+
+
+
         </script>
         <div class="courses">
           <div class="width">
@@ -369,35 +391,8 @@
         <h1 class="header-test">Testimonials</h1>
 
         <div class="testimonials" id="slider">
-          <ul style="list-style: none" class="ulflex">
-            <!-- <li>
-                <div class="bbox">
-                  <div class="box-head">
-                    <div class="t-img">
-                      <img  class="tt-img"  src="../static/images/t-sample.png" alt="">
-                    </div>
-
-                    <div class="t-info">
-                      <ul style="list-style: none;" >
-                        <li class="name">
-                          Vedant Saxena
-                        </li>
-                        <li class="aftername">
-                          Student, Edzetta
-                        </li>
-                     
-                      </ul>
-
-                    </div>
-                  </div>
-
-                  <div class="t-content">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt, harum fugit iusto odio possimus corporis temporibus laudantium eum maxime iure quia qui ducimus culpa iste aliquid nisi quidem rerum dolorem.</p>
-                  </div>
-
-                </div>
-            </li> -->
-
+          <ul onclick="fun2()" style="list-style: none" class="ulflex">
+           
             <li class="li-animation" id="B2a">
               <div class="slider-container">
                 <div class="bbox">

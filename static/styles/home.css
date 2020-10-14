@@ -1357,11 +1357,9 @@ body ::-webkit-scrollbar-thumb:hover {
   }
   .stop-animation {
     -webkit-animation-play-state: paused;
-    animation-play-state: paused;
-    -webkit-transition: none;
-    transition: none;
-    float: none;
-    -webkit-animation: none;
+  }
+  .stop-animation #slider li {
+    -webkit-animation-play-state: paused;
   }
   .notransition {
     -webkit-transition: none !important;
@@ -1437,6 +1435,13 @@ body ::-webkit-scrollbar-thumb:hover {
     top: 29%;
     width: 100%;
     overflow: hidden;
+    overflow-x: scroll;
+  }
+  -webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
   }
   @-webkit-keyframes slide-animation {
     0% {

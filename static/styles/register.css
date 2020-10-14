@@ -382,6 +382,7 @@ li {
   .hb {
     margin-top: 8px;
     /* margin-left: 10%; */
+    margin-right: 10px;
   }
 
   .hamburger span {
