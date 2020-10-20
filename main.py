@@ -5,6 +5,7 @@ from datetime import datetime
 import random
 import uuid
 from flask_mail import Mail, Message
+import collections
 
 app = Flask(__name__) #App instance
 app.config['SECRET_KEY'] = 'e36106119a10a327dd4fd993dfad8262'
@@ -99,6 +100,7 @@ def home():
 @app.route('/callback',methods=['POST'])
 def callback_post():
     #name = request.form.get('name') #Remove from db
+    formName = request.form.get('formName')
     phoneNo = request.form.get('phoneNo')
     date = request.form.get('date')
     time = request.form.get('time')
@@ -114,7 +116,28 @@ def callback_post():
                         body="Hey !\n\nWe have noted your request, you will get a call from us at around "+ time+ ". Have a good day!\n\nRegards\nTeam Edzeeta")
         mail.send(msg)
     '''
-    return redirect(url_for('register'))
+    
+    if formName == 'home':
+       return redirect(url_for('home')) 
+    if formName == 'register':
+       return redirect(url_for('register')) 
+    if formName == 'courses':
+       return redirect(url_for('courses'))
+    if formName == 'course1':
+       return redirect(url_for('course1'))
+    if formName == 'course2':
+       return redirect(url_for('course2'))
+    if formName == 'course3':
+       return redirect(url_for('course3'))
+    if formName == 'course4':
+       return redirect(url_for('course4'))
+    if formName == 'about':
+       return redirect(url_for('about'))
+    if formName == 'blogs':
+       return redirect(url_for('blogs'))
+    if formName == 'blog1':
+       return redirect(url_for('blog1'))
+       
 
 @app.route('/about')
 def about():
@@ -130,12 +153,28 @@ def register():
     result = db.engine.execute(sql_q)
     result = list(result)
     date = []
-    time = []
     for row in result:
         date.append(row[1])
-        time.append(row[0])
-    date = set(date)
-    date = list(date)
+
+    date = list(set(date))
+    #Collections.sort(date.subList(1, date.size()))
+
+    time = []
+    for i in range(len(date)):
+        time.append([])
+    
+    for row in result:
+        date1 = row[1]
+        ind = date.index(date1)
+        time[ind].append(row[0])
+
+    #Collections.sort(.subList(1, .size()))
+
+    print(date)
+    print(time)
+    '''
+
+    '''
     return render_template('register.html', result = result, date = date, time = time)
 
 @app.route('/register',methods=['POST'])
@@ -154,6 +193,8 @@ def register_post():
     result = db.engine.execute(sql_q, courseName = courseName)
     result = list(result)
     courseId = result[0][0]
+    if laptop is None:
+        laptop = 0
     student_book_ = Student_book(childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
     db.session.add(student_book_)
     db.session.commit()
@@ -165,6 +206,7 @@ def register_post():
                         body="Hey "+ childName +"\n\nYour course "+courseName+" has been booked! Have a good day!\n\nRegards\nTeam Edzeeta")
         mail.send(msg)
     '''
+    flash('SUCCESS!')
     return redirect(url_for('register'))
 
 

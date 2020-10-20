@@ -64,9 +64,25 @@
         
     </div>
 
-  >
+  
 
+
+
+  
     <div class="grid-container">
+      {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  
+    <ul class=flashes style="z-index: 1; position: absolute; left: 50%;
+    top: 50%;">
+    {% for message in messages %}
+      <li >{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  
+   
+{% endwith %}
       <div class="grid-item grid-item-1">
         <img class="imgbx" src="../static/images/kid.png" alt="" />
         <div>
@@ -311,16 +327,38 @@
            
 
                 {% for d in date %}
+                {% set myIndex = date.index(d) %}
     
-                <div class="d" id={{d}} onclick="fetch_date(this.id, '{{d}}' )">
+                <div class="d" id={{d}} onclick="fetch_date(this.id, '{{d}}',  )">
                   <li>
                     <div class="month">{{d}}</div>
+                  
+                    
+                    <p style="display: none;" class="index">{{myIndex}}</p>
                    
                   </li>
                 </div>
         
                 {% endfor %}
+
+                {% for t in time %}
+                {% set myIndex2 = time.index(t) %}
+                
+                {% for x in t   %}
+
+
+                  
+                    
+                  <p style="display: none;" class="{{myIndex2}}">{{x}}</p>
+                  <h5 style="display: none;">{{myIndex2}}</h5>
+                  
+
+
+                {% endfor %}
+
+                {% endfor %}
           
+
                </ul>
               
             
@@ -331,39 +369,33 @@
 
             <div class="time_slot">
                <ul>
-                <div class="t" id="10am" onclick="fetch_time(this.id)">
-                  <li>10.00 am</li>
+                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                  <li>--</li>
                 </div>
-                <div class="t" id="11am" onclick="fetch_time(this.id)">
-                  <li>11.00 am</li>
+                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                  <li>--</li>
                 </div>
-                <div class="t" id="12pm" onclick="fetch_time(this.id)">
-                  <li>12.00 pm</li>
+                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                  <li>--</li>
                 </div>
-                <div class="t" id="1pm" onclick="fetch_time(this.id)">
-                  <li>1.00 pm</li>
+                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                  <li>--</li>
                 </div>
-                <div class="t" id="2am" onclick="fetch_time(this.id)">
-                  <li>2.00 pm</li>
+                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                  <li>--</li>
                 </div>
-                <div class="t" id="3pm" onclick="fetch_time(this.id)">
-                  <li>3.00 pm</li>
+                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                  <li>--</li>
                 </div>
-                <div class="t" id="4pm" onclick="fetch_time(this.id)">
-                  <li>4.00 pm</li>
+                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                  <li>--</li>
                 </div>
-                <div class="t" id="5pm" onclick="fetch_time(this.id)">
-                  <li>5.00 pm</li>
+                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                  <li>--</li>
                 </div>
               </ul> 
             
-              <ul>
-
-
-
-              
-
-              </ul>
+             
             </div>
           </div>
           <div class="modal-footer">
@@ -382,6 +414,19 @@
         <!-- Modal content-->
         <form action="/callback" method="post">
           <div class="modal-content">
+            <div class="form-group input-group" style="display: none;">
+              <label class="call_phone">Phone Number</label>
+              <input
+                name="formName"
+                value = "register"
+                class="form-control call_request"
+                type="text"
+                pattern="[0-9]{10}"
+                title="Enter 10 digit number"
+                oninput="this.setCustomValidity('')"
+              
+              />
+            </div>
             <div class="modal-header">
               <h4>Request for a CallBack</h4>
               <button
@@ -450,23 +495,94 @@
     var selected_time = null;
 
     /*---------- Selecting Date ---------*/
-    function fetch_date(selected_id, d) {
+    async function fetch_date(selected_id, d) {
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       if (selected_date != null) {
         document.getElementById(selected_date).style.border = "0px";
       }
       document.getElementById(selected_id).style.border = "3px solid black";
       selected_date = selected_id;
       
-      document.getElementById("datee").value = selected_id;
-      document.getElementById("dat").click();
-      var someJavaScriptVar = '1';
-      //  someJavaScriptVar = '{{ date[0] }}';
-      console.log(someJavaScriptVar)
-      // var user = {{date}}
-      // console.log(user)
-      // console.log( {{date}} )
+      // document.getElementById("datee").value = selected_id;
+      // document.getElementById("dat").click();
+      // var someJavaScriptVar = '1';
+      // //  someJavaScriptVar = '{{ date[0] }}';
+      // console.log(someJavaScriptVar)
+      // // var user = {{date}}
+      // // console.log(user)
+      // // console.log( {{date}} )
+      // console.log(d)
+
+      var date = [];
+      // var x = document.getElementsByClassName("index")
+      // for(var i=0; i<x.length; i++)
+      // {
+      //   console.log(x[i].innerHTML)
+      //   // date.push()
+      // }
+      var y =document.getElementById(d).children[0].children[1].innerHTML
       console.log(d)
+      console.log(y)
+
+      var z=document.getElementsByClassName(y)
+      for(var i=0;i<z.length; i++)
+      {
+        console.log(z[i].innerHTML)
+
+      }
+
+      var p= document.getElementsByClassName("time_slot")
+      var q = p[0].children[0].children; //iterare over it
+
+      for(var i=0; i<q.length; i++)
+      {
+       
+        q[i].children[0].innerHTML="--"
+
+       
+      }
+
+
+
+      for(var i=0; i<q.length; i++)
+      {
+        console.log(q[i].children[0].innerHTML)
+
+        //   for(var j=0;j<z.length; j++)
+        // {
+        //   console.log(z[j].innerHTML)
+
+        // }
+
+        q[i].children[0].innerHTML=z[i].innerHTML
+
+        console.log(  q[i].children[0].parentElement)
+        q[i].children[0].parentElement.id=z[i].innerHTML
+        q[i].children[0].parentElement.classList.remove("delete") 
+          var elmnt = document.getElementsByClassName("delete");
+        //  elmnt.remove();
+         console.log(elmnt)
+      }
       
+      
+
+      // console.log(x)
+
       
 
     }

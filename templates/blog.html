@@ -228,6 +228,21 @@
                   </button>
                 </div>
                 <div class="modal-body">
+
+                  <div class="form-group input-group" style="display: none;">
+                    <label class="call_phone">Phone Number</label>
+                    <input
+                      name="formName"
+                      value = "blogs"
+                      class="form-control call_request"
+                      type="text"
+                      pattern="[0-9]{10}"
+                      title="Enter 10 digit number"
+                      oninput="this.setCustomValidity('')"
+                    
+                    />
+                  </div>
+
                   <div class="form-group input-group">
                     <label class="call_phone">Phone Number</label>
                     <input
@@ -239,6 +254,8 @@
                       oninput="this.setCustomValidity('')"
                       required
                     />
+
+                    
                   </div>
     
                   <div class="form-group input-group">
