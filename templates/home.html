@@ -233,23 +233,35 @@
             
             var element = document.getElementById("Aone");
             // element.classList.add("stop-animation", "notransition");
-            element.style.animationPlayState = "paused";
+            // element.style.animationPlayState = "paused";
+            element.style.animation = "none";
 
             var element1 = document.getElementById("Aa");
             // element1.classList.add("stop-animation", "notransition");
-            element1.style.animationPlayState = "paused";
+            // element1.style.animationPlayState = "paused";
+            element1.style.animation = "none";
 
             var element2 = document.getElementById("Ab");
             // element2.classList.add("stop-animation", "notransition");
-            element2.style.animationPlayState = "paused";
+            // element2.style.animationPlayState = "paused";
+            element2.style.animation = "none";
 
             var element3 = document.getElementById("Ac");
             // element3.classList.add("stop-animation", "notransition");
-            element3.style.animationPlayState = "paused";
+            // element3.style.animationPlayState = "paused";
+            element3.style.animation = "none";
 
             var element4 = document.getElementById("Ad");
             // element4.classList.add("stop-animation", "notransition");
-            element4.style.animationPlayState = "paused";
+            // element4.style.animationPlayState = "paused";
+            element4.style.animation = "none";
+            
+
+            var element5 = document.getElementById("courses_overflow");
+            element5.style.width = "100%";
+            element5.style.overflow = "auto";
+            
+
             
             
 
@@ -265,7 +277,8 @@
 
             var element5 = document.getElementById("B2a");
             element5.classList.add("stop-animation", "notransition");
-            element5.style.animationPlayState = "paused";
+            // element5.style.animationPlayState = "paused";
+            element5.style.animation = "none";
            
             
 
@@ -273,7 +286,12 @@
             var element6 = document.getElementById("B2b");
             element6.classList.add("stop-animation", "notransition");
             element5.style.animationDelay = "150s";
-            element6.style.animationPlayState = "paused";
+            // element6.style.animationPlayState = "paused";
+            element6.style.animation = "none";
+
+            var element7 = document.getElementById("slider");
+            // element7.classList.add("overflow");
+            element7.style.overflow = "auto";
           }
 
 
@@ -282,7 +300,7 @@
 
 
         </script>
-        <div class="courses">
+        <div class="courses" id="courses_overflow">
           <div class="width">
             <ul onclick="fun()" class="courses-ul" id="Aone"> 
               <li class="courses-li" id="Aa">

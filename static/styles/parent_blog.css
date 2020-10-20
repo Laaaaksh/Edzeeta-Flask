@@ -85,6 +85,9 @@ html,body{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+
+    position: absolute;
+    left: 87%;
   }
   
   .three p {
@@ -258,10 +261,13 @@ color: #09090A;
   border: solid #195ED8;
   border-radius: 40px;
   margin-top: 3px;
-  margin-left: 55%;
+ 
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+
+  position: absolute;
+    left: 87%;
 }
 
 .three p {

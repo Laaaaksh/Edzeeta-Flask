@@ -317,7 +317,7 @@ body ::-webkit-scrollbar-thumb:hover {
 }
 
 .courses {
-  width: 99.9%;
+  width: 102.9%;
   height: 402px;
   position: absolute;
   top: 43%;
@@ -548,10 +548,11 @@ body ::-webkit-scrollbar-thumb:hover {
   border: solid #195ed8;
   border-radius: 40px;
   margin-top: 3px;
-  margin-left: 55%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: absolute;
+  left: 87%;
 }
 
 .three p {
@@ -1430,12 +1431,15 @@ body ::-webkit-scrollbar-thumb:hover {
     float: left;
     display: inline-block;
   }
+  .overflow {
+    overflow: hidden;
+    overflow-x: scroll;
+  }
   .testimonials {
     position: absolute;
     top: 29%;
     width: 100%;
     overflow: hidden;
-    overflow-x: scroll;
   }
   -webkit-scrollbar {
     width: 0px;
