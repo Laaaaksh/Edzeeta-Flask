@@ -61,7 +61,12 @@
         <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
         <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
         <a href="./about.html" style="text-decoration: none;"> <p>ABOUT</p></a>
-        <a href="./about.html" style="text-decoration: none;"> <p>REQUEST A CALLBACK</p></a>
+        <a href="./about.html" style="text-decoration: none;"> <p  class="call"
+          data-toggle="modal"
+          data-target="#myModal1"
+          style="cursor: pointer;     color: #195ED8;
+          text-align: center;
+          font-family: 'Overpass', sans-serif;">REQUEST A CALLBACK</p></a>
         
     </div>
 
@@ -431,8 +436,6 @@
                 value = "register"
                 class="form-control call_request"
                 type="text"
-                pattern="[0-9]{10}"
-                title="Enter 10 digit number"
                 oninput="this.setCustomValidity('')"
               
               />

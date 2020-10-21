@@ -2,12 +2,15 @@ from flask import Flask, render_template, url_for, flash, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from datetime import datetime
+from chatbot import chatbot
 import random
 import uuid
 from flask_mail import Mail, Message
 import collections
 
+
 app = Flask(__name__) #App instance
+app.static_folder = 'static'
 app.config['SECRET_KEY'] = 'e36106119a10a327dd4fd993dfad8262'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'   #DB path
 db = SQLAlchemy(app)  #Create a database instance
@@ -108,14 +111,14 @@ def callback_post():
     callback_ = Callback(phoneNo = phoneNo, time = time, date = date)
     db.session.add(callback_)
     db.session.commit()
-   
+    '''
     with app.app_context():
         msg = Message(subject="Callback Confirmation",
                                 sender=app.config.get("MAIL_USERNAME"),
                         recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
                         body="Hey !\n\nWe have noted your request, you will get a call from us at around "+ time+ ". Have a good day!\n\nRegards\nTeam Edzeeta")
         mail.send(msg)
-   
+    '''
     
     if formName == 'home':
        return redirect(url_for('home')) 
@@ -373,6 +376,15 @@ def delete_callback(callbackId):
  
     return redirect(url_for('admin'))
  
+
+@app.route("/getR")
+def get_bot_response():
+    userText = request.args.get('msg')
+    return str(chatbot.get_response(userText)) 
+
+@app.route("/chatbot")
+def chatbot():
+    return render_template("index.html")
 
 
 if __name__ == '__main__':

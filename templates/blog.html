@@ -53,7 +53,7 @@
   
         <div class="three">
           <img src="../static/images/PHONE 1.png" alt="">
-          <p  class="call"
+          <p   class="call"
           data-toggle="modal"
           data-target="#myModal1"
           style="cursor: pointer">Request Callback</p>
@@ -216,6 +216,19 @@
             <!-- Modal content-->
             <form action="/callback" method="post">
               <div class="modal-content">
+
+                <div class="form-group input-group" style="display: none;">
+                  <label class="call_phone">Phone Number</label>
+                  <input
+                    name="formName"
+                    value = "blogs"
+                    class="form-control call_request"
+                    type="text"
+                    oninput="this.setCustomValidity('')"
+                  
+                  />
+                </div>
+
                 <div class="modal-header">
                   <h4>Request for a CallBack</h4>
                   <button
@@ -229,19 +242,7 @@
                 </div>
                 <div class="modal-body">
 
-                  <div class="form-group input-group" style="display: none;">
-                    <label class="call_phone">Phone Number</label>
-                    <input
-                      name="formName"
-                      value = "blogs"
-                      class="form-control call_request"
-                      type="text"
-                      pattern="[0-9]{10}"
-                      title="Enter 10 digit number"
-                      oninput="this.setCustomValidity('')"
-                    
-                    />
-                  </div>
+                  
 
                   <div class="form-group input-group">
                     <label class="call_phone">Phone Number</label>

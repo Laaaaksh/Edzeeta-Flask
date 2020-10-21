@@ -8,10 +8,10 @@ app.static_folder = 'static'
 def home():
     return render_template("index.html")
 
-@app.route("/get")
+@app.route("/getR")
 def get_bot_response():
     userText = request.args.get('msg')
     return str(chatbot.get_response(userText))
 
 if __name__ == "__main__":
-    app.run() 
+    app.run(port = 2501) 
