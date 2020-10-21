@@ -22,8 +22,8 @@ mail_settings = {
     "MAIL_PORT": 465,
     "MAIL_USE_TLS": False,
     "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": 'edzeeta.test@gmail.com',
-    "MAIL_PASSWORD": '@edzeeta1'
+    "MAIL_USERNAME": 'Edzeetawebsite@gmail.com',
+    "MAIL_PASSWORD": 'reset@123'
     }
 
 app.config.update(mail_settings)
@@ -111,7 +111,7 @@ def callback_post():
     '''
     with app.app_context():
         msg = Message(subject="Callback Confirmation",
-                        sender=app.config.get("MAIL_USERNAME"),
+                                sender=app.config.get("MAIL_USERNAME"),
                         recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
                         body="Hey !\n\nWe have noted your request, you will get a call from us at around "+ time+ ". Have a good day!\n\nRegards\nTeam Edzeeta")
         mail.send(msg)
@@ -175,7 +175,7 @@ def register():
     '''
 
     '''
-    return render_template('register.html', result = result, date = date, time = time)
+    return render_template('register.html', result = result, date = date, time = time, msg = "0")
 
 @app.route('/register',methods=['POST'])
 def register_post():
@@ -195,19 +195,45 @@ def register_post():
     courseId = result[0][0]
     if laptop is None:
         laptop = 0
-    student_book_ = Student_book(childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
-    db.session.add(student_book_)
-    db.session.commit()
-    '''
-    with app.app_context():
-        msg = Message(subject="Booking confirmation",
-                        sender=app.config.get("MAIL_USERNAME"),
-                        recipients=["yashmverma7@gmail.com"], # replace with your email for testing
-                        body="Hey "+ childName +"\n\nYour course "+courseName+" has been booked! Have a good day!\n\nRegards\nTeam Edzeeta")
-        mail.send(msg)
-    '''
-    flash('SUCCESS!')
-    return redirect(url_for('register'))
+    sql_q2 = text('select * from book where book.emailId = :emailId or book.phoneNo =:phoneNo')
+    result2 = db.engine.execute(sql_q2, emailId = emailId, phoneNo = phoneNo)
+    result2 = list(result2)
+    if result2:
+        msg_to_send = "You have already registered for a Trial class!"
+    else:
+        msg_to_send = "Hey " + str(childName)+ "!  Your Free Trial Class is Booked."
+        student_book_ = Student_book(childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
+        db.session.add(student_book_)
+        db.session.commit()
+    
+    #Email functionality
+    if not result2:
+        with app.app_context():
+           msg = Message(subject="Booking confirmation",
+                          sender=app.config.get("MAIL_USERNAME"),
+                          recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
+                            body="Hey "+ childName +"\n\nYour course "+courseName+" has been booked! Have a good day!\n\nRegards\nTeam Edzeeta")
+           mail.send(msg)
+   
+    sql_q=text('select slotTime,slotDate from Time_slot')
+    result = db.engine.execute(sql_q)
+    result = list(result)
+    date = []
+    for row in result:
+        date.append(row[1])
+
+    date = list(set(date))
+    #Collections.sort(date.subList(1, date.size()))
+
+    time = []
+    for i in range(len(date)):
+        time.append([])
+    
+    for row in result:
+        date1 = row[1]
+        ind = date.index(date1)
+        time[ind].append(row[0])
+    return render_template('register.html', msg = msg_to_send, result = result, date = date, time = time)
 
 
 @app.route('/blogs')

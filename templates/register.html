@@ -84,14 +84,14 @@
   
    
 {% endwith %} -->
-
+<h1 style="display: none;" id="msg" >{{msg}}</h1>
 <div class="alert alert-success alert-dismissible a" id="s" style="display: none;">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Registered</strong> Your Free Trial Class is Booked
+  <strong>Registered</strong>{{msg}}
 </div>
 <div class="alert alert-danger alert-dismissible a" id="e" style="display: none;" >
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Error  </strong> Registration Failed
+  <strong>Error  </strong> You have already registered for a free class!
 </div>
       <div class="grid-item grid-item-1">
         <img class="imgbx" src="../static/images/kid.png" alt="" />
@@ -154,7 +154,7 @@
                   class="form-control"
                   placeholder="Phone number"
                   type="tel"
-                  pattern="[0-9]{10}"
+                  pattern="[0-9]{10}||[+][0-9]{12}"
                   title="Enter 10 digit number"
                   oninput="this.setCustomValidity('')"
                   required
@@ -504,11 +504,26 @@
 
     function my_alert()
     {
+      var test=0;
       console.log('working')
       var s = document.getElementById('s')
       var e = document.getElementById('e')
-      s.style.display = "block";
-      e.style.display = "block";
+      var flag = document.getElementById("msg")
+      // s.style.display = "block";
+      // e.style.display = "block";
+      console.log(flag.innerHTML)
+      if(flag.innerHTML == "You have already registered for a Trial class!")
+      {
+        test=1;
+        e.style.display = "block";
+      }
+      else if(flag.innerHTML!=0 && test==0)
+      {
+        s.style.display = "block";
+        console.log("inside second if")
+        console.log(test)
+      }
+
     }
     var selected_date = null;
     var selected_time = null;
@@ -537,15 +552,7 @@
       document.getElementById(selected_id).style.border = "3px solid black";
       selected_date = selected_id;
       
-      // document.getElementById("datee").value = selected_id;
-      // document.getElementById("dat").click();
-      // var someJavaScriptVar = '1';
-      // //  someJavaScriptVar = '{{ date[0] }}';
-      // console.log(someJavaScriptVar)
-      // // var user = {{date}}
-      // // console.log(user)
-      // // console.log( {{date}} )
-      // console.log(d)
+      
 
       var date = [];
       // var x = document.getElementsByClassName("index")
