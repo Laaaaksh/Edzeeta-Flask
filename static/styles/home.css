@@ -317,7 +317,7 @@ body ::-webkit-scrollbar-thumb:hover {
 }
 
 .courses {
-  width: 102.9%;
+  width: 99.9%;
   height: 402px;
   position: absolute;
   top: 43%;
@@ -552,7 +552,7 @@ body ::-webkit-scrollbar-thumb:hover {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  left: 87%;
+  left: 88%;
 }
 
 .three p {

@@ -59,7 +59,7 @@ html,body{
     display: flex;
 
     position: absolute;
-    left: 87%;
+    left: 88%;
   }
   
   .three p {
@@ -233,6 +233,19 @@ line-height: 20px;
 color: #000000;
 }
 
+.cdet_one p{
+  top: 23%;
+}
+
+.cdet_two p{
+  top: 30%;
+  left: 48%;
+}
+.cdet_two{
+  width: 690px !important;
+}
+
+
 .cdet{
   left: 0%;
 display: flex;
@@ -254,6 +267,16 @@ top: 398px;
 }
 
 @media screen and (max-width: 700px){
+
+  .cdet_two{
+    width:290px !important;
+  }
+  .cdet_two p{
+    
+     left: 40%;
+  }
+
+
     .nav{
     position: absolute;
     width: 100%;
@@ -435,7 +458,7 @@ top: 398px;
   border: solid #195ED8;
   border-radius: 40px;
   margin-top: 3px;
-  margin-left: 55%;
+  
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -479,7 +502,33 @@ top: 398px;
   padding: 2px;
 }
 
+#two_h{
+  top: 53%;
+}
 
+#two_l{
+  top: 64%;
+}
+
+#four_h{
+  top: 53%;
+}
+
+#four_l{
+  top: 64%;
+}
+
+#one_h{
+  top: 48%;
+}
+
+#one_l{
+  top: 59%;
+}
+
+#one_c *p{
+  top: 23%;
+}
 
 
 @media only screen and (max-width: 700px) {
@@ -500,6 +549,33 @@ top: 398px;
    justify-content: space-between;
    padding: 2px;
  } 
+
+ #two_h{
+   top: 104%;
+ }
+
+ #two_l{
+   top: 115%;
+ }
+
+
+ #four_l{
+  top: 106%;
+}
+
+#four_h{
+  top: 94%;
+}
+
+#one_h{
+  top: 94%;
+}
+
+#one_l{
+  top: 105%;
+}
+
+
 
  .banner{
 
