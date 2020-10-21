@@ -85,14 +85,14 @@
    
 {% endwith %} -->
 
-<div class="alert alert-success alert-dismissible " id="a" >
+<div class="alert alert-success alert-dismissible a" id="s" style="display: none;">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Registered</strong> Your Free Trial Class is Booked
 </div>
-<!-- <div class="alert alert-danger alert-dismissible " id="a" >
+<div class="alert alert-danger alert-dismissible a" id="e" style="display: none;" >
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Error  </strong> Registration Failed
-</div> -->
+</div>
       <div class="grid-item grid-item-1">
         <img class="imgbx" src="../static/images/kid.png" alt="" />
         <div>
@@ -505,6 +505,10 @@
     function my_alert()
     {
       console.log('working')
+      var s = document.getElementById('s')
+      var e = document.getElementById('e')
+      s.style.display = "block";
+      e.style.display = "block";
     }
     var selected_date = null;
     var selected_time = null;

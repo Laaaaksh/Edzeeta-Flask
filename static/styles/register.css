@@ -196,8 +196,8 @@ input,
 }
 
 
-#a{
-  position: absolute;
+.a{
+  position: absolute !important;
   z-index: 2;
   top: 12%;
   left: 50%;
@@ -356,8 +356,8 @@ li {
 
 @media only screen and (max-width: 700px) {
 
-  #a {
-    position: absolute;
+  .a {
+    position: absolute !important;
     z-index: 2;
     top: 19%;
     left: 50%;
