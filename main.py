@@ -108,14 +108,14 @@ def callback_post():
     callback_ = Callback(phoneNo = phoneNo, time = time, date = date)
     db.session.add(callback_)
     db.session.commit()
-    '''
+   
     with app.app_context():
         msg = Message(subject="Callback Confirmation",
                                 sender=app.config.get("MAIL_USERNAME"),
                         recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
                         body="Hey !\n\nWe have noted your request, you will get a call from us at around "+ time+ ". Have a good day!\n\nRegards\nTeam Edzeeta")
         mail.send(msg)
-    '''
+   
     
     if formName == 'home':
        return redirect(url_for('home')) 
