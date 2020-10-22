@@ -80,8 +80,30 @@
     </div>
 
     <!--End of Navbar-->
-    <input type="time" name="" id="" />
+
+
+    
+    
+
+
+    
     <div class="grid-container">
+      <div class="cb"   onclick="chatbox_open()" id="chatbubble"  >
+        <img class="cb_img" src="../static/images/chatbox.png" alt="">
+      </div>
+  
+      <div class="iframe_parent" id="chatbox" style="display: none;">
+        <p class="p_chatbox">Edzeeta Chatbot</p>
+        <div class="close-container" onclick="chatbox_close()">
+          <div class="leftright"></div>
+          <div class="rightleft"></div>
+          <!-- <label class="close">close</label> -->
+        </div>
+        <iframe src="http://127.0.0.1:5000/chatbot" class="i_frame" title="W3Schools Free Online Web Tutorials"></iframe>
+      </div>
+      
+
+
       <div class="grid-item grid-item-1">
         <h1 class="header">Edzeeta Learning</h1>
 
@@ -229,6 +251,28 @@
 
 
         <script>
+
+          function chatbox_open()
+          {
+            console.log("open")
+            var x = document.getElementById('chatbubble')
+            x.style.display = 'none'
+            var y = document.getElementById("chatbox")
+            y.style.display = 'flex'
+          }
+
+          function chatbox_close()
+          {
+            console.log("close")
+            var x = document.getElementById('chatbubble')
+            x.style.display = 'flex'
+            var y = document.getElementById("chatbox")
+            y.style.display = 'none'
+          }
+
+
+
+
           function fun(){
             
             var element = document.getElementById("Aone");
@@ -792,5 +836,7 @@
       });
     </script>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+   
   </body>
 </html>
