@@ -7,6 +7,7 @@ import random
 import uuid
 from flask_mail import Mail, Message
 import collections
+from twilio.rest import Client
 
 
 app = Flask(__name__) #App instance
