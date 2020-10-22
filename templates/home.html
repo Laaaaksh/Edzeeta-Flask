@@ -21,7 +21,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>Home</title>
   </head>
-  <body>
+  <body onload="my_alert()">
     <!--Navbar-->
     <div class="nav">
       <div class="two">
@@ -84,7 +84,7 @@
 
     
     
-
+    <p id="flag" style="display: none;">{{msg2}}</p>
 
     
     <div class="grid-container">
@@ -251,6 +251,15 @@
 
 
         <script>
+
+            function my_alert()
+            {
+              console.log("called")
+              var x = document.getElementById("flag").innerHTML
+            
+               console.log(x)
+               
+            }
 
           function chatbox_open()
           {
@@ -716,97 +725,102 @@
         </div>
       </div>
     </div>
+<!-- 
+    name="formName"
+    value = "home" -->
 
-    <!--------Modal for CallBack-------->
-    <div class="modal fade" id="myModal1" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <form action="/callback" method="post">
-          <div class="modal-content">
-            <div class="form-group input-group" style="display: none;">
-              <label class="call_phone">Phone Number</label>
-              <input
-                name="formName"
-                value = "home"
-                class="form-control call_request"
-                type="text"
-                oninput="this.setCustomValidity('')"
-              
-              />
-            </div>
-
-            <div class="modal-header">
-              <h4>Request for a CallBack</h4>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                style="outline: 0px"
-              >
-                &times;
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group input-group">
-                <label class="call_phone">Phone Number</label>
-                <input
-                  name="phoneNo"
-                  class="form-control call_request"
-                  type="tel"
-                  pattern="[0-9]{10}"
-                  title="Enter 10 digit number"
-                  oninput="this.setCustomValidity('')"
-                  required
-                />
-              </div>
-
-              <div class="form-group input-group">
-                <label class="call_date">Date</label>
-                <input
-                  name="date"
-                  class="form-control call_request"
-                  type="date"
-                  required
-                />
-              </div>
-
-              <div class="form-group input-group">
-                <label class="call_time">Time</label>
-                <input
-                  name="time"
-                  class="form-control call_request"
-                  type="time"
-                  required
-                />
-              </div>
-            </div>
-            <div class="modal-footer">
-              <input
-                type="submit"
-                class="btn"
-                id="request"
-                value="Request"
-                name="r"
-                onclick="request_call()"
-              />
-            </div>
+    
+ <!--------Modal for CallBack-------->
+ <div class="modal fade" id="myModal1" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <form action="/callback" method="post">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Request for a CallBack</h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            style="outline: 0px"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group input-group">
+            <label class="call_phone">Phone Number</label>
+            <input
+              name="phoneNo"
+              class="form-control call_request"
+              type="tel"
+              pattern="[0-9]{10}"
+              title="Enter 10 digit number"
+              oninput="this.setCustomValidity('')"
+              required
+            />
           </div>
-        </form>
-      </div>
-    </div>
 
-    <!----------------- Request for CallBack Popup---------- -->
-    <script>
-      var date, time, phone;
-      function request_call() {
-        var inp = document.getElementsByClassName("call_request");
-        if (inp[0].value != "" && inp[1].value != "" && inp[2].value != "") {
-          phone = inp[0].value;
-          date = inp[1].value;
-          time = inp[2].value;
-          $("#myModal1").modal("hide");
-        }
-      }
+          <div class="form-group input-group" style="display: none;">
+            <label class="call_phone">Phone Number</label>
+            <input
+            
+              class="form-control call_request"
+              type="text"
+              name="formName"
+              value = "home"
+           
+            />
+          </div>
+
+          <div class="form-group input-group">
+            <label class="call_date">Date</label>
+            <input
+              name="date"
+              class="form-control call_request"
+              type="date"
+              required
+            />
+          </div>
+
+          <div class="form-group input-group">
+            <label class="call_time">Time</label>
+            <input
+              name="time"
+              class="form-control call_request"
+              type="time"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input
+            type="submit"
+            class="btn"
+            id="request"
+            value="Request"
+            name="r"
+            onclick="request_call()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!----------------- Request for CallBack Popup---------- -->
+<script>
+var date, time, phone;
+function request_call() {
+  var inp = document.getElementsByClassName("call_request");
+  if (inp[0].value != "" && inp[1].value != "" && inp[2].value != "") {
+    phone = inp[0].value;
+    date = inp[1].value;
+    time = inp[2].value;
+    $("#myModal1").modal("hide");
+  }
+}
+
     </script>
 
     <!-- script for hamburger -->

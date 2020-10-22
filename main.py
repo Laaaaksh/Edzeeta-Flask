@@ -7,7 +7,7 @@ import random
 import uuid
 from flask_mail import Mail, Message
 import collections
-from twilio.rest import Client
+#from twilio.rest import Client
 
 
 app = Flask(__name__) #App instance
@@ -129,25 +129,50 @@ def callback_post():
     '''
     
     if formName == 'home':
-       return redirect(url_for('home')) 
+       return render_template('home.html',msg2 = "Success")
+
     if formName == 'register':
-       return redirect(url_for('register')) 
+        sql_q=text('select slotTime,slotDate from Time_slot')
+        result = db.engine.execute(sql_q)
+        result = list(result)
+        date = []
+        for row in result:
+            date.append(row[1])
+
+        date = list(set(date))
+        #Collections.sort(date.subList(1, date.size()))
+
+        time = []
+        for i in range(len(date)):
+            time.append([])
+        
+        for row in result:
+            date1 = row[1]
+            ind = date.index(date1)
+            time[ind].append(row[0])
+
+        #Collections.sort(.subList(1, .size()))
+
+        print(date)
+        print(time)        
+        return render_template('register.html', result = result, date = date, time = time, msg2 = "Success") 
+    
     if formName == 'courses':
-       return redirect(url_for('courses'))
+       return render_template('parent_course.html', msg2 = "Success")
     if formName == 'course1':
-       return redirect(url_for('course1'))
+       return render_template('course1.html',  msg2 = "Success")
     if formName == 'course2':
-       return redirect(url_for('course2'))
+       return render_template('course2.html',  msg2 = "Success")
     if formName == 'course3':
-       return redirect(url_for('course3'))
+       return render_template('course3.html',  msg2 = "Success")
     if formName == 'course4':
-       return redirect(url_for('course4'))
+       return render_template('course4.html',  msg2 = "Success")
     if formName == 'about':
-       return redirect(url_for('about'))
+       return render_template('about.html',  msg2 = "Success")
     if formName == 'blogs':
-       return redirect(url_for('blogs'))
+       return render_template('blog.html',  msg2 = "Success")
     if formName == 'blog1':
-       return redirect(url_for('blog1'))
+       return render_template('parent_blog.html',  msg2 = "Success")
        
 
 @app.route('/about')
