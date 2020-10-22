@@ -33,7 +33,13 @@ app.config.update(mail_settings)
 mail = Mail(app)
 
 
+#Email content
+scratch = "We follow a personalized approach to learning and plan the course pace by assessing the level of a kid during the demo session.\nScratch is a block-based programming language developed by MIT. It helps to develop computational thinking in kids. We teach with the help of an interactive curriculum which is completely flexible and adjustable depending upon the student’s pace. We emphasize on experientialexperimental learning and encourage kids to develop their own projects. Check out "+ url_for('course1')+"!"
+app = "We follow a personalized approach to learning and plan the course pace by assessing the level of a kid during the demo session.\nThrough the App Inventor course, we teach kids block based app development, which helps them increase their creativity, computational thinking and obviously build real world apps completely on their own. We publish the best apps built by our students on the google playstore! Check out "+ url_for('course2')+"!"
+python_ = "We follow a personalized approach to learning and plan the course pace by assessing the level of a kid during the demo session.\nThis course introduces your child to one of the widely used scripting languages in the world of development, research and corporate business. The kid understands how he/she can use his/her new skills for the betterment of the world and their personal development. Check out "+ url_for('course3')+"!"
+web = "We follow a personalized approach to learning and plan the course pace by assessing the level of a kid during the demo session.\nYour child will be introduced to building beautiful, interactive websites out of nothing. They learn most of the front end related development for a website with the three skills HTML, CSS, and Javascript. We also teach how to host your websites. Your child’s website can be live in the real web world! Check out "+ url_for('course4')+"!" 
 
+end_content = "\nPrerequisites-\n- Laptop or PC with good internet connectivity\n- Working Webcam\n- Headphone with Mic\n- Notebook and Pencil/Pen\nEdZeeta's courses range from block-based languages for beginners to advanced programming languages. All courses are project-based and this will be their first step towards creating games, animations, and interesting applications using the concepts they learn. View more details: "+url_for('courses')+"\nOur team will soon get in touch with you regarding further details. Incase of anny queries write back to us.\n\nRegards\nTeam EdZeeta"    
 
 
 #DB class for booking a class
@@ -209,15 +215,26 @@ def register_post():
         db.session.add(student_book_)
         db.session.commit()
     
+    if courseName == "Scratch Programmming":
+        mailCont = scratch
+    if courseName == "App Inventor":
+        mailCont = app
+    if courseName == "Web Development":
+        mailCont = web
+    if courseName == "Python Programming":
+        mailCont = python_
+            
+    
     #Email functionality
     if not result2:
         with app.app_context():
            msg = Message(subject="Booking confirmation",
                           sender=app.config.get("MAIL_USERNAME"),
                           recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
-                            body="Hey "+ childName +"\n\nYour course "+courseName+" has been booked! Have a good day!\n\nRegards\nTeam Edzeeta")
+                            body= "Hey "+ childName +"! Welcome to EdZeeta's " + courseName + " course!\nThanks for choosing EdZeeta Learning. During the demo session your kid will be exposed to "+courseName+ ". We follow a personalized approach to learning and plan the course pace by assessing the level of a kid during the demo session.\n"+ mailCont + end_content)
            mail.send(msg)
    
+  
     sql_q=text('select slotTime,slotDate from Time_slot')
     result = db.engine.execute(sql_q)
     result = list(result)
@@ -383,7 +400,7 @@ def get_bot_response():
     return str(chatbot.get_response(userText)) 
 
 @app.route("/chatbot")
-def chatbot():
+def chat_bot():
     return render_template("index.html")
 
 
