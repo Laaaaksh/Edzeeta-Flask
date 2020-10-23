@@ -22,16 +22,90 @@
                      <tr>
                        <th>Course Id</th>
                        <th>Course Name</th>
-                     </tr>
+                       <th><a href="/delete_course_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
+                       <th><button type="button"  class="btn btn-success float-right"
+                        data-toggle="modal" data-target="#mymodal1">Add New Course</button></th>
+                    </tr>
                      
                      {% for row in res1 %}
                      <tr>
                        <td>{{row[0]}}</td>
                        <td>{{row[1]}}</td>
-                       <a href="/delete_course/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
-                     </tr>
-                     {% endfor %}
-        </table>
+                       <td>
+                          <td><a href="/update_slot/{{row[0]}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit1{{row[0]}}">Edit</a></td>
+                          <td><a href="/delete_course/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
+                      </td>
+                      </tr>
+                                       
+                                     <!-- Modal Edit Course-->
+<div id="modaledit1{{row[0]}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h4 class="modal-title">Update Information</h4>
+        </div>
+
+        <div class="modal-body">
+           <form action="{{url_for('update_course')}}" method="POST">
+              
+            <div class="form-group">
+                 <label>Course Name:</label>
+                  <input type="hidden"  name="courseId" value="{{row[0]}}">
+                 <input type="text" class="form-control" name="courseName" value="{{row[1]}}">
+              </div>
+
+              <div class="form-group">
+                 <button class="btn btn-primary" type="submit">Update</button>
+              </div>
+
+            </form>
+
+        </div>
+
+        <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+     
+        </div>
+  </div>
+</div>
+                   {% endfor %}
+                   
+      </table>
+     
+            
+        <!-- Modal Add Course-->
+
+             <div id="mymodal1" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                    <div class="modal-header">
+            
+                       <h4 class="modal-title">Add New Course</h4>
+                    </div>
+                    <div class="modal-body">
+        
+                       <form action="{{url_for('insert_course')}}" method="POST">
+                
+                          <div class="form-group">
+                             <label>Course Name:</label>
+                             <input type="text" class="form-control" name="courseName" required="1">
+                          </div>
+            
+                          <div class="form-group">
+                             <button class="btn btn-primary" type="submit">Add Course</button>
+                          </div>
+            
+                       </form>
+                    </div>
+           
+                    <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>         
+     
+                  </div>
+              </div>
+           </div>  
     </center>	
 
     <center>
@@ -41,7 +115,10 @@
                      <th>Slot Id</th>
                      <th>Slot Date</th>
                      <th>Slot Time</th>
-                   </tr>
+                     <th><a href="/delete_slot_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
+                     <th><button type="button"  class="btn btn-success float-right"
+                      data-toggle="modal" data-target="#mymodal">Add New Slot</button></th>
+                    </tr>
                    
                    {% for row in res5 %}
                    <tr>
@@ -50,8 +127,8 @@
                      <td>{{row[2]}}</td>
 
                      <td>
-                      <a href="/update_slot/{{row[0]}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row[0]}}">Edit</a>
-                      <a href="/delete_slot/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
+                      <td><a href="/update_slot/{{row[0]}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row[0]}}">Edit</a></td>
+                      <td><a href="/delete_slot/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
                   </td>
                    </tr>
                   
@@ -93,9 +170,9 @@
   </div>
 </div>
                    {% endfor %}
+                   
       </table>
-      <h2>Manage Time Slots<button type="button"  class="btn btn-success float-right"
-        data-toggle="modal" data-target="#mymodal">Add New Slot</button> </h2>
+     
             
         <!-- Modal Add Time Slot-->
 
@@ -155,6 +232,7 @@
                        <th>Date</th>
                        <th>Time</th>
                        <th>Laptop</th>
+                       <th> <a href="/delete_student_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
                      </tr>
                      
 <!--childId = str(uuid.uuid1())
@@ -182,9 +260,10 @@
                        <td>{{row[8]}}</td>
                        <td>{{row[9]}}</td>
                        <td>{{row[10]}}</td>
-                       <a href="/delete_student/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
+                       <td><a href="/delete_student/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
                      </tr>
                      {% endfor %}
+                    
         </table>
     </center>	
 
@@ -196,6 +275,7 @@
                        <th>Name</th>
                        <th>Phone No.</th>
                        <th>Time</th>
+                       <th> <a href="/delete_callback_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
                      </tr>
                      
                      {% for row in res3 %}
@@ -204,9 +284,10 @@
                        <td>{{row[1]}}</td>
                        <td>{{row[2]}}</td>
                        <td>{{row[3]}}</td>
-                       <a href="/delete_callback/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
+                       <td><a href="/delete_callback/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
                     </tr>
                      {% endfor %}
+                    
         </table>
     </center>	
 

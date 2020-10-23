@@ -97,7 +97,8 @@ class Course(db.Model):
     courseEnrolled = db.relationship('Student_book', backref = 'constituency', lazy = True)
     def __repr__(self):
     	return "{},{}".format(self.courseId, self.courseName)
-
+    def __init__(self, courseName):
+        self.courseName = courseName
 
 
 
@@ -391,6 +392,40 @@ def delete_slot(slotId):
     return redirect(url_for('admin'))
  
  
+
+
+
+@app.route('/insert_course', methods = ['POST'])
+def insert_course():
+ 
+    if request.method == 'POST': 
+        courseName = request.form['courseName']
+
+        my_data = Course(courseName)
+        print(my_data)
+        db.session.add(my_data)
+        db.session.commit()
+        print("Course added successfully")
+        return redirect(url_for('admin'))
+
+
+
+
+@app.route('/update_course', methods = ['GET', 'POST'])
+def update_course():
+    
+    if request.method == 'POST':
+        my_data = Course.query.get(request.form.get('courseId'))
+ 
+        my_data.courseName = request.form['courseName']
+     
+        db.session.commit()
+        print("Course updated successfully")
+        return redirect(url_for('admin'))
+
+
+
+
  
 @app.route('/delete_course/<courseId>/', methods = ['GET', 'POST'])
 def delete_course(courseId):
@@ -420,6 +455,46 @@ def delete_callback(callbackId):
  
     return redirect(url_for('admin'))
  
+
+
+@app.route('/delete_callback_all', methods = ['GET', 'POST'])
+def delete_callback_all():
+    db.session.query(Callback).delete()
+    db.session.commit()
+    print("All callback deleted!")
+
+    return redirect(url_for('admin'))
+
+
+
+@app.route('/delete_slot_all', methods = ['GET', 'POST'])
+def delete_slot_all():
+    db.session.query(Time_slot).delete()
+    db.session.commit()
+    print("All Time Slots deleted!")
+
+    return redirect(url_for('admin'))
+
+
+
+@app.route('/delete_student_all', methods = ['GET', 'POST'])
+def delete_student_all():
+    db.session.query(Student_book).delete()
+    db.session.commit()
+    print("All Student Registrations deleted!")
+    return redirect(url_for('admin'))
+
+
+@app.route('/delete_course_all', methods = ['GET', 'POST'])
+def delete_course_all():
+    db.session.query(Course).delete()
+    db.session.commit()
+    print("All course deleted!")
+    return redirect(url_for('admin'))
+
+
+
+#Chatbot
 
 @app.route("/getR")
 def get_bot_response():
