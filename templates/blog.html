@@ -13,7 +13,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>Blog</title>
   </head>
-  <body>
+  <body onload="my_alert()">
     <div id="container">
 
       <div class="nav">
@@ -78,8 +78,26 @@
             REQUEST A CALLBACK
           </p>
       </div>
+      <div class="cb"   onclick="chatbox_open()" id="chatbubble"  >
+        <img class="cb_img" src="../static/images/chatbox.png" alt="">
+      </div>
+  
+      <div class="iframe_parent" id="chatbox" style="display: none;">
+        <p class="p_chatbox">Edzeeta Chatbot</p>
+        <div class="close-container" onclick="chatbox_close()">
+          <div class="leftright"></div>
+          <div class="rightleft"></div>
+          <!-- <label class="close">close</label> -->
+        </div>
+        <iframe src="http://127.0.0.1:5000/chatbot" class="i_frame" title="W3Schools Free Online Web Tutorials"></iframe>
+      </div>
+      
+      <p id="flag" style="display: none;">{{msg2}}</p>
 
-
+      <div class="alert alert-success alert-dismissible a" id="s" style="display: none;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"  style="top: -60px;" >&times;</a>
+        Callback Request Sent
+      </div>
 
       <div class="blank1"></div>
       <div class="ul">
@@ -306,6 +324,39 @@
             $("#myModal1").modal("hide");
           }
         }
+
+        function my_alert()
+            {
+              console.log("called")
+              var x = document.getElementById("flag").innerHTML
+            
+               console.log(x)
+               if(x=="Success")
+               {
+                var s = document.getElementById('s')
+                s.style.display = "block";
+               }
+               
+               
+            }
+
+        function chatbox_open()
+          {
+            console.log("open")
+            var x = document.getElementById('chatbubble')
+            x.style.display = 'none'
+            var y = document.getElementById("chatbox")
+            y.style.display = 'flex'
+          }
+
+          function chatbox_close()
+          {
+            console.log("close")
+            var x = document.getElementById('chatbubble')
+            x.style.display = 'flex'
+            var y = document.getElementById("chatbox")
+            y.style.display = 'none'
+          }
       </script>
   </body>
 

@@ -76,6 +76,25 @@
 
   
     <div class="grid-container">
+
+
+      <div class="cb"   onclick="chatbox_open()" id="chatbubble"  >
+        <img class="cb_img" src="../static/images/chatbox.png" alt="">
+      </div>
+  
+      <div class="iframe_parent" id="chatbox" style="display: none;">
+        <p class="p_chatbox">Edzeeta Chatbot</p>
+        <div class="close-container" onclick="chatbox_close()">
+          <div class="leftright"></div>
+          <div class="rightleft"></div>
+          <!-- <label class="close">close</label> -->
+        </div>
+        <iframe src="http://127.0.0.1:5000/chatbot" class="i_frame" title="W3Schools Free Online Web Tutorials"></iframe>
+      </div>
+
+
+
+
       <!-- {% with messages = get_flashed_messages() %}
   {% if messages %}
   
@@ -94,10 +113,19 @@
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Registered</strong>{{msg}}
 </div>
+
 <div class="alert alert-danger alert-dismissible a" id="e" style="display: none;" >
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Error  </strong> You have already registered for a free class!
 </div>
+
+<p id="flagg" style="display: none;">{{msg2}}</p>
+
+<div class="alert alert-success alert-dismissible a" id="ss" style="display: none;">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close" style="top: -60px;" >&times;</a>
+  Callback Request Sent
+</div>
+
       <div class="grid-item grid-item-1">
         <img class="imgbx" src="../static/images/kid.png" alt="" />
         <div>
@@ -504,9 +532,43 @@
   <!-------------Javascript------------>
 
   <script>
+      function chatbox_open()
+          {
+            console.log("open")
+            var x = document.getElementById('chatbubble')
+            x.style.display = 'none'
+            var y = document.getElementById("chatbox")
+            y.style.display = 'flex'
+          }
+
+          function chatbox_close()
+          {
+            console.log("close")
+            var x = document.getElementById('chatbubble')
+            x.style.display = 'flex'
+            var y = document.getElementById("chatbox")
+            y.style.display = 'none'
+          }
 
     function my_alert()
     {
+
+      
+            
+              var xx = document.getElementById("flagg").innerHTML
+            
+              
+               if(xx=="Success")
+               {
+                var sx = document.getElementById('ss')
+                sx.style.display = "block";
+               }
+               
+               
+          
+
+
+
       var test=0;
       console.log('working')
       var s = document.getElementById('s')

@@ -1,0 +1,21 @@
+<p id="flag" style="display: none;">{{msg2}}</p>
+
+<div class="alert alert-success alert-dismissible a" id="s" style="display: none;">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Registered</strong>{{msg}}
+</div>
+
+function my_alert()
+            {
+              console.log("called")
+              var x = document.getElementById("flag").innerHTML
+            
+               console.log(x)
+               if(x=="Success")
+               {
+                var sx = document.getElementById('ss')
+                sx.style.display = "block";
+               }
+               
+               
+            }

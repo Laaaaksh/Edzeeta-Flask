@@ -86,6 +86,12 @@
     
     <p id="flag" style="display: none;">{{msg2}}</p>
 
+    <div class="alert alert-success alert-dismissible a" id="s" style="display: none;">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close" style="top: -60px;">&times;</a>
+       Callback Request Sent
+    </div>
+   
+
     
     <div class="grid-container">
       <div class="cb"   onclick="chatbox_open()" id="chatbubble"  >
@@ -97,7 +103,7 @@
         <div class="close-container" onclick="chatbox_close()">
           <div class="leftright"></div>
           <div class="rightleft"></div>
-          <!-- <label class="close">close</label> -->
+          
         </div>
         <iframe src="http://127.0.0.1:5000/chatbot" class="i_frame" title="W3Schools Free Online Web Tutorials"></iframe>
       </div>
@@ -258,6 +264,12 @@
               var x = document.getElementById("flag").innerHTML
             
                console.log(x)
+               if(x=="Success")
+               {
+                var s = document.getElementById('s')
+                s.style.display = "block";
+               }
+               
                
             }
 

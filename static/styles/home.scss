@@ -522,9 +522,27 @@ label{
 
 }
 
+
 //chatbot ui end
 
+.a{
+  position: absolute !important;
+  z-index: 2;
+  top: 12%;
+  left: 50%;
+    transform: translate(-50%,-50%);
+}
 
+@media only screen and (max-width: 700px) {
+
+  .a {
+    position: absolute !important;
+    z-index: 2;
+    top: 19%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+}
 
 
 
