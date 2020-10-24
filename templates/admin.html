@@ -115,6 +115,8 @@
                      <th>Slot Id</th>
                      <th>Slot Date</th>
                      <th>Slot Time</th>
+                     <th>Total Vacancies</th>
+                     <th>Available Vacancies</th>
                      <th><a href="/delete_slot_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
                      <th><button type="button"  class="btn btn-success float-right"
                       data-toggle="modal" data-target="#mymodal">Add New Slot</button></th>
@@ -125,7 +127,9 @@
                      <td>{{row[0]}}</td>
                      <td>{{row[1]}}</td>
                      <td>{{row[2]}}</td>
-
+                     <td>{{row[3]}}</td>
+                     <td>{{row[4]}}</td>
+                     
                      <td>
                       <td><a href="/update_slot/{{row[0]}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row[0]}}">Edit</a></td>
                       <td><a href="/delete_slot/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
@@ -153,6 +157,11 @@
                  <label>Slot Time:</label>
                  <input type="text" class="form-control" name="slotTime" value="{{row[2]}}">
               </div>
+
+              <div class="form-group">
+               <label>Total Vacancies:</label>
+               <input type="number" class="form-control" name="totalSlots" value="{{row[3]}}">
+            </div>
 
               <div class="form-group">
                  <button class="btn btn-primary" type="submit">Update</button>
@@ -192,16 +201,19 @@
                              <input type="text" class="form-control" name="slotDate" required="1">
                           </div>
             
-            
                            <div class="form-group">
                              <label>Slot Time:</label>
                              <input type="text" class="form-control" name="slotTime" required="1">           
                           </div>
-  
+
+                          <div class="form-group">
+                           <label>Total Vacancies:</label>
+                           <input type="number" class="form-control" name="totalSlots" required="1">           
+                        </div>
+                        
                           <div class="form-group">
                              <button class="btn btn-primary" type="submit">Add Time Slot</button>
                           </div>
-            
                        </form>
                     </div>
            

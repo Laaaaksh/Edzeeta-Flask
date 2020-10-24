@@ -68,11 +68,15 @@ class Time_slot(db.Model):
     slotId = db.Column(db.Integer, primary_key=True)
     slotDate = db.Column(db.String(100))
     slotTime = db.Column(db.String(100))
+    totalSlots = db.Column(db.Integer)
+    availableSlots = db.Column(db.Integer)
     def __repr__(self):
-    	return "{},{},{}".format(self.slotId,self.slotDate, self.slotTime)
-    def __init__(self, slotDate, slotTime):
+    	return "{},{},{},{},{}".format(self.slotId,self.slotDate, self.slotTime, self.totalSlots, self.availableSlots)
+    def __init__(self, slotDate, slotTime, totalSlots, availableSlots):
         self.slotDate = slotDate
         self.slotTime = slotTime
+        self.totalSlots = totalSlots
+        self.availableSlots = availableSlots
 
 
 
@@ -235,6 +239,22 @@ def register_post():
     sql_q2 = text('select * from book where book.emailId = :emailId or book.phoneNo =:phoneNo')
     result2 = db.engine.execute(sql_q2, emailId = emailId, phoneNo = phoneNo)
     result2 = list(result2)
+    sql_q3 = text('select slotId,availableSlots from Time_slot where Time_slot.slotTime = :slotTime')
+    result3 = db.engine.execute(sql_q3, slotTime = slotTime)
+    result3 = list(result3)
+    availableSlots = result3[0][0]
+    slotId = result3[0][1]
+    if availableSlots >= 1:
+        availableSlots -= 1
+        my_data1 = Time_slot.query.filter_by(slotTime = slotTime).first()
+        my_data1.availableSlots = availableSlots
+        db.session.commit()
+  
+    if availableSlots == 0:
+        my_data = Time_slot.query.filter_by(slotTime = slotTime).first()
+        db.session.delete(my_data)
+        db.session.commit()
+
     if result2:
         msg_to_send = "You have already registered for a Trial class!"
     else:
@@ -354,12 +374,12 @@ def insert_slot():
  
         slotDate = request.form['slotDate']
         slotTime = request.form['slotTime']
+        totalSlots = request.form['totalSlots']
+        availableSlots = totalSlots
          
-        my_data = Time_slot(slotDate, slotTime)
+        my_data = Time_slot(slotDate, slotTime, totalSlots, availableSlots)
         db.session.add(my_data)
         db.session.commit()
- 
-        flash("Time slot inserted Successfully")
  
         return redirect(url_for('admin'))
 
@@ -374,9 +394,12 @@ def update_slot():
  
         my_data.slotDate = request.form['slotDate']
         my_data.slotTime = request.form['slotTime']
- 
+        #print(type(my_data.availableSlots ), type(request.form['totalSlots']), type(my_data.totalSlots))
+        my_data.availableSlots = my_data.availableSlots + int(request.form['totalSlots']) - my_data.totalSlots
+        my_data.totalSlots = int(request.form['totalSlots'])
+
         db.session.commit()
-        flash("Time slot Updated Successfully")
+  
  
         return redirect(url_for('admin'))
 
