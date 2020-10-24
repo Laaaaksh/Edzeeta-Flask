@@ -189,7 +189,7 @@ body ::-webkit-scrollbar-thumb:hover {
 .header-img {
   position: absolute;
   left: 0;
-  top: 54.29%;
+  top: 58.29%;
   width: 99.9%;
   height: 317px;
 }
@@ -895,6 +895,7 @@ label {
   color: #46494f;
   padding: 10px;
   text-align: left;
+  margin-bottom: 0;
 }
 
 .h1 {
@@ -1026,7 +1027,7 @@ label {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  top: 74%;
+  top: 76%;
 }
 
 .footer-imgg {
@@ -1036,7 +1037,7 @@ label {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 48%;
+  top: 50%;
 }
 
 .footer-links {
@@ -1044,7 +1045,7 @@ label {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-  top: 63%;
+  top: 67%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1065,7 +1066,7 @@ label {
 
 .footer-contact {
   position: absolute;
-  left: 50.5%;
+  left: 54%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   top: 86%;
@@ -1760,7 +1761,7 @@ label {
     -ms-flex-pack: justify;
     justify-content: space-between;
     width: 87%;
-    top: 65%;
+    top: 68%;
   }
   .footer-contact {
     position: absolute;
@@ -1774,7 +1775,9 @@ label {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    width: 70%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
   .footer-container {
     width: 320px;
@@ -1925,5 +1928,18 @@ label {
   margin-right: 8px;
   font-size: 20px;
   font-family: Overpass;
+}
+
+#testimonial_parenttag_one {
+  font-family: 'Overpass', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#testimonial_parenttag_two {
+  font-family: 'Overpass', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 0;
 }
 /*# sourceMappingURL=home.css.map */
