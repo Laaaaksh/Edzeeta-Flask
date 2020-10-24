@@ -148,6 +148,7 @@
            <form action="{{url_for('update_slot')}}" method="POST">
               
             <div class="form-group">
+               <label>Format: 21st,Dec </label>
                  <label>Slot Date:</label>
                   <input type="hidden"  name="slotId" value="{{row[0]}}">
                  <input type="text" class="form-control" name="slotDate" value="{{row[1]}}">
@@ -197,6 +198,7 @@
                        <form action="{{url_for('insert_slot')}}" method="POST">
                 
                           <div class="form-group">
+                           <label>Format: 21st,Dec </label>
                              <label>Slot Date:</label>
                              <input type="text" class="form-control" name="slotDate" required="1">
                           </div>

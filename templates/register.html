@@ -261,6 +261,7 @@
                   id="time"
                   data-toggle="modal"
                   data-target="#myModal"
+                  onclick="cap_me(  )"
                 >
                   Time Slot
                 </button>
@@ -374,7 +375,14 @@
     
                 <div class="d" id={{d}} onclick="fetch_date(this.id, '{{d}}',  )">
                   <li>
-                    <div class="month">{{d}}</div>
+                    {% set list1 = d.split(',') %}
+                     <div class="month"> {{list1[0]}}</div>
+                      <div > {{list1[1]}}</div>
+                
+                  
+                      
+                      
+                    <!-- <div class="month">{{d}}</div> -->
                   
                     
                     <p style="display: none;" class="index">{{myIndex}}</p>
@@ -390,11 +398,13 @@
                 {% for x in t   %}
 
 
-                  
+                  <div class="my_date_parent">
+                    <p  class="{{ myIndex2}} ">{{x}}</p>
+                    <h5  class="inde" >{{myIndex2}}</h5>
                     
-                  <p style="display: none;" class="{{myIndex2}}">{{x}}</p>
-                  <h5 style="display: none;">{{myIndex2}}</h5>
-                  
+                  </div>
+                    
+                 
 
 
                 {% endfor %}
@@ -412,28 +422,28 @@
 
             <div class="time_slot">
                <ul>
-                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                <div class="t delete" id="0" onclick="fetch_time(this.id)">
                   <li>--</li>
                 </div>
-                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                <div class="t delete" id="1" onclick="fetch_time(this.id)">
                   <li>--</li>
                 </div>
-                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                <div class="t delete" id="2" onclick="fetch_time(this.id)">
                   <li>--</li>
                 </div>
-                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                <div class="t delete" id="3" onclick="fetch_time(this.id)">
                   <li>--</li>
                 </div>
-                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                <div class="t delete" id="4" onclick="fetch_time(this.id)">
                   <li>--</li>
                 </div>
-                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                <div class="t delete" id="5" onclick="fetch_time(this.id)">
                   <li>--</li>
                 </div>
-                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                <div class="t delete" id="6" onclick="fetch_time(this.id)">
                   <li>--</li>
                 </div>
-                <div class="t delete" id="x" onclick="fetch_time(this.id)">
+                <div class="t delete" id="7" onclick="fetch_time(this.id)">
                   <li>--</li>
                 </div>
               </ul> 
@@ -532,6 +542,43 @@
   <!-------------Javascript------------>
 
   <script>
+    function cap_me()
+    {
+
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+
+      today = mm + '/' + dd + '/' + yyyy;
+     
+
+      var check=parseInt(dd);
+
+
+
+
+     
+
+       console.log("date is " + dd )
+      // console.log("cap me called")
+      var y =document.getElementsByClassName("month")
+      for (var i=0;i<y.length;i++)
+      {
+        //  console.log( y[i].innerHTML)
+        var s = y[i].innerHTML
+        s=s.slice(0,3 )
+         console.log(s)
+         
+        if(s==check)
+        {
+          // add delete me logic
+          console.log("delete me")
+        }
+        
+      }
+      
+    }
       function chatbox_open()
           {
             console.log("open")
@@ -626,16 +673,22 @@
       //   console.log(x[i].innerHTML)
       //   // date.push()
       // }
-      var y =document.getElementById(d).children[0].children[1].innerHTML
-      console.log(d)
-      console.log(y)
+      var y =document.getElementById(d).children[0].children[2].innerHTML
+      console.log("this is yy" )
+       console.log(y)
 
-      var z=document.getElementsByClassName(y)
+
+      var z=document.getElementsByClassName("my_date_parent")
+      console.log(z[0].children)
       for(var i=0;i<z.length; i++)
       {
-        console.log(z[i].innerHTML)
+        // console.log("this is value" +  z[i].children[0].innerHTML)
+        // console.log("this is index" + z[i].children[1].innerHTML)
 
+        console.log("this is d" + d)
       }
+
+
 
       var p= document.getElementsByClassName("time_slot")
       var q = p[0].children[0].children; //iterare over it
@@ -649,10 +702,36 @@
       }
 
 
-
-      for(var i=0; i<q.length; i++)
+      var c=0;
+      for(var i=0; i<z.length; i++)
       {
-        console.log(q[i].children[0].innerHTML)
+        
+        if (y==z[i].children[1].innerHTML)
+        {
+         
+          
+          console.log(z[i].children[1])
+          c=c+1;
+          console.log(c)
+
+          // console.log(z[i].children[0].innerHTML)
+          date.push(z[i].children[0].innerHTML)
+         
+        }
+       
+
+        
+
+
+        // if (y==z[i].children[1].innerHTML)
+        // {
+        //     console.log(z[i].children[1])
+
+
+                
+        //   q[i].children[0].innerHTML=z[i].children[0].innerHTML
+        // }
+        // console.log( "this is q " +q[i].children[0].innerHTML)
 
         //   for(var j=0;j<z.length; j++)
         // {
@@ -660,14 +739,19 @@
 
         // }
 
-        q[i].children[0].innerHTML=z[i].innerHTML
+        // q[i].children[0].innerHTML=z[i].innerHTML
 
-        console.log(  q[i].children[0].parentElement)
-        q[i].children[0].parentElement.id=z[i].innerHTML
-        q[i].children[0].parentElement.classList.remove("delete") 
-          var elmnt = document.getElementsByClassName("delete");
-        //  elmnt.remove();
-         console.log(elmnt)
+        // console.log(  q[i].children[0].parentElement)
+        // q[i].children[0].parentElement.id=z[i].innerHTML
+        // q[i].children[0].parentElement.classList.remove("delete") 
+        //   var elmnt = document.getElementsByClassName("delete");
+        // //  elmnt.remove();
+        //  console.log(elmnt)
+      } 
+      console.log(date)
+      for(var i=0;i<date.length;i++)
+      {
+        q[i].children[0].innerHTML=date[i]
       }
       
       
@@ -680,11 +764,18 @@
 
     /*---------- Selecting time ---------*/
     function fetch_time(selected_id) {
+      var p= document.getElementsByClassName("time_slot")
+      var q = p[0].children[0].children;
       if (selected_time != null) {
         document.getElementById(selected_time).style.border = "0px";
       }
       document.getElementById(selected_id).style.border = "3px solid black";
       selected_time = selected_id;
+     
+      console.log(selected_id)
+      console.log(q[selected_id].children[0].innerHTML)
+      selected_time = selected_id;
+      
     }
 
     /*------------Initializing the Date and time ------------*/
