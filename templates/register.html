@@ -119,6 +119,12 @@
   <strong>Error  </strong> You have already registered for a free class!
 </div>
 
+<p id="flagg_3" style="display: none;">{{msg3}}</p>
+<div class="alert alert-danger alert-dismissible a" id="e_two" style="display: none;" >
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  {{msg3}}
+</div>
+
 <p id="flagg" style="display: none;">{{msg2}}</p>
 
 <div class="alert alert-success alert-dismissible a" id="ss" style="display: none;">
@@ -241,7 +247,7 @@
                   <option value="" disabled="disabled">
                     <p>Select Course</p>
                   </option>
-                  <option value="Scratch Programmming">Scratch Programmming</option>
+                  <option value="Scratch Programming">Scratch Programmming</option>
                   <option value="App Inventor">App Inventor</option>
                   <option value="Web Development">Web Development</option>
                   <option value="Python Programming">Python Programming</option>
@@ -636,6 +642,12 @@
         console.log(test)
       }
 
+      var count_error = document.getElementById("flagg_3").innerHTML
+      if(count_error=="Slot already full! Choose another slot")
+      {
+        document.getElementById("e_two").style.display = "block";
+      }
+
     }
     var selected_date = null;
     var selected_time = null;
@@ -774,7 +786,7 @@
      
       console.log(selected_id)
       console.log(q[selected_id].children[0].innerHTML)
-      selected_time = selected_id;
+      selected_time = q[selected_id].children[0].innerHTML;
       
     }
 

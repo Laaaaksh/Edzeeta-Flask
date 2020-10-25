@@ -7,7 +7,7 @@ from main import Callback, Student_book, Course, Time_slot
 db.create_all()
 
 #Write details for courses
-course1 = Course(courseName = "Scratch Programmming")
+course1 = Course(courseName = "Scratch Programming")
 db.session.add(course1)
 course2 = Course(courseName = "App Inventor")
 db.session.add(course2)

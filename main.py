@@ -9,6 +9,8 @@ from flask_mail import Mail, Message
 import collections
 #from twilio.rest import Client
 
+admin_id = "/"+ str(uuid.uuid1()) 
+
 
 app = Flask(__name__) #App instance
 app.static_folder = 'static'
@@ -216,7 +218,7 @@ def register():
     '''
 
     '''
-    return render_template('register.html', result = result, date = date, time = time, msg = "0")
+    return render_template('register.html', result = result, date = date, time = time, msg = "0",msg3= "0")
 
 @app.route('/register',methods=['POST'])
 def register_post():
@@ -229,60 +231,6 @@ def register_post():
     slotDate = request.form.get('slotDate') 
     slotTime = request.form.get('slotTime') 
     laptop = request.form.get('laptop')     
-    print(parentName, emailId, phoneNo, childName, age, courseName, slotDate, slotTime, laptop)
-    sql_q=text('select courseId from Course where Course.courseName = :courseName')
-    result = db.engine.execute(sql_q, courseName = courseName)
-    result = list(result)
-    courseId = result[0][0]
-    if laptop is None:
-        laptop = 0
-    sql_q2 = text('select * from book where book.emailId = :emailId or book.phoneNo =:phoneNo')
-    result2 = db.engine.execute(sql_q2, emailId = emailId, phoneNo = phoneNo)
-    result2 = list(result2)
-    sql_q3 = text('select slotId,availableSlots from Time_slot where Time_slot.slotTime = :slotTime')
-    result3 = db.engine.execute(sql_q3, slotTime = slotTime)
-    result3 = list(result3)
-    availableSlots = result3[0][0]
-    slotId = result3[0][1]
-    if availableSlots >= 1:
-        availableSlots -= 1
-        my_data1 = Time_slot.query.filter_by(slotTime = slotTime).first()
-        my_data1.availableSlots = availableSlots
-        db.session.commit()
-  
-    if availableSlots == 0:
-        my_data = Time_slot.query.filter_by(slotTime = slotTime).first()
-        db.session.delete(my_data)
-        db.session.commit()
-
-    if result2:
-        msg_to_send = "You have already registered for a Trial class!"
-    else:
-        msg_to_send = "Hey " + str(childName)+ "!  Your Free Trial Class is Booked."
-        student_book_ = Student_book(childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
-        db.session.add(student_book_)
-        db.session.commit()
-    
-    if courseName == "Scratch Programmming":
-        mailCont = scratch
-    if courseName == "App Inventor":
-        mailCont = app_d
-    if courseName == "Web Development":
-        mailCont = web
-    if courseName == "Python Programming":
-        mailCont = python_
-            
-    
-    #Email functionality
-    if not result2:
-        with app.app_context():
-           msg = Message(subject="Booking confirmation",
-                          sender=app.config.get("MAIL_USERNAME"),
-                          recipients=[emailId], # replace with your email for testing
-                            body= "Hey "+ childName +"! Welcome to EdZeeta's " + courseName + " course!\n\nThanks for choosing EdZeeta Learning. During the demo session your kid will be exposed to "+courseName + mailCont +"\n"+ end_content)
-           mail.send(msg)
-   
-  
     sql_q=text('select slotTime,slotDate from Time_slot')
     result = db.engine.execute(sql_q)
     result = list(result)
@@ -301,7 +249,71 @@ def register_post():
         date1 = row[1]
         ind = date.index(date1)
         time[ind].append(row[0])
-    return render_template('register.html', msg = msg_to_send, result = result, date = date, time = time)
+    print(parentName, emailId, phoneNo, childName, age, courseName, slotDate, slotTime, laptop)
+    sql_q=text('select courseId from Course where Course.courseName = :courseName')
+    result = db.engine.execute(sql_q, courseName = courseName)
+    result = list(result)
+    courseId = result[0][0]
+    if laptop is None:
+        laptop = 0
+    sql_q2 = text('select * from book where book.emailId = :emailId or book.phoneNo =:phoneNo')
+    result2 = db.engine.execute(sql_q2, emailId = emailId, phoneNo = phoneNo)
+    result2 = list(result2)
+    sql_q3 = text('select slotId,availableSlots from Time_slot where Time_slot.slotTime = :slotTime')
+    result3 = db.engine.execute(sql_q3, slotTime = slotTime)
+    result3 = list(result3)
+    if not result3:
+        msg_to_send2 = "Slot already full! Choose another slot"
+        return render_template('register.html', msg = "0",msg3 = msg_to_send2 , result = result, date = date, time = time)
+    msg_to_send2 = "0"
+    print(result3, slotTime)
+    availableSlots = result3[0][1]
+    slotId = result3[0][0]
+    if result2:
+        msg_to_send = "You have already registered for a Trial class!"
+    else:
+        msg_to_send = "Hey " + str(childName)+ "!  Your Free Trial Class is Booked."
+        student_book_ = Student_book(childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
+        db.session.add(student_book_)
+        db.session.commit()
+
+
+
+    if availableSlots >= 1:
+        availableSlots -= 1
+        my_data1 = Time_slot.query.filter_by(slotTime = slotTime).first()
+        my_data1.availableSlots = availableSlots
+        db.session.commit()
+  
+    if availableSlots == 0:
+        my_data = Time_slot.query.filter_by(slotTime = slotTime).first()
+        db.session.delete(my_data)
+        db.session.commit()
+
+
+    
+    if courseName == "Scratch Programming":
+        mailCont = scratch
+    if courseName == "App Inventor":
+        mailCont = app_d
+    if courseName == "Web Development":
+        mailCont = web
+    if courseName == "Python Programming":
+        mailCont = python_
+            
+    
+    # #Email functionality
+    # if not result2:
+    #     with app.app_context():
+    #        msg = Message(subject="Booking confirmation",
+    #                       sender=app.config.get("MAIL_USERNAME"),
+    #                       recipients=[emailId], # replace with your email for testing
+    #                         body= "Hey "+ childName +"! Welcome to EdZeeta's " + courseName + " course!\n\nThanks for choosing EdZeeta Learning. During the demo session your kid will be exposed to "+courseName + mailCont +"\n"+ end_content)
+    #        mail.send(msg)
+   
+  
+    
+    return render_template('register.html', msg = msg_to_send,msg3 = msg_to_send2 , result = result, date = date, time = time)
 
 
 @app.route('/blogs')
@@ -325,8 +337,20 @@ def course3():
 def course4():
     return render_template("course4.html")
 
+@app.route('/adminLogin', methods = ["GET", "POST"])
+def adminLogin():
+    if request.method == "GET":
+        return render_template("login.html")
 
-@app.route('/admin')
+    if request.method == "POST":
+        password = request.form['password']
+        correct_pass = ["admin@edzeeta99"]
+        if password == "admin@edzeeta99" or not password:
+            return redirect(url_for('admin'))
+        else:
+            return render_template("login.html")
+
+@app.route(admin_id)
 def admin():
     sql1 = text('select * from course') 
     sql2 = text('select * from book')
@@ -347,7 +371,7 @@ def admin():
 
 
 
-@app.route('/admin', methods=['POST'])
+@app.route(admin_id, methods=['POST'])
 def admin_post():
     sql1 = text('select * from course') 
     sql2 = text('select * from book')

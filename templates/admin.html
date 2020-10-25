@@ -15,7 +15,9 @@
 </head>
   
 
+
 <body>
+   <!--IF Msg==1-->
     <center>
       <h1>Course Table</h1>
         <table  table class="table table-striped" style="width:60%">
@@ -309,7 +311,7 @@
     <center>
       {% if res4 == '0' %}
       <h1>Get Course Wise Students</h1>
-      <form action="http://localhost:5000/admin",  method ="POST">
+      <form action="#",  method ="POST">
         <label for="name">Course Name:</label><br>
         <input type="text" id="name" name="courseName" value="" required><br>
         <input type="submit" value="Submit">
@@ -354,6 +356,8 @@
                      {% endfor %}
         </table>
     </center>	
+
+   <!--else: Login code-->
 
     {% endif %}
 </body>
