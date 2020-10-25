@@ -112,78 +112,81 @@
 
     <center>
       <h1>Time Slot Table</h1>
-      <table  table class="table table-striped" style="width:60%">
-                   <tr>
-                     <th>Slot Id</th>
-                     <th>Slot Date</th>
-                     <th>Slot Time</th>
-                     <th>Total Vacancies</th>
-                     <th>Available Vacancies</th>
-                     <th><a href="/delete_slot_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
-                     <th><button type="button"  class="btn btn-success float-right"
-                      data-toggle="modal" data-target="#mymodal">Add New Slot</button></th>
-                    </tr>
-                   
-                   {% for row in res5 %}
-                   <tr>
-                     <td>{{row[0]}}</td>
-                     <td>{{row[1]}}</td>
-                     <td>{{row[2]}}</td>
-                     <td>{{row[3]}}</td>
-                     <td>{{row[4]}}</td>
-                     
-                     <td>
-                      <td><a href="/update_slot/{{row[0]}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row[0]}}">Edit</a></td>
-                      <td><a href="/delete_slot/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
-                  </td>
-                   </tr>
-                  
-                                     <!-- Modal Edit Slot-->
-<div id="modaledit{{row[0]}}" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-     <div class="modal-content">
-        <div class="modal-header">
-           <h4 class="modal-title">Update Information</h4>
-        </div>
-
-        <div class="modal-body">
-           <form action="{{url_for('update_slot')}}" method="POST">
+      <div class="time_slot_parent" style="height: 592.800px;  width: 1112.800px; overflow-y: scroll;">
+         <table  table class="table table-striped" style="width:82%">
+            <tr>
+              <th>Slot Id</th>
+              <th>Slot Date</th>
+              <th>Slot Time</th>
+              <th>Total Vacancies</th>
+              <th>Available Vacancies</th>
+              <th><a href="/delete_slot_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
+              <th><button type="button"  class="btn btn-success float-right"
+               data-toggle="modal" data-target="#mymodal">Add New Slot</button></th>
+             </tr>
+            
+            {% for row in res5 %}
+            <tr>
+              <td>{{row[0]}}</td>
+              <td>{{row[1]}}</td>
+              <td>{{row[2]}}</td>
+              <td>{{row[3]}}</td>
+              <td>{{row[4]}}</td>
               
-            <div class="form-group">
-               <label>Format: 21st,Dec </label>
-                 <label>Slot Date:</label>
-                  <input type="hidden"  name="slotId" value="{{row[0]}}">
-                 <input type="text" class="form-control" name="slotDate" value="{{row[1]}}">
-              </div>
+              <td>
+               <td><a href="/update_slot/{{row[0]}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row[0]}}">Edit</a></td>
+               <td><a href="/delete_slot/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
+           </td>
+            </tr>
+           
+                              <!-- Modal Edit Slot-->
+<div id="modaledit{{row[0]}}" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+ <div class="modal-header">
+    <h4 class="modal-title">Update Information</h4>
+ </div>
 
-              <div class="form-group">
-                 <label>Slot Time:</label>
-                 <input type="text" class="form-control" name="slotTime" value="{{row[2]}}">
-              </div>
+ <div class="modal-body">
+    <form action="{{url_for('update_slot')}}" method="POST">
+       
+     <div class="form-group">
+        <label>Format: 21st,Dec </label>
+          <label>Slot Date:</label>
+           <input type="hidden"  name="slotId" value="{{row[0]}}">
+          <input type="text" class="form-control" name="slotDate" value="{{row[1]}}">
+       </div>
 
-              <div class="form-group">
-               <label>Total Vacancies:</label>
-               <input type="number" class="form-control" name="totalSlots" value="{{row[3]}}">
-            </div>
+       <div class="form-group">
+          <label>Slot Time:</label>
+          <input type="text" class="form-control" name="slotTime" value="{{row[2]}}">
+       </div>
 
-              <div class="form-group">
-                 <button class="btn btn-primary" type="submit">Update</button>
-              </div>
+       <div class="form-group">
+        <label>Total Vacancies:</label>
+        <input type="number" class="form-control" name="totalSlots" value="{{row[3]}}">
+     </div>
 
-            </form>
+       <div class="form-group">
+          <button class="btn btn-primary" type="submit">Update</button>
+       </div>
 
-        </div>
+     </form>
 
-        <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-     
-        </div>
-  </div>
+ </div>
+
+ <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+   </div>
+
+ </div>
 </div>
-                   {% endfor %}
-                   
-      </table>
+</div>
+            {% endfor %}
+            
+</table>
+      </div>
+    
      
             
         <!-- Modal Add Time Slot-->
@@ -235,76 +238,82 @@
 
     <center>
       <h1>Registration Table</h1>
-        <table  table class="table table-striped" style="width:60%">
-                     <tr>
-                       <th>Child Id</th>
-                       <th>Child Name</th>
-                       <th>Parent Name</th>
-                       <th>Phone No.</th>
-                       <th>Email Id</th>
-                       <th>Age</th>
-                       <th>Course Name</th>
-                       <th>Course Id</th>
-                       <th>Date</th>
-                       <th>Time</th>
-                       <th>Laptop</th>
-                       <th> <a href="/delete_student_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
-                     </tr>
-                     
+      <div class="registration_parent"  style="height: 592.800px; width: 1308.8px; overflow-y: scroll;" >
+         <table  table class="table table-striped" style="width:60%">
+            <tr>
+              <th>Child Id</th>
+              <th>Child Name</th>
+              <th>Parent Name</th>
+              <th>Phone No.</th>
+              <th>Email Id</th>
+              <th>Age</th>
+              <th>Course Name</th>
+              <th>Course Id</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Laptop</th>
+              <th> <a href="/delete_student_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
+            </tr>
+            
 <!--childId = str(uuid.uuid1())
-    parentName = request.form.get('parentName')
-    emailId = request.form.get('emailId')
-    phoneNo = request.form.get('phoneNo')
-    childName = request.form.get('childName')
-    age = request.form.get('age')
-    courseName = request.form.get('courseName')
-    slotDate = request.form.get('slotDate') #Add to db
-    slotTime = request.form.get('slotTime') #Add to db
-    laptop = request.form.get('laptop') #Add to db   -->
+parentName = request.form.get('parentName')
+emailId = request.form.get('emailId')
+phoneNo = request.form.get('phoneNo')
+childName = request.form.get('childName')
+age = request.form.get('age')
+courseName = request.form.get('courseName')
+slotDate = request.form.get('slotDate') #Add to db
+slotTime = request.form.get('slotTime') #Add to db
+laptop = request.form.get('laptop') #Add to db   -->
 
 
-                     {% for row in res2 %}
-                     <tr>
-                       <td>{{row[0]}}</td>
-                       <td>{{row[1]}}</td>
-                       <td>{{row[2]}}</td>
-                       <td>{{row[3]}}</td>
-                       <td>{{row[4]}}</td>
-                       <td>{{row[5]}}</td>
-                       <td>{{row[6]}}</td>
-                       <td>{{row[7]}}</td>
-                       <td>{{row[8]}}</td>
-                       <td>{{row[9]}}</td>
-                       <td>{{row[10]}}</td>
-                       <td><a href="/delete_student/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
-                     </tr>
-                     {% endfor %}
-                    
-        </table>
+            {% for row in res2 %}
+            <tr>
+              <td>{{row[0]}}</td>
+              <td>{{row[1]}}</td>
+              <td>{{row[2]}}</td>
+              <td>{{row[3]}}</td>
+              <td>{{row[4]}}</td>
+              <td>{{row[5]}}</td>
+              <td>{{row[6]}}</td>
+              <td>{{row[7]}}</td>
+              <td>{{row[8]}}</td>
+              <td>{{row[9]}}</td>
+              <td>{{row[10]}}</td>
+              <td><a href="/delete_student/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+           
+</table>
+      </div>
+       
     </center>	
 
     <center>
       <h1>Callback Table</h1>
-        <table table class="table table-striped" style="width:60%">
-                     <tr>
-                       <th>Callback Id</th>
-                       <th>Name</th>
-                       <th>Phone No.</th>
-                       <th>Time</th>
-                       <th> <a href="/delete_callback_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
-                     </tr>
-                     
-                     {% for row in res3 %}
-                     <tr>
-                       <td>{{row[0]}}</td>
-                       <td>{{row[1]}}</td>
-                       <td>{{row[2]}}</td>
-                       <td>{{row[3]}}</td>
-                       <td><a href="/delete_callback/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
-                    </tr>
-                     {% endfor %}
-                    
-        </table>
+      <div class="callback_parent"  style="height: 592.800px; width: 1112.800px; overflow-y: scroll;">
+         <table table class="table table-striped" style="width:60%">
+            <tr>
+              <th>Callback Id</th>
+              <th>Name</th>
+              <th>Phone No.</th>
+              <th>Time</th>
+              <th> <a href="/delete_callback_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
+            </tr>
+            
+            {% for row in res3 %}
+            <tr>
+              <td>{{row[0]}}</td>
+              <td>{{row[1]}}</td>
+              <td>{{row[2]}}</td>
+              <td>{{row[3]}}</td>
+              <td><a href="/delete_callback/{{row[0]}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a></td>
+           </tr>
+            {% endfor %}
+           
+</table>
+      </div>
+    
     </center>	
 
     

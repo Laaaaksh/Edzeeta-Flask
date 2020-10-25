@@ -568,9 +568,7 @@
     <div class="grid-item grid-item-5">
       <h1 class="h1">What Our Students Are Up To</h1>
       <p class="p">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, eum.
-        Repellendus eaque expedita sunt deleniti, nihil corrupti tempora ut
-        dolore, perferendis architecto explicabo illo ipsam?
+        Here are some interesting projects by our students, enrol now to see your kids start creating their own.
       </p>
       <div class="scratch">
         <ul class="scratch-ul">
@@ -675,10 +673,14 @@
           </div>
           <div class="modal-body">
             <div class="form-group input-group">
-              <label class="call_phone">Phone Number</label>
-              <label for="">test</label>
-              <input name="phoneNo" class="form-control call_request" type="tel" pattern="[0-9]{10}"
+              <!-- <label class="call_phone">Phone Number</label>
+              <label for="">test</label> -->
+              <p style="font-weight: bold;">Phone Number</p>
+              <div class="phoneno_parent" style=" position: absolute;    left: 50%; " >
+                <input name="phoneNo" class="form-control call_request" type="tel" pattern="[0-9]{10}"
                 title="Enter 10 digit number" oninput="this.setCustomValidity('')" required />
+              </div>
+    
             </div>
 
             <div class="form-group input-group" style="display: none;">
@@ -687,13 +689,19 @@
             </div>
 
             <div class="form-group input-group">
-              <label class="call_date">Date</label>
-              <input name="date" class="form-control call_request" type="date" required />
+              <!-- <label class="call_date">Date</label> -->
+              <p  style="font-weight: bold;" >Date</p>
+              <div class="date_parent"  style=" position: absolute;    left: 50%; width: 156px; " ><input name="date" class="form-control call_request" type="date" required /></div>
+              
             </div>
 
             <div class="form-group input-group">
-              <label class="call_time">Time</label>
-              <input name="time" class="form-control call_request" type="time" required />
+              <!-- <label class="call_time">Time</label> -->
+              <p style="font-weight: bold;" >Time</p>
+              <div class="time_parent"  style=" position: absolute;    left: 50%; "  >
+                <input name="time" class="form-control call_request" type="time" required />
+              </div>
+            
             </div>
           </div>
           <div class="modal-footer">
