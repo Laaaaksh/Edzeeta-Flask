@@ -282,7 +282,7 @@
                   value="Register"
                   onclick="validate()"
                 />
-                <div class="disclaimer">
+                <div style="display: none;" class="disclaimer">
                   <a href="./Termify _ Generate Terms & Conditions.html"
                     >By registering, I agree to Edzeeta Terms & Conditions and
                     Privacy Policy</a
@@ -398,9 +398,9 @@
                 {% for x in t   %}
 
 
-                  <div class="my_date_parent">
-                    <p  class="{{ myIndex2}} ">{{x}}</p>
-                    <h5  class="inde" >{{myIndex2}}</h5>
+                  <div class="my_date_parent" > 
+                    <p style="display:none;" class="{{ myIndex2}} ">{{x}}</p>
+                    <h5 style="display:none;" class="inde" >{{myIndex2}}</h5>
                     
                   </div>
                     
@@ -567,8 +567,8 @@
       {
         //  console.log( y[i].innerHTML)
         var s = y[i].innerHTML
-        s=s.slice(0,3 )
-         console.log(s)
+        s=s.slice(0,3)
+         console.log("this is  s"+s)
          
         if(s==check)
         {

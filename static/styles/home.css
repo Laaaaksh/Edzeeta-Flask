@@ -46,6 +46,10 @@ body ::-webkit-scrollbar-thumb:hover {
   width: 986px;
 }
 
+#hide_header_img_2 {
+  display: none;
+}
+
 .grid-container {
   display: -ms-grid;
   display: grid;
@@ -442,6 +446,19 @@ label {
 }
 
 @media screen and (max-width: 700px) {
+  #hide_header_img_1 {
+    display: none;
+  }
+  #hide_header_img_2 {
+    display: block;
+  }
+  .header-img {
+    position: absolute;
+    left: 0;
+    top: 46.29%;
+    width: 99.9%;
+    height: 317px;
+  }
   .cb {
     height: 75px;
     width: 75px;
