@@ -1188,10 +1188,13 @@ label {
     text-align: center;
     margin: 0;
     position: absolute;
-    top: 12%;
+    top: 9%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
   .list-flexbox {
     margin-top: 72px;

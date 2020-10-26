@@ -264,7 +264,7 @@
                   <option value="Python Programming">Python Programming</option>
                 </select>
                 <span class="course-link"
-                  ><a href="./parent_course.html" class="btn"
+                  ><a href="courses" class="btn"
                     >View All Courses</a
                   ></span
                 >
@@ -533,6 +533,7 @@
             </div>
           </div>
           <div class="modal-footer">
+            <!-- <p id="req_validate">Give Correct Input</p> -->
             <input type="submit" class="btn" id="request" value="Request" name="r" onclick="request_call()" />
           </div>
         </div>
@@ -772,6 +773,7 @@
 
     /*---------- Selecting time ---------*/
     function fetch_time(selected_id) {
+
       console.log("im called")
       console.log(selected_time)
       var p= document.getElementsByClassName("time_slot")
@@ -780,7 +782,19 @@
         //  q[x].children[0].style.border = "0px";
          q[x].children[0].parentElement.style.border = "0px";
       }
-      document.getElementById(selected_id).style.border = "3px solid black";
+      console.log("x")
+      //  console.log(document.getElementById(selected_id).children[0].innerHTML)
+      if(document.getElementById(selected_id).children[0].innerHTML=="--")
+      {
+        document.getElementById(selected_id).style.border = "0px";
+      }
+      else{
+        document.getElementById(selected_id).style.border = "3px solid black";
+      }
+      
+      
+      
+     
       
      
       console.log(selected_id)
@@ -788,6 +802,7 @@
        
       selected_time = q[selected_id].children[0].innerHTML;
        x=selected_id
+
     }
 
     /*------------Initializing the Date and time ------------*/
@@ -838,7 +853,7 @@
         phone = inp[0].value;
         date = inp[1].value;
         time = inp[2].value;
-        $("#myModal1").modal("hide");
+        // $("#myModal1").modal("hide");
       }
     }
   </script>
