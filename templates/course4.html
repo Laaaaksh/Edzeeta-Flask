@@ -21,73 +21,68 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 </head>
 <body onload="my_alert()">
    <!--Navbar-->
-<div class="nav">
+   <div class="nav">
     <div class="two">
-      <a href="/">  <img src="../static/images/edzetta original logo.png" alt="" /> </a>
-  </div>
-  
-    <div  id="overlay">
-      
-      <div class="navcard">
-        
-      </div>
-          
-  </div>
-  
-  
-  
-    
-    
-  
-  <div class="hb">
-    <a id="btnhb" href="#" class="hamburger hide-for-dekstop ">
-      <span></span>
-      <span></span>
-      <span></span> 
-    </a>
-  </div>
-  
-  
-  
-  <div class="one">
-    <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
-    <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
-    <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
-    <p>ABOUT</p>
-  </div>
-    <div class="three">
-      <img src="../static/images/PHONE 1.png" alt="">
-      <p class="call"
-      data-toggle="modal"
-      data-target="#myModal1"
-      style="cursor: pointer;     color: #195ED8;
-      text-align: center;
-      font-family: 'Overpass', sans-serif;">Request Callback</p>
+      <a href="/"><img src="../static/images/edzetta original logo.png" alt="" /> 
+      </a> 
     </div>
-    
-  
-  </div>
-  
-  <div id="hm" class="header__menu hide-for-dekstop hide-for-mobile">
-    <a href="/" style="text-decoration: none;"> <p>HOME</p></a>
-      <a href="courses" style="text-decoration: none;"> <p>COURSES</p></a>
-      <a href="blogs" style="text-decoration: none;"> <p>BLOG</p></a>
-      <a href="./about.html" style="text-decoration: none;"> <p>ABOUT</p></a>
-      <p
-      class="call"
-      data-toggle="modal"
-      data-target="#myModal1"
-      style="cursor: pointer;     color: #195ED8;
-      text-align: center;
-      font-family: 'Overpass', sans-serif;"
-    >
-      REQUEST A CALLBACK
-    </p>
-      
-  </div>
-  
-  <!--End of Navbar-->
 
+    <div id="overlay">
+      <div class="navcard"></div>
+    </div>
+
+    <div class="hb">
+      <a id="btnhb" href="#" class="hamburger hide-for-dekstop">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+
+    <div class="one">
+      <a href="/" style="text-decoration: none">
+        <p>Home</p>
+      </a>
+      <a href="courses" style="text-decoration: none">
+        <p>Courses</p>
+      </a>
+      <a href="blogs" style="text-decoration: none">
+        <p>Blogs</p>
+      </a>
+      <p>About</p>
+    </div>
+
+    <div class="three">
+      <img src="../static/images/PHONE 1.png" alt="" />
+      <p class="call" data-toggle="modal" data-target="#myModal1" style="cursor: pointer">
+        Request Callback
+      </p>
+    </div>
+  </div>
+
+  <div id="hm" class="header__menu hide-for-dekstop hide-for-mobile">
+    <a href="/" style="text-decoration: none">
+      <p>Home</p>
+    </a>
+    <a href="courses" style="text-decoration: none">
+      <p>Course</p>
+    </a>
+    <a href="blogs" style="text-decoration: none">
+      <p>Blogs</p>
+    </a>
+    <a href="./about.html" style="text-decoration: none">
+      <p>About</p>
+    </a>
+    <a href="./about.html" style="text-decoration: none"></a>
+    <p class="call" data-toggle="modal" data-target="#myModal1" style="cursor: pointer;     color: #195ED8;
+          text-align: center;
+          font-family: 'Overpass', sans-serif;">
+      Request Callback
+    </p>
+
+  </div>
+
+  <!--End of Navbar-->
     <!--Course icon-->
     <div class="banner">
            <div class="imgbx">
@@ -367,14 +362,14 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       </script>
 
      
-  <!--------Modal for CallBack-------->
+  <!--------Modal for Callback-------->
   <div class="modal fade" id="myModal1" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <form action="/callback" method="post">
         <div class="modal-content">
           <div class="modal-header">
-            <h4>Request for a CallBack</h4>
+            <h4>Request for a Callback</h4>
             <button type="button" class="close" data-dismiss="modal" style="outline: 0px; position: absolute;
             left: 87%;">
               &times;
@@ -386,7 +381,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               <label for="">test</label> -->
               <p style="font-weight: bold;">Phone Number</p>
               <div class="phoneno_parent" style=" position: absolute;    left: 50%; " >
-                <input name="phoneNo" class="form-control call_request" type="tel" pattern="[0-9]{10}"
+                <input name="phoneNo" class="form-control call_request" type="tel" pattern="[0-9]{10}||[+][0-9]{12}||[0][0-9]{10}"
                 title="Enter 10 digit number" oninput="this.setCustomValidity('')" required />
               </div>
     
@@ -421,7 +416,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     </div>
   </div>
       
-    <!----------------- Request for CallBack Popup---------- -->
+    <!----------------- Request for Callback Popup---------- -->
     <script>
       var date, time, phone;
       function request_call() {

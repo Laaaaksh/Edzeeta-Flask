@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../static/styles/home.css" />
+  <title>Admin</title>
+</head>
+  
+
+
+
+
+
+
+<body  onload="my_alert()" >
+
+    <p id="flag" style="display: none;">{{msg2}}</p>
+
+    <div class="alert alert-success alert-dismissible a" id="s" style="display: none;">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close" style="top: -60px;">&times;</a>
+      Callback Request Sent
+    </div>
+
+    <!--Navbar-->
+    <div class="nav">
+        <div class="two">
+          <a href="/"><img src="../static/images/edzetta original logo.png" alt="" /> 
+          </a> 
+        </div>
+    
+        <div id="overlay">
+          <div class="navcard"></div>
+        </div>
+    
+        <div class="hb">
+          <a id="btnhb" href="#" class="hamburger hide-for-dekstop">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+    
+        <div class="one">
+          <a href="/" style="text-decoration: none">
+            <p>Home</p>
+          </a>
+          <a href="courses" style="text-decoration: none">
+            <p>Courses</p>
+          </a>
+          <a href="blogs" style="text-decoration: none">
+            <p>Blogs</p>
+          </a>
+          <p>About</p>
+        </div>
+    
+        <div class="three">
+          <img src="../static/images/PHONE 1.png" alt="" />
+          <p class="call" data-toggle="modal" data-target="#myModal1" style="cursor: pointer">
+            Request Callback
+          </p>
+        </div>
+      </div>
+    
+      <div id="hm" class="header__menu hide-for-dekstop hide-for-mobile">
+        <a href="/" style="text-decoration: none">
+          <p>Home</p>
+        </a>
+        <a href="courses" style="text-decoration: none">
+          <p>Course</p>
+        </a>
+        <a href="blogs" style="text-decoration: none">
+          <p>Blogs</p>
+        </a>
+        <a href="./about.html" style="text-decoration: none">
+          <p>About</p>
+        </a>
+        <a href="./about.html" style="text-decoration: none"></a>
+        <p class="call" data-toggle="modal" data-target="#myModal1" style="cursor: pointer;     color: #195ED8;
+              text-align: center;
+              font-family: 'Overpass', sans-serif;">
+          Request Callback
+        </p>
+    
+      </div>
+    
+      <!--End of Navbar-->
+
+      <img  style="
+        margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        
+        transform: translate(-50%, -16%);
+    " src="https://www.wallpaperup.com/uploads/wallpapers/2014/09/26/457772/a5c2196861eefa67304824c2e5aba773-700.jpg" alt="">
+ <!--------Modal for Callback-------->
+ <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <form action="/callback" method="post">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Request for a Callback</h4>
+            <button type="button" class="close" data-dismiss="modal" style="outline: 0px; position: absolute;
+            left: 87%;">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group input-group">
+              <!-- <label class="call_phone">Phone Number</label>
+              <label for="">test</label> -->
+              <p style="font-weight: bold;">Phone Number</p>
+              <div class="phoneno_parent" style=" position: absolute;    left: 50%; " >
+                <input name="phoneNo" class="form-control call_request" type="tel" pattern="[0-9]{10}||[+][0-9]{12}||[0][0-9]{10}"
+                title="Enter 10 digit number" oninput="this.setCustomValidity('')" required />
+              </div>
+    
+            </div>
+
+            <div class="form-group input-group" style="display: none;">
+              <label class="call_phone">Phone Number</label>
+              <input class="form-control call_request" type="text" name="formName" value="error" />
+            </div>
+
+            <div class="form-group input-group">
+              <!-- <label class="call_date">Date</label> -->
+              <p  style="font-weight: bold;" >Date</p>
+              <div class="date_parent"  style=" position: absolute;    left: 50%; width: 156px; " ><input name="date" class="form-control call_request" type="date" required /></div>
+              
+            </div>
+
+            <div class="form-group input-group">
+              <!-- <label class="call_time">Time</label> -->
+              <p style="font-weight: bold;" >Time</p>
+              <div class="time_parent"  style=" position: absolute;    left: 50%; "  >
+                <input name="time" class="form-control call_request" type="time" required />
+              </div>
+            
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" class="btn" id="request" value="Request" name="r" onclick="request_call()" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!----------------- Request for Callback Popup---------- -->
+  <script>
+    var date, time, phone;
+    function request_call() {
+      var inp = document.getElementsByClassName("call_request");
+      if (inp[0].value != "" && inp[1].value != "" && inp[2].value != "") {
+        phone = inp[0].value;
+        date = inp[1].value;
+        time = inp[2].value;
+        $("#myModal1").modal("hide");
+      }
+    }
+
+    function my_alert() {
+          console.log("called")
+          var x = document.getElementById("flag").innerHTML
+
+          console.log(x)
+          if (x == "Success") {
+            var s = document.getElementById('s')
+            s.style.display = "block";
+          }
+
+
+        }
+
+  </script>
+</body>
+</html>

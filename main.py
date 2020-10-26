@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash, redirect, request
+from flask import Flask, render_template, url_for, flash, redirect, request, session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from datetime import datetime
@@ -107,13 +107,31 @@ class Course(db.Model):
         self.courseName = courseName
 
 
+def unique(list1): 
+  
+    # intilize a null list 
+    unique_list = [] 
+    # traverse for all elements 
+    for x in list1: 
+        # check if exists in unique_list or not 
+        if x not in unique_list: 
+            unique_list.append(x) 
+    return unique_list
+
+
+
+
+
 
 #All the routes of the website
-
-
 @app.route('/')
 def home():
-	return render_template('home.html')
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+    return render_template('home.html', msg2 = msg2)
 
 @app.route('/callback',methods=['POST'])
 def callback_post():
@@ -126,72 +144,84 @@ def callback_post():
     callback_ = Callback(phoneNo = phoneNo, time = time, date = date)
     db.session.add(callback_)
     db.session.commit()
-    '''
-    with app.app_context():
-        msg = Message(subject="Callback Confirmation",
-                                sender=app.config.get("MAIL_USERNAME"),
-                        recipients=["saxenavedant61@gmail.com"], # replace with your email for testing
-                        body="Hey !\n\nWe have noted your request, you will get a call from us at around "+ time+ ". Have a good day!\n\nRegards\nTeam Edzeeta")
-        mail.send(msg)
-    '''
+
     
     if formName == 'home':
-       return render_template('home.html',msg2 = "Success")
+        session['msg2'] = "Success"
+        return redirect(url_for('home'))
 
     if formName == 'register':
-        sql_q=text('select slotTime,slotDate from Time_slot')
-        result = db.engine.execute(sql_q)
-        result = list(result)
-        date = []
-        for row in result:
-            date.append(row[1])
-
-        date = list(set(date))
-        #Collections.sort(date.subList(1, date.size()))
-
-        time = []
-        for i in range(len(date)):
-            time.append([])
-        
-        for row in result:
-            date1 = row[1]
-            ind = date.index(date1)
-            time[ind].append(row[0])
-
-        #Collections.sort(.subList(1, .size()))
-
-        print(date)
-        print(time)        
-        return render_template('register.html', result = result, date = date, time = time, msg2 = "Success") 
+        session['msg2'] = "Success"
+        return redirect(url_for('register')) 
     
     if formName == 'courses':
-       return render_template('parent_course.html', msg2 = "Success")
+        session['msg2'] = "Success"
+        return redirect(url_for('courses'))
     if formName == 'course1':
-       return render_template('course1.html',  msg2 = "Success")
+        session['msg2'] = "Success"
+        return redirect(url_for('course1'))
     if formName == 'course2':
-       return render_template('course2.html',  msg2 = "Success")
+        session['msg2'] = "Success"
+        return redirect(url_for('course2'))
     if formName == 'course3':
-       return render_template('course3.html',  msg2 = "Success")
+        session['msg2'] = "Success"
+        return redirect(url_for('course3'))
     if formName == 'course4':
-       return render_template('course4.html',  msg2 = "Success")
+        session['msg2'] = "Success"
+        return redirect(url_for('course4'))
     if formName == 'about':
-       return render_template('about.html',  msg2 = "Success")
+        session['msg2'] = "Success"
+        return redirect(url_for('about'))
     if formName == 'blogs':
-       return render_template('blog.html',  msg2 = "Success")
+        session['msg2'] = "Success"
+        return redirect(url_for('blogs'))
     if formName == 'blog1':
-       return render_template('parent_blog.html',  msg2 = "Success")
-       
+        session['msg2'] = "Success"
+        return redirect(url_for('blog1'))
+    if formName == 'error':
+        session['msg2'] = "Success"
+        return redirect(url_for('error'))   
 
 @app.route('/about')
 def about():
-	return render_template('about.html')
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+    return render_template('about.html', msg2 = msg2)
 
 @app.route('/courses')
 def courses():
-	return render_template('parent_course.html')
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+    return render_template('parent_course.html', msg2 = msg2)
 
 @app.route('/register' , methods=["GET"])
 def register():
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+
+    msg = session.get('msg')
+    print(msg)
+    if not msg:
+        msg = "0"
+    else:
+        session.pop('msg', None)
+    
+    msg3 = session.get('msg3')
+    print(msg3)
+    if not msg3:
+        msg3 = "0"
+    else:
+        session.pop('msg3', None)
+
     sql_q=text('select slotTime,slotDate from Time_slot')
     result = db.engine.execute(sql_q)
     result = list(result)
@@ -199,8 +229,8 @@ def register():
     for row in result:
         date.append(row[1])
 
-    date = list(set(date))
-    #Collections.sort(date.subList(1, date.size()))
+    date = unique(date)
+    2#Collections.sort(date.subList(1, date.size()))
 
     time = []
     for i in range(len(date)):
@@ -215,10 +245,11 @@ def register():
 
     print(date)
     print(time)
+    
     '''
 
     '''
-    return render_template('register.html', result = result, date = date, time = time, msg = "0",msg3= "0")
+    return render_template('register.html', result = result, date = date, time = time, msg = msg, msg3= msg3, msg2 = msg2)
 
 @app.route('/register',methods=['POST'])
 def register_post():
@@ -302,40 +333,72 @@ def register_post():
         mailCont = python_
             
     
-    # #Email functionality
-    # if not result2:
-    #     with app.app_context():
-    #        msg = Message(subject="Booking confirmation",
-    #                       sender=app.config.get("MAIL_USERNAME"),
-    #                       recipients=[emailId], # replace with your email for testing
-    #                         body= "Hey "+ childName +"! Welcome to EdZeeta's " + courseName + " course!\n\nThanks for choosing EdZeeta Learning. During the demo session your kid will be exposed to "+courseName + mailCont +"\n"+ end_content)
-    #        mail.send(msg)
+    #Email functionality
+    if not result2:
+        with app.app_context():
+           msg = Message(subject="Booking confirmation",
+                          sender=app.config.get("MAIL_USERNAME"),
+                          recipients=[emailId, "edzeetawebsite@gmail.com"], # replace with your email for testing
+                            body= "Hey "+ childName +"! Welcome to EdZeeta's " + courseName + " course!\n\nThanks for choosing EdZeeta Learning. During the demo session your kid will be exposed to "+courseName + mailCont +"\n"+ end_content)
+           mail.send(msg)
    
-  
-    
-    return render_template('register.html', msg = msg_to_send,msg3 = msg_to_send2 , result = result, date = date, time = time)
+    session['msg'] = msg_to_send
+    session['msg3'] = msg_to_send2
+    return redirect(url_for('register'))
 
 
 @app.route('/blogs')
 def blogs():
-	return render_template('blog.html')
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+    return render_template('blog.html', msg2 = msg2)
 
 @app.route('/blog1')
 def blog1():
-	return render_template('parent_blog.html')
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+    return render_template('parent_blog.html', msg2 = msg2)
 
 @app.route('/course1')
 def course1():
-    return render_template("course1.html")
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+    return render_template("course1.html", msg2 = msg2)
 @app.route('/course2')
 def course2():
-    return render_template("course2.html")
-@app.route('/course3')
-def course3():
-    return render_template("courses.html")
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+    return render_template("course2.html", msg2 = msg2)
+
+@app.route('/error')
+def error():
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+    return render_template("error.html", msg2 = msg2)
+
 @app.route('/course4')
 def course4():
-    return render_template("course4.html")
+    msg2 = session.get('msg2')
+    if not msg2:
+        msg2 = "0"
+    else:
+        session.pop('msg2', None)
+    return render_template("course4.html", msg2 = msg2)
 
 @app.route('/adminLogin', methods = ["GET", "POST"])
 def adminLogin():
