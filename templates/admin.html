@@ -265,13 +265,16 @@
                        <form action="{{url_for('insert_slot')}}" method="POST">
                 
                           <div class="form-group">
-                           <label>Format: 21,Dec </label>
+                            <p style="font-weight: bold;">Only write numerical date and comma separeted month(only 1st 3 letters) and don't put any space!</p>
+                           <label>Example: <strong> 21,Dec</strong> </label>
+                           <br>
                              <label>Slot Date:</label>
                              <input type="text" class="form-control" name="slotDate" required="1">
                           </div>
             
                            <div class="form-group">
-                            <label>Format: 10:30am </label>
+                            <label>Example:   <strong>  10:30am </strong>  </label>
+                            <br>
                              <label>Slot Time:</label>
                              <input type="text" class="form-control" name="slotTime" required="1">           
                           </div>

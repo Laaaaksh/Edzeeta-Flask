@@ -1,17 +1,19 @@
 from flask import Flask, render_template, url_for, flash, redirect, request, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
-from datetime import datetime
 from chatbot import chatbot
 import random
 import uuid
 from flask_mail import Mail, Message
 import collections
 import flask_excel as excel
-
+from datetime import date
 #from twilio.rest import Client
 
 admin_id = "/"+ str(uuid.uuid1()) 
+month_dict = {"jan":1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6, "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12}
+
+
 
 
 app = Flask(__name__) #App instance
@@ -161,10 +163,10 @@ def callback_post():
     #name = request.form.get('name') #Remove from db
     formName = request.form.get('formName')
     phoneNo = request.form.get('phoneNo')
-    date = request.form.get('date')
+    date_ = request.form.get('date')
     time = request.form.get('time')
-    print(phoneNo, date, time)
-    callback_ = Callback(phoneNo = phoneNo, time = time, date = date)
+    print(phoneNo, date_, time)
+    callback_ = Callback(phoneNo = phoneNo, time = time, date = date_)
     db.session.add(callback_)
     db.session.commit()
 
@@ -248,31 +250,50 @@ def register():
     sql_q=text('select slotTime,slotDate from Time_slot')
     result = db.engine.execute(sql_q)
     result = list(result)
-    date = []
+    date_ = []
     for row in result:
-        date.append(row[1])
+        date_.append(row[1])
 
-    date = unique(date)
-    2#Collections.sort(date.subList(1, date.size()))
+    date_ = unique(date_)
+
+    current_date = date.today()
+    day_today = current_date.day
+    month_today = current_date.month
+    print(date_)
+    to_remove = []
+    for d in date_: 
+        li_d = d.split(",")
+        day = int(li_d[0])
+        #print(day)
+        mo = li_d[1]
+        #print(mo)
+        mo_num = month_dict[mo.lower()]
+        if day <= day_today:
+            if mo_num == 1 and month_today == 12:
+                continue
+            elif mo_num <= month_today:
+                to_remove.append(d)
+    for i in to_remove:
+        date_.remove(i)
 
     time = []
-    for i in range(len(date)):
+    for i in range(len(date_)):
         time.append([])
     
     for row in result:
         date1 = row[1]
-        ind = date.index(date1)
-        time[ind].append(row[0])
+        if date1 in date_:
+            ind = date_.index(date1)
+            time[ind].append(row[0])
 
     #Collections.sort(.subList(1, .size()))
 
-    print(date)
-    print(time)
+   
     
     '''
 
     '''
-    return render_template('register.html', result = result, date = date, time = time, msg = msg, msg3= msg3, msg2 = msg2)
+    return render_template('register.html', result = result, date = date_, time = time, msg = msg, msg3= msg3, msg2 = msg2)
 
 @app.route('/register',methods=['POST'])
 def register_post():
@@ -288,21 +309,39 @@ def register_post():
     sql_q=text('select slotTime,slotDate from Time_slot')
     result = db.engine.execute(sql_q)
     result = list(result)
-    date = []
+    date_ = []
     for row in result:
-        date.append(row[1])
+        date_.append(row[1])
 
-    date = list(set(date))
-    #Collections.sort(date.subList(1, date.size()))
+    date_ = unique(date_)
+    current_date = date.today()
+    day_today = current_date.day
+    month_today = current_date.month
+    to_remove = []
+    for d in date_: 
+        li_d = d.split(",")
+        day = int(li_d[0])
+        mo = li_d[1]
+        mo_num = month_dict[mo.lower()]
+        if day <= day_today:
+            print(day, day_today)
+            if mo_num == 1 and month_today == 12:
+                continue
+            elif mo_num <= month_today:
+                 to_remove.append(d)
+    for i in to_remove:
+        date_.remove(i)
 
     time = []
-    for i in range(len(date)):
+    for i in range(len(date_)):
         time.append([])
     
     for row in result:
         date1 = row[1]
-        ind = date.index(date1)
-        time[ind].append(row[0])
+        if date1 in date_:
+            ind = date_.index(date1)
+            time[ind].append(row[0])
+
     print(parentName, emailId, phoneNo, childName, age, courseName, slotDate, slotTime, laptop)
     sql_q=text('select courseId from Course where Course.courseName = :courseName')
     result = db.engine.execute(sql_q, courseName = courseName)
@@ -318,7 +357,7 @@ def register_post():
     result3 = list(result3)
     if not result3:
         msg_to_send2 = "Slot already full! Choose another slot"
-        return render_template('register.html', msg = "0",msg3 = msg_to_send2 , result = result, date = date, time = time)
+        return render_template('register.html', msg = "0",msg3 = msg_to_send2 , result = result, date = date_, time = time)
     msg_to_send2 = "0"
     print(result3, slotTime)
     availableSlots = result3[0][1]
