@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../static/styles/home.css" />
+  
   <title>Admin</title>
 </head>
   
@@ -23,7 +23,7 @@
 
 <body>
   <!--Navbar-->
-  <div class="nav">
+  <!-- <div class="nav">
    <div class="two">
      <a href="/"><img src="../static/images/edzetta original logo.png" alt="" /> 
      </a> 
@@ -73,7 +73,7 @@
    <a href="./about.html" style="text-decoration: none"></a>
 
 
- </div>
+ </div> -->
 
  <!--End of Navbar-->
 
@@ -213,7 +213,7 @@
     <form action="{{url_for('update_slot')}}" method="POST">
        
      <div class="form-group">
-        <label>Format: 21st,Dec </label>
+        <label>Format: 21,Dec </label>
           <label>Slot Date:</label>
            <input type="hidden"  name="slotId" value="{{row[0]}}">
           <input type="text" class="form-control" name="slotDate" value="{{row[1]}}">
@@ -386,7 +386,7 @@
               <th>Time</th>
               <th>Laptop</th>
               <th> <a href="/delete_all_records_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
-              <td><a href="/download" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure you want to download?')">Download</a></td>
+              <td><a href="/download" class="btn btn-success btn-xs" onclick="return confirm('Are You Sure you want to download?')">Download</a></td>
             </tr>
           
 

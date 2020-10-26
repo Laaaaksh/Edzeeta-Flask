@@ -300,23 +300,22 @@ background: none;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.b2{
+.b2 {
   position: fixed;
-width: 115px;
-height: 32px;
-left: 210px;
-top: 646px;
-background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  width: 115px;
+  height: 32px;
+  left: 98px;
+  top: 646px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
   background-color: #FFFFFF;
-  border-radius:2px ;
+  border-radius: 2px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
 }
 
 .imgbx{
@@ -810,20 +809,20 @@ top: 398px;
 }
 .b2 {
   position: absolute;
-    width: 115px;
-    height: 32px;
-    left: 36px;
-    top: 401px;
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-    background-color: #FFFFFF;
-    border-radius: 2px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 115px;
+  height: 32px;
+  left: 126px;
+  top: 401px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .hb{
