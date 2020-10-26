@@ -242,7 +242,7 @@ label {
   opacity: 1;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
   .cb {
     height: 75px;
     width: 75px;
@@ -304,7 +304,7 @@ label {
     transform: translate(-50%,-50%);
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
 
   .a {
     position: absolute !important;
@@ -408,7 +408,7 @@ label {
 
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
 
   .nav {
    width: 99.9%;
@@ -573,7 +573,7 @@ label {
  }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
  .hide-for-mobile {
    display: none;
  }

@@ -468,7 +468,7 @@ label{
   opacity: 1;
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 768px){
 
   #hide_header_img_1{
     display: none;
@@ -552,7 +552,7 @@ label{
     transform: translate(-50%,-50%);
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
 
   .a {
     position: absolute !important;
@@ -992,7 +992,7 @@ ul li{
 .h1{
   left: 0;
   right: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: "Overpass", sans-serif;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -1053,7 +1053,7 @@ ul li{
 //   margin-left: 1rem;
 // }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 768px){
     .scratch h1{
       width: 100%;
       font-size: 25px;
@@ -1262,7 +1262,7 @@ line-height: 18px;
 // }
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
   #top{
     top: 89%;
   }
@@ -1857,7 +1857,7 @@ animation:fade5 14s infinite;
 .h1 {
   left: 0;
   right: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: "Overpass", sans-serif;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -1881,6 +1881,7 @@ animation:fade5 14s infinite;
   top: 19%;
   margin: 0 auto;
   /* padding: 2px; */
+  width: 363px;
 }
 
 .scratch {
@@ -1968,9 +1969,27 @@ animation:fade5 14s infinite;
 
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
 
+  .testimonials .t-content p {
+    font-family: Overpass;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #46494f;
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
+#testimonial_parenttag_two {
+  font-family: 'Overpass', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 2px;
+}
 
   .nav {
    width: 99.9%;
@@ -2095,7 +2114,7 @@ animation:fade5 14s infinite;
  }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
  .hide-for-mobile {
    display: none;
  }

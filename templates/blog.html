@@ -228,89 +228,60 @@
       </div>
       
     </div>
-         <!--------Modal for CallBack-------->
-         <div class="modal fade" id="myModal1" role="dialog">
-          <div class="modal-dialog">
-            <!-- Modal content-->
-            <form action="/callback" method="post">
-              <div class="modal-content">
-
-                <div class="form-group input-group" style="display: none;">
-                  <label class="call_phone">Phone Number</label>
-                  <input
-                    name="formName"
-                    value = "blogs"
-                    class="form-control call_request"
-                    type="text"
-                   
-                  
-                  />
-                </div>
-
-                <div class="modal-header">
-                  <h4>Request for a CallBack</h4>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    style="outline: 0px"
-                  >
-                    &times;
-                  </button>
-                </div>
-                <div class="modal-body">
-
-                  
-
-                  <div class="form-group input-group">
-                    <label class="call_phone">Phone Number</label>
-                    <input
-                      name="phoneNo"
-                      class="form-control call_request"
-                      type="tel"
-                      pattern="[0-9]{10}"
-                      title="Enter 10 digit number"
-                      oninput="this.setCustomValidity('')"
-                      required
-                    />
-
-                    
-                  </div>
-    
-                  <div class="form-group input-group">
-                    <label class="call_date">Date</label>
-                    <input
-                      name="date"
-                      class="form-control call_request"
-                      type="date"
-                      required
-                    />
-                  </div>
-    
-                  <div class="form-group input-group">
-                    <label class="call_time">Time</label>
-                    <input
-                      name="time"
-                      class="form-control call_request"
-                      type="time"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <input
-                    type="submit"
-                    class="btn"
-                    id="request"
-                    value="Request"
-                    name="r"
-                    onclick="request_call()"
-                  />
-                </div>
+        
+  <!--------Modal for CallBack-------->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <form action="/callback" method="post">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Request for a CallBack</h4>
+            <button type="button" class="close" data-dismiss="modal" style="outline: 0px; position: absolute;
+            left: 87%;">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group input-group">
+              <!-- <label class="call_phone">Phone Number</label>
+              <label for="">test</label> -->
+              <p style="font-weight: bold;">Phone Number</p>
+              <div class="phoneno_parent" style=" position: absolute;    left: 50%; " >
+                <input name="phoneNo" class="form-control call_request" type="tel" pattern="[0-9]{10}"
+                title="Enter 10 digit number" oninput="this.setCustomValidity('')" required />
               </div>
-            </form>
+    
+            </div>
+
+            <div class="form-group input-group" style="display: none;">
+              <label class="call_phone">Phone Number</label>
+              <input class="form-control call_request" type="text" name="formName" value="blogs" />
+            </div>
+
+            <div class="form-group input-group">
+              <!-- <label class="call_date">Date</label> -->
+              <p  style="font-weight: bold;" >Date</p>
+              <div class="date_parent"  style=" position: absolute;    left: 50%; width: 156px; " ><input name="date" class="form-control call_request" type="date" required /></div>
+              
+            </div>
+
+            <div class="form-group input-group">
+              <!-- <label class="call_time">Time</label> -->
+              <p style="font-weight: bold;" >Time</p>
+              <div class="time_parent"  style=" position: absolute;    left: 50%; "  >
+                <input name="time" class="form-control call_request" type="time" required />
+              </div>
+            
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" class="btn" id="request" value="Request" name="r" onclick="request_call()" />
           </div>
         </div>
+      </form>
+    </div>
+  </div>
         
       <!----------------- Request for CallBack Popup---------- -->
       <script>

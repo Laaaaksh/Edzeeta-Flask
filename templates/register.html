@@ -110,18 +110,18 @@
 {% endwith %} -->
 <h1 style="display: none;" id="msg" >{{msg}}</h1>
 <div class="alert alert-success alert-dismissible a" id="s" style="display: none;">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Registered</strong>{{msg}}
+  <a href="#" class="close" data-dismiss="alert" aria-label="close" style="margin-top: 0;"    >&times;</a>
+  {{msg}}
 </div>
 
 <div class="alert alert-danger alert-dismissible a" id="e" style="display: none;" >
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Error  </strong> You have already registered for a free class!
+  <a href="#" class="close" data-dismiss="alert" aria-label="close" style="margin-top: 0;"   >&times;</a>
+  You have already registered for a Trial class!
 </div>
 
 <p id="flagg_3" style="display: none;">{{msg3}}</p>
 <div class="alert alert-danger alert-dismissible a" id="e_two" style="display: none;" >
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <a href="#" class="close" data-dismiss="alert" aria-label="close"  style="margin-top: 0;"  >&times;</a>
   {{msg3}}
 </div>
 
@@ -331,7 +331,9 @@
               type="button"
               class="close"
               data-dismiss="modal"
-              style="outline: 0px"
+              style="outline: 0px; position: absolute;
+              left: 88%;"
+              
             >
               &times;
             </button>
@@ -452,6 +454,8 @@
                 <div class="t delete" id="7" onclick="fetch_time(this.id)">
                   <li>--</li>
                 </div>
+
+                
               </ul> 
             
              
@@ -467,83 +471,63 @@
       </div>
     </div>
 
-    <!--------Modal for CallBack-------->
-    <div class="modal fade" id="myModal1" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <form action="/callback" method="post">
-          <div class="modal-content">
+
+
+
+  
+  <!--------Modal for CallBack-------->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <form action="/callback" method="post">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>Request for a CallBack</h4>
+            <button type="button" class="close" data-dismiss="modal" style="outline: 0px; position: absolute;
+            left: 87%;">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group input-group">
+              <!-- <label class="call_phone">Phone Number</label>
+              <label for="">test</label> -->
+              <p style="font-weight: bold;">Phone Number</p>
+              <div class="phoneno_parent" style=" position: absolute;    left: 50%; " >
+                <input name="phoneNo" class="form-control call_request" type="tel" pattern="[0-9]{10}"
+                title="Enter 10 digit number" oninput="this.setCustomValidity('')" required />
+              </div>
+    
+            </div>
+
             <div class="form-group input-group" style="display: none;">
               <label class="call_phone">Phone Number</label>
-              <input
-                name="formName"
-                value = "register"
-                class="form-control call_request"
-                type="text"
-                oninput="this.setCustomValidity('')"
+              <input class="form-control call_request" type="text" name="formName" value="register" />
+            </div>
+
+            <div class="form-group input-group">
+              <!-- <label class="call_date">Date</label> -->
+              <p  style="font-weight: bold;" >Date</p>
+              <div class="date_parent"  style=" position: absolute;    left: 50%; width: 156px; " ><input name="date" class="form-control call_request" type="date" required /></div>
               
-              />
             </div>
-            <div class="modal-header">
-              <h4>Request for a CallBack</h4>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                style="outline: 0px"
-              >
-                &times;
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group input-group">
-                <label class="call_phone">Phone Number</label>
-                <input
-                  name="phoneNo"
-                  class="form-control call_request"
-                  type="tel"
-                  pattern="[0-9]{10}"
-                  title="Enter 10 digit number"
-                  oninput="this.setCustomValidity('')"
-                  required
-                />
-              </div>
 
-              <div class="form-group input-group">
-                <label class="call_date">Date</label>
-                <input
-                  name="date"
-                  class="form-control call_request"
-                  type="date"
-                  required
-                />
+            <div class="form-group input-group">
+              <!-- <label class="call_time">Time</label> -->
+              <p style="font-weight: bold;" >Time</p>
+              <div class="time_parent"  style=" position: absolute;    left: 50%; "  >
+                <input name="time" class="form-control call_request" type="time" required />
               </div>
-
-              <div class="form-group input-group">
-                <label class="call_time">Time</label>
-                <input
-                  name="time"
-                  class="form-control call_request"
-                  type="time"
-                  required
-                />
-              </div>
-            </div>
-            <div class="modal-footer">
-              <input
-                type="submit"
-                class="btn"
-                id="request"
-                value="Request"
-                name="r"
-                onclick="request_call()"
-              />
+            
             </div>
           </div>
-        </form>
-      </div>
+          <div class="modal-footer">
+            <input type="submit" class="btn" id="request" value="Request" name="r" onclick="request_call()" />
+          </div>
+        </div>
+      </form>
     </div>
-  </body>
+  </div>
 
   <!-------------Javascript------------>
 
@@ -580,6 +564,7 @@
         {
           // add delete me logic
           console.log("delete me")
+          console.log(y[i].parentElement.parentElement.style.display = 'none')
         }
         
       }

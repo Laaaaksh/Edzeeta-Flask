@@ -169,7 +169,7 @@ label {
   opacity: 1;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
   .cb {
     height: 75px;
     width: 75px;
@@ -445,7 +445,7 @@ border-radius: 7px;
 top: 398px;
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 768px){
 
   .cdet_two{
     width:290px !important;
@@ -710,7 +710,7 @@ top: 398px;
 }
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
 
   .nav {
    width: 99.9%;
@@ -738,7 +738,7 @@ top: 398px;
     transform: translate(-50%,-50%);
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 768px) {
 
   .a {
     position: absolute !important;
@@ -968,7 +968,7 @@ top: 398px;
  }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
  .hide-for-mobile {
    display: none;
  }
