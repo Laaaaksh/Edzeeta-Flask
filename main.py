@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash, redirect, request, session
+from flask import Flask, render_template, url_for, flash, redirect, request, session, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 from datetime import datetime
@@ -7,6 +7,8 @@ import random
 import uuid
 from flask_mail import Mail, Message
 import collections
+import flask_excel as excel
+
 #from twilio.rest import Client
 
 admin_id = "/"+ str(uuid.uuid1()) 
@@ -62,6 +64,27 @@ class Student_book(db.Model):
     laptop = db.Column(db.String(1), nullable = False)
     def __repr__(self):
     	return "{},{},{},{},{},{},{},{},{},{},{}".format(self.childId, self.childName, self.parentName, self.phoneNo, self.emailId, self.age, self.courseName, self.courseId, self.slotDate, self.slotTime, self.laptop)
+
+
+#DB class for all bookings till date
+class Student_book_all(db.Model):
+    __tablename__ = 'book_all'
+    childId = db.Column(db.Integer, primary_key=True)
+    childName = db.Column(db.String(50), nullable = False)
+    parentName = db.Column(db.String(50), nullable = True)
+    phoneNo = db.Column(db.String(10), nullable = False)
+    emailId = db.Column(db.String(50), nullable = False)
+    age = db.Column(db.String(2), nullable = False)	
+    courseName = db.Column(db.String(50), nullable = False)
+    courseId = db.Column(db.String(10), db.ForeignKey('course.courseId'))
+    slotDate = db.Column(db.String(10), nullable = False)
+    slotTime = db.Column(db.String(10), nullable = False)
+    laptop = db.Column(db.String(1), nullable = False)
+    def __repr__(self):
+    	return "{},{},{},{},{},{},{},{},{},{},{}".format(self.childId, self.childName, self.parentName, self.phoneNo, self.emailId, self.age, self.courseName, self.courseId, self.slotDate, self.slotTime, self.laptop)
+
+
+
 
 
 #DB class for storing time slots
@@ -302,9 +325,14 @@ def register_post():
     slotId = result3[0][0]
     if result2:
         msg_to_send = "You have already registered for a Trial class!"
+        session['msg'] = msg_to_send
+        session['msg3'] = msg_to_send2
+        return redirect(url_for('register'))
     else:
         msg_to_send = "Hey " + str(childName)+ "!  Your Free Trial Class is Booked."
         student_book_ = Student_book(childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
+        student_book_a = Student_book_all(childName = childName, parentName = parentName, phoneNo = phoneNo, emailId = emailId, age = age, courseName = courseName, courseId = courseId, slotTime = slotTime, slotDate = slotDate, laptop = laptop)
+        db.session.add(student_book_a)        
         db.session.add(student_book_)
         db.session.commit()
 
@@ -339,7 +367,7 @@ def register_post():
            msg = Message(subject="Booking confirmation",
                           sender=app.config.get("MAIL_USERNAME"),
                           recipients=[emailId, "edzeetawebsite@gmail.com"], # replace with your email for testing
-                            body= "Hey "+ childName +"! Welcome to EdZeeta's " + courseName + " course!\n\nThanks for choosing EdZeeta Learning. During the demo session your kid will be exposed to "+courseName + mailCont +"\n"+ end_content)
+                            body= "Hey "+ childName +"! Welcome to EdZeeta's " + courseName + " course!\n\nThanks for choosing EdZeeta Learning. During the demo session your kid will be exposed to "+courseName + ". "+ mailCont +"\n"+ end_content)
            mail.send(msg)
    
     session['msg'] = msg_to_send
@@ -419,16 +447,19 @@ def admin():
     sql2 = text('select * from book')
     sql3 = text('select * from callback')
     sql5 = text('select * from time_slot')
+    sql6 = text('select * from book_all')
     res1 = db.engine.execute(sql1)
     res2 = db.engine.execute(sql2)
     res3 = db.engine.execute(sql3)
     res5 = db.engine.execute(sql5)
+    res6 = db.engine.execute(sql6)
     res1 = list(res1)
     res2 = list(res2)
     res3 = list(res3)
     res4 = '0'
     res5 = list(res5)
-    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4, res5 = res5)
+    res6 = list(res6)
+    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4, res5 = res5, res6 = res6)
 
 
 
@@ -441,17 +472,20 @@ def admin_post():
     sql3 = text('select * from callback')
     sql5 = text('select * from time_slot')
     sql4 = text('select * from book where book.courseName = :courseName')
+    sql6 = text('select * from book_all')
     res1 = db.engine.execute(sql1)
     res2 = db.engine.execute(sql2)
     res3 = db.engine.execute(sql3)
     res5 = db.engine.execute(sql5)
     res4 = db.engine.execute(sql4, courseName = request.form.get('courseName'))
+    res6 = db.engine.execute(sql6)
     res1 = list(res1)
     res2 = list(res2)
     res3 = list(res3)
     res4 = list(res4)
     res5 = list(res5)
-    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4, res5 = res5)
+    res6 = list(res6)
+    return render_template('admin.html', res1 = res1, res2 = res2, res3 = res3, res4 = res4, res5 = res5, res6 = res6)
 
 
 @app.route('/insert_slot', methods = ['POST'])
@@ -603,6 +637,31 @@ def delete_course_all():
     return redirect(url_for('admin'))
 
 
+@app.route('/delete_all_records_all', methods = ['GET', 'POST'])
+def delete_all_record_all():
+    db.session.query(Student_book_all).delete()
+    db.session.commit()
+    print("All records deleted!")
+    return redirect(url_for('admin'))
+
+
+
+@app.route("/download", methods=['GET'])
+def download_file():
+    sql = text('select * from book_all')
+    res = db.engine.execute(sql)
+    res = list(res)
+    result = []
+    result.append(['childId', 'childName', 'parentName', 'phoneNo', 'emailId', 'age', 'courseName', 'courseId', 'slotDate', 'slotTime', 'laptop'])
+    for row in res:
+        temp = []
+        for r in row:
+            temp.append(r)
+        result.append(temp)
+    print(result)
+    return excel.make_response_from_array(result, "csv", file_name="export_data")
+
+
 
 #Chatbot
 
@@ -617,5 +676,6 @@ def chat_bot():
 
 
 if __name__ == '__main__':
+    excel.init_excel(app)
     app.run(debug=True)
     

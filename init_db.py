@@ -1,6 +1,6 @@
 #Execute this python file to initialize db and also add courses to course table accordingly
 from main import db
-from main import Callback, Student_book, Course, Time_slot
+from main import Callback, Student_book, Course, Time_slot, Student_book_all
 
 #First go and delete site.db from the root folder to clear db (all tables)
 #Initialize db 

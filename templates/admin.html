@@ -49,7 +49,7 @@
        <p>Courses</p>
      </a>
      <a href="blogs" style="text-decoration: none">
-       <p>Blogs</p>
+       <p>Blog</p>
      </a>
      <p>About</p>
    </div>
@@ -65,7 +65,7 @@
      <p>Course</p>
    </a>
    <a href="blogs" style="text-decoration: none">
-     <p>Blogs</p>
+     <p>Blog</p>
    </a>
    <a href="./about.html" style="text-decoration: none">
      <p>About</p>
@@ -316,17 +316,7 @@
               <th>Laptop</th>
               <th> <a href="/delete_student_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
             </tr>
-            
-<!--childId = str(uuid.uuid1())
-parentName = request.form.get('parentName')
-emailId = request.form.get('emailId')
-phoneNo = request.form.get('phoneNo')
-childName = request.form.get('childName')
-age = request.form.get('age')
-courseName = request.form.get('courseName')
-slotDate = request.form.get('slotDate') #Add to db
-slotTime = request.form.get('slotTime') #Add to db
-laptop = request.form.get('laptop') #Add to db   -->
+          
 
 
             {% for row in res2 %}
@@ -378,6 +368,49 @@ laptop = request.form.get('laptop') #Add to db   -->
     
     </center>	
 
+    
+    <center>
+      <h1>All Records Table</h1>
+      <div class="registration_parent"  style="height: 592.800px; width: 1308.8px; overflow-y: scroll;" >
+         <table  table class="table table-striped" style="width:60%">
+            <tr>
+              <th>Child Id</th>
+              <th>Child Name</th>
+              <th>Parent Name</th>
+              <th>Phone No.</th>
+              <th>Email Id</th>
+              <th>Age</th>
+              <th>Course Name</th>
+              <th>Course Id</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Laptop</th>
+              <th> <a href="/delete_all_records_all" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete All the records ?')">Delete All</a></th>
+              <td><a href="/download" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure you want to download?')">Download</a></td>
+            </tr>
+          
+
+
+            {% for row in res6 %}
+            <tr>
+              <td>{{row[0]}}</td>
+              <td>{{row[1]}}</td>
+              <td>{{row[2]}}</td>
+              <td>{{row[3]}}</td>
+              <td>{{row[4]}}</td>
+              <td>{{row[5]}}</td>
+              <td>{{row[6]}}</td>
+              <td>{{row[7]}}</td>
+              <td>{{row[8]}}</td>
+              <td>{{row[9]}}</td>
+              <td>{{row[10]}}</td>
+            </tr>
+            {% endfor %}
+           
+</table>
+      </div>
+       
+    </center>	
     
     <center>
       {% if res4 == '0' %}
