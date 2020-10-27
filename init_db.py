@@ -18,7 +18,7 @@ db.session.add(course4)
 
 db.session.commit()
 
-
+'''
 #Write details for slots
 slot1 = Time_slot(slotDate = "25,Oct", slotTime = "12:30pm", totalSlots = 11, availableSlots = 11)
 db.session.add(slot1)
@@ -62,6 +62,7 @@ slot17 = Time_slot(slotDate = "29,Oct", slotTime = "04:45pm", totalSlots = 12, a
 db.session.add(slot17)
 slot18 = Time_slot(slotDate = "29,Oct", slotTime = "07:30pm", totalSlots = 10, availableSlots = 10)
 db.session.add(slot18)
+'''
 
 db.session.commit()
 
