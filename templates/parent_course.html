@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/styles/parent_course.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <title>Course</title>
-  </head>
-  <body onload="my_alert()">
-      <!--Navbar-->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/styles/parent_course.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <title>Course</title>
+</head>
+
+<body onload="my_alert()">
+  <!--Navbar-->
   <div class="nav">
     <div class="two">
-      <a href="/"><img src="../static/images/edzetta original logo.png" alt="" /> 
-      </a> 
+      <a href="/"><img src="../static/images/edzetta original logo.png" alt="" />
+      </a>
     </div>
 
     <div id="overlay">
@@ -58,7 +54,7 @@
     </div>
   </div>
 
-  <div id="hm" class="header__menu hide-for-dekstop hide-for-mobile">
+  <div id="hm" class="header__menu hide-for-dekstop hide-for-mobile hide_me">
     <a href="/" style="text-decoration: none">
       <p>Home</p>
     </a>
@@ -81,140 +77,225 @@
   </div>
 
   <!--End of Navbar-->
-    <div class="grid-container">
-      <div class="cb"   onclick="chatbox_open()" id="chatbubble"  >
-        <img class="cb_img" src="../static/images/chatbox.png" alt="">
-      </div>
-  
-      <div class="iframe_parent" id="chatbox" style="display: none;">
-        <p class="p_chatbox">Edzeeta Chatbot</p>
-        <div class="close-container" onclick="chatbox_close()">
-          <div class="leftright"></div>
-          <div class="rightleft"></div>
-          <!-- <label class="close">close</label> -->
-        </div>
-        <iframe src="chatbot" class="i_frame" title="W3Schools Free Online Web Tutorials"></iframe>
-      </div>
-      
-      <div id="hcourses" class="grid-item grid-item-3">
-        <h1 class="header-three">All Courses</h1>
-
-        <div class="header-text-two">
-          <p></p>
-        </div>
-
-        <div class="trialclass-button">
-          <a href="register"><button>Book Free Trial Class</button></a>
-        </div>
-        
-        <p id="flag" style="display: none;">{{msg2}}</p>
-
-<div class="alert alert-success alert-dismissible a" id="s" style="display: none;">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close" style="top: -60px;">&times;</a>
-  Callback Request Sent
-</div>
-
-
-        <div class="courses">
-          <div class="ul">
-            <ul>
-              <li>
-                <div class="cc">
-                  <div class="course-img">
-                    <img
-                      style="width: 144px"
-                      src="../static/images/Scratch-Programming-Tools.png"
-                      alt=""
-                    />
-                  </div>
-
-                  <div class="fname">
-                    <p>Scratch Programming</p>
-                  </div>
-                  <div class="des">
-                    <p>
-                      Introduce your child to the creative world of stories and
-                      animations.
-                    </p>
-                  </div>
-                  <div class="view-details">
-                    <a href="course1"> <button>View Details</button></a>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="cc">
-                  <div class="course-img">
-                    <img
-                      src="../static/images/MIT_App_Inventor_logo.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="fname">
-                    <p>App Inventor MIT</p>
-                  </div>
-                  <div class="des">
-                    <p>
-                      See your children develop block based mobile apps with
-                      deployment on Google Play Store.
-                    </p>
-                  </div>
-                  <div class="view-details">
-                    <a href="course2"> <button>View Details</button></a>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="cc">
-                  <div class="course-img">
-                    <img
-                      style="width: 120px; height: 95px"
-                      src="../static/images/web developnet.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="fname">
-                    <p>Web Development</p>
-                  </div>
-                  <div class="des">
-                    <p>
-                      Your child will be able to build beautiful, interactive
-                      websites out of nothing.
-                    </p>
-                  </div>
-                  <div class="view-details">
-                    <a href="error"> <button>View Details</button></a>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="cc">
-                  <div class="course-img">
-                    <img src="../static/images/python programming.png" alt="" />
-                  </div>
-                  <div class="fname">
-                    <p>Python Programming</p>
-                  </div>
-                  <div class="des">
-                    <p>
-                      Students build applications using Programming Concepts in
-                      one of the easiest and most powerful text based language.
-                    </p>
-                  </div>
-                  <div class="view-details">
-                    <a href="course4"> <button>View Details</button></a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <div class="grid-container">
+    <div class="cb" onclick="chatbox_open()" id="chatbubble">
+      <img class="cb_img" src="../static/images/chatbox.png" alt="">
     </div>
 
-    
+    <div class="iframe_parent" id="chatbox" style="display: none;">
+      <p class="p_chatbox">How Can We Help You?</p>
+      <div class="close-container" onclick="chatbox_close()">
+        <div class="leftright"></div>
+        <div class="rightleft"></div>
+        <!-- <label class="close">close</label> -->
+      </div>
+      <iframe src="chatbot" class="i_frame" title="W3Schools Free Online Web Tutorials"></iframe>
+    </div>
+
+    <div id="hcourses" class="grid-item grid-item-3">
+      <h1 class="header-three">All Courses</h1>
+
+      <div class="header-text-two">
+        <p></p>
+      </div>
+
+      <div class="trialclass-button">
+        <a href="register"><button>Book Free Trial Class</button></a>
+      </div>
+
+      <p id="flag" style="display: none;">{{msg2}}</p>
+
+      <div class="alert alert-success alert-dismissible a" id="s" style="display: none;">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" style="top: -60px;">&times;</a>
+        Callback Request Sent
+      </div>
+
+
+      <div class="courses">
+<!-- 
+        <div class="ul">
+
+          <ul>
+
+            <li>
+
+              <div class="cc">
+
+                <div class="course-img">
+                  <img style="width: 144px" src="../static/images/Scratch-Programming-Tools.png" alt="" />
+                </div>
+
+                <div class="fname">
+                  <p>Scratch Programming</p>
+                </div>
+
+                <div class="des">
+                  <p>
+                    Introduce your child to the creative world of stories and
+                    animations.
+                  </p>
+                </div>
+
+
+                <div class="view-details">
+                  <a href="course1"> <button>View Details</button></a>
+                </div>
+              </div>
+
+
+
+            </li>
+            <li>
+              <div class="cc">
+                <div class="course-img">
+                  <img src="../static/images/MIT_App_Inventor_logo.png" alt="" />
+                </div>
+                <div class="fname">
+                  <p>App Inventor MIT</p>
+                </div>
+                <div class="des">
+                  <p>
+                    See your children develop block based mobile apps with
+                    deployment on Google Play Store.
+                  </p>
+                </div>
+                <div class="view-details">
+                  <a href="course2"> <button>View Details</button></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="cc">
+                <div class="course-img">
+                  <img style="width: 120px; height: 95px" src="../static/images/web developnet.png" alt="" />
+                </div>
+                <div class="fname">
+                  <p>Web Development</p>
+                </div>
+                <div class="des">
+                  <p>
+                    Your child will be able to build beautiful, interactive
+                    websites out of nothing.
+                  </p>
+                </div>
+                <div class="view-details">
+                  <a href="error"> <button>View Details</button></a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="cc">
+                <div class="course-img">
+                  <img src="../static/images/python programming.png" alt="" />
+                </div>
+                <div class="fname">
+                  <p>Python Programming</p>
+                </div>
+                <div class="des">
+                  <p>
+                    Students build applications using Programming Concepts in
+                    one of the easiest and most powerful text based language.
+                  </p>
+                </div>
+                <div class="view-details">
+                  <a href="course4"> <button>View Details</button></a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div> -->
+
+        <ul onclick="fun()" class="courses-ul" id="Aone">
+          <li class="courses-li" id="Aa">
+            <div class="cc">
+              <div class="course-img">
+                <img style="width: 144px" src="../static/images/Scratch-Programming-Tools.png" alt="" />
+              </div>
+
+              <div class="fname">
+                <p>Scratch Programming</p>
+              </div>
+              <div class="des">
+                <p>
+                  Introduce your child to the creative world of stories and
+                  animations.
+                </p>
+              </div>
+              <div class="view-details">
+                <a href="course1"> <button>View Details</button></a>
+              </div>
+            </div>
+          </li>
+
+          <li class="courses-li" id="Ab">
+            <div class="cc">
+              <div class="course-img">
+                <img src="../static/images/MIT_App_Inventor_logo.png" alt="" />
+              </div>
+              <div class="fname">
+                <p>App Inventor MIT</p>
+              </div>
+              <div class="des">
+                <p>
+                  See your children develop block based mobile apps with
+                  deployment on Google Play Store.
+                </p>
+              </div>
+              <div class="view-details">
+                <a href="course2"> <button>View Details</button> </a>
+              </div>
+            </div>
+          </li>
+
+          <li class="courses-li" id="Ac">
+            <div class="cc">
+              <div class="course-img">
+                <img style="width: 120px; height: 95px" src="../static/images/web developnet.png" alt="" />
+              </div>
+              <div class="fname">
+                <p>Web Development</p>
+              </div>
+              <div class="des">
+                <p>
+                  Your child will be able to build beautiful, interactive
+                  websites out of nothing.
+                </p>
+              </div>
+              <div class="view-details">
+                <a href="error"> <button>View Details</button> </a>
+              </div>
+            </div>
+          </li>
+
+          <li class="courses-li" id="Ad">
+            <div class="cc">
+              <div class="course-img">
+                <img src="../static/images/python programming.png" alt="" />
+              </div>
+              <div class="fname">
+                <p>Python Programming</p>
+              </div>
+              <div class="des">
+                <p>
+                  Students build applications using Programming Concepts in
+                  one of the easiest and most powerful text based languages.
+                </p>
+              </div>
+              <div class="view-details">
+                <a href="course4"> <button>View Details</button> </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        
+      </div>
+    </div>
+  </div>
+
+
   <!--------Modal for Callback-------->
   <div class="modal fade" id="myModal1" role="dialog">
     <div class="modal-dialog">
@@ -233,11 +314,12 @@
               <!-- <label class="call_phone">Phone Number</label>
               <label for="">test</label> -->
               <p style="font-weight: bold;">Phone Number</p>
-              <div class="phoneno_parent" style=" position: absolute;    left: 50%; " >
-                <input name="phoneNo" class="form-control call_request" type="tel" pattern="[0-9]{10}||[+][0-9]{12}||[0][0-9]{10}"
-                title="Enter 10 digit number" oninput="this.setCustomValidity('')" required />
+              <div class="phoneno_parent" style=" position: absolute;    left: 50%; ">
+                <input name="phoneNo" class="form-control call_request" type="tel"
+                  pattern="[0-9]{10}||[+][0-9]{12}||[0][0-9]{10}" title="Enter 10 digit number"
+                  oninput="this.setCustomValidity('')" required />
               </div>
-    
+
             </div>
 
             <div class="form-group input-group" style="display: none;">
@@ -247,18 +329,19 @@
 
             <div class="form-group input-group">
               <!-- <label class="call_date">Date</label> -->
-              <p  style="font-weight: bold;" >Date</p>
-              <div class="date_parent"  style=" position: absolute;    left: 50%; width: 156px; " ><input name="date" class="form-control call_request" type="date" required /></div>
-              
+              <p style="font-weight: bold;">Date</p>
+              <div class="date_parent" style=" position: absolute;    left: 50%; width: 156px; "><input name="date"
+                  class="form-control call_request" type="date" required /></div>
+
             </div>
 
             <div class="form-group input-group">
               <!-- <label class="call_time">Time</label> -->
-              <p style="font-weight: bold;" >Time</p>
-              <div class="time_parent"  style=" position: absolute;    left: 50%; "  >
+              <p style="font-weight: bold;">Time</p>
+              <div class="time_parent" style=" position: absolute;    left: 50%; ">
                 <input name="time" class="form-control call_request" type="time" required />
               </div>
-            
+
             </div>
           </div>
           <div class="modal-footer">
@@ -269,78 +352,75 @@
     </div>
   </div>
 
-    <!----------------- Request for Callback Popup---------- -->
-    <script>
-      var date, time, phone;
-      function request_call() {
-        var inp = document.getElementsByClassName("call_request");
-        if (inp[0].value != "" && inp[1].value != "" && inp[2].value != "") {
-          phone = inp[0].value;
-          date = inp[1].value;
-          time = inp[2].value;
-          // $("#myModal1").modal("hide");
-        }
+  <!----------------- Request for Callback Popup---------- -->
+  <script>
+    var date, time, phone;
+    function request_call() {
+      var inp = document.getElementsByClassName("call_request");
+      if (inp[0].value != "" && inp[1].value != "" && inp[2].value != "") {
+        phone = inp[0].value;
+        date = inp[1].value;
+        time = inp[2].value;
+        // $("#myModal1").modal("hide");
+      }
+    }
+
+    function my_alert() {
+      console.log("called")
+      var x = document.getElementById("flag").innerHTML
+
+      console.log(x)
+      if (x == "Success") {
+        var s = document.getElementById('s')
+        s.style.display = "block";
       }
 
-      function my_alert()
-            {
-              console.log("called")
-              var x = document.getElementById("flag").innerHTML
-            
-               console.log(x)
-               if(x=="Success")
-               {
-                var s = document.getElementById('s')
-                s.style.display = "block";
-               }
-               
-               
-            }
 
-      function chatbox_open()
-          {
-            console.log("open")
-            var x = document.getElementById('chatbubble')
-            x.style.display = 'none'
-            var y = document.getElementById("chatbox")
-            y.style.display = 'flex'
-          }
+    }
 
-          function chatbox_close()
-          {
-            console.log("close")
-            var x = document.getElementById('chatbubble')
-            x.style.display = 'flex'
-            var y = document.getElementById("chatbox")
-            y.style.display = 'none'
-          }
-    </script>
+    function chatbox_open() {
+      console.log("open")
+      var x = document.getElementById('chatbubble')
+      x.style.display = 'none'
+      var y = document.getElementById("chatbox")
+      y.style.display = 'flex'
+    }
 
-    <!-- script for hamburger -->
-    <script>
-      const btnhb = document.querySelector("#btnhb");
-      const overlay = document.querySelector("#overlay");
-      const hm = document.querySelector("#hm");
-      btnhb.addEventListener("click", function () {
-        if (btnhb.classList.contains("open")) {
-          btnhb.classList.remove("open");
-        } else {
-          btnhb.classList.add("open");
-        }
+    function chatbox_close() {
+      console.log("close")
+      var x = document.getElementById('chatbubble')
+      x.style.display = 'flex'
+      var y = document.getElementById("chatbox")
+      y.style.display = 'none'
+    }
+  </script>
 
-        if (overlay.classList.contains("overlay")) {
-          overlay.classList.remove("overlay");
-          overlay.classList.add("fade-out");
-        } else {
-          overlay.classList.add("overlay");
-        }
+  <!-- script for hamburger -->
+  <script>
+    const btnhb = document.querySelector("#btnhb");
+    const overlay = document.querySelector("#overlay");
+    const hm = document.querySelector("#hm");
+    btnhb.addEventListener("click", function () {
+      if (btnhb.classList.contains("open")) {
+        btnhb.classList.remove("open");
+      } else {
+        btnhb.classList.add("open");
+      }
 
-        if (hm.classList.contains("hide-for-mobile")) {
-          hm.classList.remove("hide-for-mobile");
-        } else {
-          hm.classList.add("hide-for-mobile");
-        }
-      });
-    </script>
-  </body>
+      if (overlay.classList.contains("overlay")) {
+        overlay.classList.remove("overlay");
+        overlay.classList.add("fade-out");
+      } else {
+        overlay.classList.add("overlay");
+      }
+
+      if (hm.classList.contains("hide-for-mobile")) {
+        hm.classList.remove("hide-for-mobile");
+      } else {
+        hm.classList.add("hide-for-mobile");
+      }
+    });
+  </script>
+</body>
+
 </html>

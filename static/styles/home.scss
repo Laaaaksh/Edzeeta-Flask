@@ -469,6 +469,11 @@ label{
 }
 
 @media screen and (max-width: 768px){
+  .close-container {
+    cursor: pointer;
+    position: fixed;
+    right: 13%;
+}
 
   #hide_header_img_1{
     display: none;

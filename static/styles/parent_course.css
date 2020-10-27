@@ -10,10 +10,12 @@ body {
   /* Handle on hover */
 }
 
+
 html ::-webkit-scrollbar,
 body ::-webkit-scrollbar {
   width: 10px;
 }
+
 
 html ::-webkit-scrollbar-track,
 body ::-webkit-scrollbar-track {
@@ -65,12 +67,12 @@ body ::-webkit-scrollbar-thumb:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   /* border: solid greenyellow; */
   width: 300px;
   height: 40px;
-  margin-left: 61PX;
+  margin-left: 61px;
 }
 
 .one p {
@@ -154,8 +156,8 @@ body ::-webkit-scrollbar-thumb:hover {
   border-radius: 2px;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .rightleft {
@@ -167,18 +169,18 @@ body ::-webkit-scrollbar-thumb:hover {
   border-radius: 2px;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 label {
   color: white;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: .6em;
+  font-size: 0.6em;
   text-transform: uppercase;
   letter-spacing: 2px;
-  -webkit-transition: all .3s ease-in;
-  transition: all .3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
   opacity: 0;
 }
 
@@ -203,7 +205,29 @@ label {
   opacity: 1;
 }
 
+
+.courses-li
+{
+  margin-top: 0;
+  margin-bottom:0 ;
+  height: fit-content;
+  
+  
+}
+
+.courses-ul
+{
+  margin: 58px auto;
+  background-color: #195ed8;
+}
+
 @media screen and (max-width: 768px) {
+  .close-container {
+    cursor: pointer;
+    position: fixed;
+    right: 13%;
+  }
+
   .cb {
     height: 75px;
     width: 75px;
@@ -261,7 +285,7 @@ label {
   top: 12%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 @media only screen and (max-width: 768px) {
@@ -271,7 +295,7 @@ label {
     top: 19%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -283,7 +307,7 @@ label {
 .three {
   width: 170px;
   height: 34px;
-  border: solid #195ED8;
+  border: solid #195ed8;
   border-radius: 40px;
   margin-top: 3px;
   display: -webkit-box;
@@ -299,7 +323,7 @@ label {
   font-weight: normal;
   font-size: 14px;
   line-height: 21px;
-  color: #195ED8;
+  color: #195ed8;
   margin: 0;
   margin-top: 6px;
   margin-left: 9px;
@@ -355,7 +379,7 @@ label {
   width: fit-content;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .header-text-two {
@@ -381,7 +405,7 @@ label {
   position: absolute;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
   background-color: #195ed8;
 }
 
@@ -407,14 +431,25 @@ ul {
   padding: 0;
 }
 
+@media screen and (max-width: 1024px) and (min-width: 768px){
+
+  .hide_me{
+    display: none;
+  }
+  
+}
+
+
+
 .courses {
   width: 99.9%;
   height: 100%;
   position: absolute;
   top: 43%;
   background-color: #195ed8;
+  /* display: flex;
   display: -webkit-box;
-  display: -ms-flexbox;
+  display: -ms-flexbox; */
   /* display: flex;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
@@ -454,7 +489,7 @@ ul {
   left: 50%;
   top: 29%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .trialclass-button button {
@@ -482,16 +517,16 @@ ul {
   border-radius: 8px;
   width: 250px;
   height: 307px;
-  background: #E7E7E7;
+  background: #e7e7e7;
   -webkit-filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
   filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
   margin-top: 3%;
+  position: relative;
 }
 
 .fname {
   position: absolute;
-  top: 30%;
-  right: 18%;
+  
   text-align: center;
   width: 118px;
   height: auto;
@@ -500,7 +535,7 @@ ul {
   font-weight: normal;
   font-size: 24px;
   line-height: 37px;
-  color: #195ED8;
+  color: #195ed8;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -523,7 +558,7 @@ ul {
   font-size: 14px;
   line-height: 21px;
   text-align: center;
-  color: #46494F;
+  color: #46494f;
   position: absolute;
   top: 68%;
   left: 50%;
@@ -573,7 +608,7 @@ ul {
   font-size: 18px;
   line-height: 28px;
   text-align: center;
-  color: #46494F;
+  color: #46494f;
 }
 
 .iimg {
@@ -590,7 +625,7 @@ ul {
   font-weight: bold;
   line-height: 21px;
   text-align: center;
-  color: #195ED8;
+  color: #195ed8;
   margin-bottom: 10px;
 }
 
@@ -624,7 +659,7 @@ ul {
   justify-content: space-between;
   width: 400px;
   height: 40px;
-  margin-left: 10PX;
+  margin-left: 10px;
 }
 
 .one p {
@@ -644,7 +679,7 @@ ul {
 .three {
   width: 170px;
   height: 34px;
-  border: solid #195ED8;
+  border: solid #195ed8;
   border-radius: 40px;
   margin-top: 3px;
   display: -webkit-box;
@@ -660,7 +695,7 @@ ul {
   font-weight: normal;
   font-size: 14px;
   line-height: 21px;
-  color: #195ED8;
+  color: #195ed8;
   margin: 0;
   margin-top: 6px;
   margin-left: 9px;
@@ -691,6 +726,20 @@ ul {
 }
 
 @media only screen and (max-width: 768px) {
+  .courses {
+    width: 99.9%;
+    height: fit-content;
+    position: absolute;
+    top: 43%;
+    background-color: #195ed8;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    /* display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly; */
+  }
   .header-three {
     color: #195ed8;
     font-family: "Overpass", sans-serif;
@@ -706,7 +755,7 @@ ul {
     width: fit-content;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
   .nav {
     width: 99.9%;
@@ -740,7 +789,7 @@ ul {
     display: block;
     width: 34px;
     height: 4px;
-    background-color: #195ED8;
+    background-color: #195ed8;
     -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
     -webkit-transform-origin: 4px 1px;
@@ -761,15 +810,21 @@ ul {
     transform: rotate(-45deg);
   }
   .overlay {
-    -webkit-animation: fade-in 150ms ease-in-out   forwards;
-    animation: fade-in 150ms ease-in-out   forwards;
+    -webkit-animation: fade-in 150ms ease-in-out forwards;
+    animation: fade-in 150ms ease-in-out forwards;
     position: fixed;
     top: 41px;
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#195ED8), to(transparent));
-    background-image: linear-gradient(#195ED8, transparent);
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#195ed8),
+      to(transparent)
+    );
+    background-image: linear-gradient(#195ed8, transparent);
     z-index: 1;
   }
   .overlay #navcard {
@@ -786,19 +841,19 @@ ul {
     top: 26%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
   .header__menu a {
     /* //padding: 0.625rem; */
-    color: #195ED8;
+    color: #195ed8;
     text-align: center;
-    font-family: 'Overpass', sans-serif;
+    font-family: "Overpass", sans-serif;
   }
   .header__menu p {
     /* //padding: 0.625rem; */
-    color: #195ED8;
+    color: #195ed8;
     text-align: center;
-    font-family: 'Overpass', sans-serif;
+    font-family: "Overpass", sans-serif;
   }
 }
 

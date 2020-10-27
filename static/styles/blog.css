@@ -241,7 +241,22 @@ label {
   opacity: 1;
 }
 
+@media screen and (max-width: 1024px) and (min-width: 768px){
+
+  .hide_me{
+    display: none;
+  }
+  
+}
+
+
 @media screen and (max-width: 768px) {
+
+  .close-container {
+    cursor: pointer;
+    position: fixed;
+    right: 13%;
+}
   .cb {
     height: 75px;
     width: 75px;
