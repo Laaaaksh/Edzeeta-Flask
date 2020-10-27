@@ -80,7 +80,7 @@ body ::-webkit-scrollbar-thumb:hover {
   display: flex;
 
   position: absolute;
-    left: 88%;
+  right: 1%;
 }
 
 .three p {
@@ -211,7 +211,7 @@ input,
   width: 80px;
   position: fixed;
   top: 86%;
-  left: 0.5%;
+  right: 1%;
   background-color: #195ed8;
   border-radius: 50%;
   z-index: 3;
@@ -220,6 +220,7 @@ input,
   display: flex;
   -webkit-box-shadow: 0px 0px 31px -11px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 31px -11px rgba(0, 0, 0, 0.75);
+  
 }
 
 .cb_img {
@@ -232,21 +233,18 @@ input,
   height: 413px;
   width: 378px;
   position: fixed;
-  left: 50%;
-  top: 56%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   z-index: 3;
+  bottom: 2%;
+  right: 1%;
 }
 
 .iframe_parent {
   height: 465px;
   width: 378px;
   position: fixed;
-  left: 13%;
-  top: 67%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  /* top: 34%; */
+  bottom: 2%;
+  right: 1%;
   z-index: 3;
   -webkit-box-shadow: 0px 0px 31px -11px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 31px -11px rgba(0, 0, 0, 0.75);
@@ -254,8 +252,8 @@ input,
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background-color: white;
 }
 
@@ -269,8 +267,7 @@ input,
 .close-container {
   cursor: pointer;
   position: fixed;
-  top: 0%;
-  left: 90%;
+   right: 4%;
 }
 
 .leftright {
@@ -496,7 +493,7 @@ li {
   display: flex;
 
   position: absolute;
-    left: 88%;
+  right: 1%;
 }
 
 .three p {

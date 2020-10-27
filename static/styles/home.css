@@ -325,7 +325,7 @@ body ::-webkit-scrollbar-thumb:hover {
   width: 80px;
   position: fixed;
   top: 86%;
-  left: 93.5%;
+  right: 1%;
   background-color: #195ed8;
   border-radius: 50%;
   z-index: 3;
@@ -346,21 +346,18 @@ body ::-webkit-scrollbar-thumb:hover {
   height: 413px;
   width: 378px;
   position: fixed;
-  left: 50%;
-  top: 56%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
   z-index: 3;
+  bottom: 2%;
+  right: 1%;
 }
 
 .iframe_parent {
   height: 465px;
   width: 378px;
   position: fixed;
-  left: 87%;
-  top: 67%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  /* top: 34%; */
+  bottom: 2%;
+  right: 1%;
   z-index: 3;
   -webkit-box-shadow: 0px 0px 31px -11px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 31px -11px rgba(0, 0, 0, 0.75);
@@ -368,8 +365,8 @@ body ::-webkit-scrollbar-thumb:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background-color: white;
 }
 
@@ -383,8 +380,7 @@ body ::-webkit-scrollbar-thumb:hover {
 .close-container {
   cursor: pointer;
   position: fixed;
-  top: 0%;
-  left: 90%;
+  right: 4%;
 }
 
 .leftright {
@@ -557,10 +553,10 @@ label {
 
 .trialclass-button {
   position: absolute;
-  left: 42.8%;
-  right: 40.8%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   top: 23.71%;
-  bottom: 50%;
 }
 
 .trialclass-button button {
@@ -733,10 +729,6 @@ label {
       flex-wrap: wrap;
 }
 
-.list-flexbox li {
-  margin: 10px;
-}
-
 .course-img {
   height: auto;
 }
@@ -766,7 +758,7 @@ label {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  left: 88%;
+  right: 1%;
 }
 
 .three p {
@@ -814,6 +806,12 @@ label {
 .testimonials {
   position: absolute;
   top: 29%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  left: 50%;
+  -webkit-transform: translate(-50%, -6%);
+          transform: translate(-50%, -6%);
 }
 
 .testimonials .ulflex {
@@ -826,15 +824,15 @@ label {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-left: 251px;
+  padding-left: 0;
 }
 
-.testimonials ul li {
+ul li {
   padding: 10px;
   padding-right: 10px;
 }
 
-.testimonials .bbox {
+.bbox {
   width: 461px;
   height: 325px;
   background: #e7e7e7;
@@ -842,7 +840,7 @@ label {
   position: relative;
 }
 
-.testimonials .box-head {
+.box-head {
   width: 100%;
   height: 82px;
   border-radius: 7px;
@@ -855,7 +853,7 @@ label {
   padding: 0px;
 }
 
-.testimonials .box-head .t-img {
+.box-head .t-img {
   margin-left: 10px;
   margin-top: 2px;
   width: 75px;
@@ -863,18 +861,18 @@ label {
   border-radius: 200px;
 }
 
-.testimonials .box-head .t-img .tt-img {
+.box-head .t-img .tt-img {
   width: 65px;
   height: 65px;
   border-radius: 200px;
   margin-top: 6px;
 }
 
-.testimonials .box-head .t-info ul {
+.box-head .t-info ul {
   list-style: none;
 }
 
-.testimonials .box-head .t-info ul li {
+.box-head .t-info ul li {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -883,7 +881,7 @@ label {
   text-align: left;
 }
 
-.testimonials .box-head .t-info .name {
+.box-head .t-info .name {
   font-family: Overpass;
   font-style: normal;
   font-weight: bold;
@@ -893,7 +891,7 @@ label {
   color: #46494f;
 }
 
-.testimonials .box-head .t-info .aftername {
+.box-head .t-info .aftername {
   font-family: Overpass;
   font-style: normal;
   font-weight: normal;
@@ -903,7 +901,7 @@ label {
   color: #46494f;
 }
 
-.testimonials .t-content p {
+.t-content p {
   font-family: Overpass;
   font-style: normal;
   font-weight: normal;
@@ -946,9 +944,14 @@ label {
 }
 
 .scratch {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   position: absolute;
   top: 38%;
-  left: 2.5%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -5%);
+          transform: translate(-50%, -5%);
 }
 
 .scratch-ul {
@@ -961,12 +964,24 @@ label {
   justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-left: 394px;
   padding: 0;
 }
 
 .scratch-ul li {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 1436px) and (min-width: 768px) {
+  #courses_overflow {
+    width: 100%;
+    overflow: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .hide_me {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1030,6 +1045,9 @@ label {
 }
 
 .footer-h {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   color: white;
   text-align: center;
   font-family: "Overpass", sans-serif;
@@ -1041,6 +1059,9 @@ label {
 }
 
 .footer-hh {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   color: white;
   text-align: center;
   font-family: "Overpass", sans-serif;
@@ -1115,7 +1136,7 @@ label {
 
 @media only screen and (max-width: 768px) {
   #top {
-    top: 89%;
+    top: 92.5%;
   }
   .grid-container {
     width: 100%;
@@ -1521,9 +1542,10 @@ label {
     top: 0;
     bottom: 0;
     width: 212px;
-    top: 16%;
+    top: 46%;
     left: 50%;
-    margin-left: -106px;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
   .trialclass-button button {
     background: none;
@@ -1742,14 +1764,15 @@ label {
     font-weight: 700;
     text-align: center;
     position: absolute;
-    top: 19%;
+    top: 17%;
     margin: 0 auto;
     /* padding: 2px; */
     width: 363px;
   }
   .scratch {
     position: absolute;
-    top: 58%;
+    top: 55%;
+    width: 10px;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
